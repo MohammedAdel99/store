@@ -1,10 +1,16 @@
 import 'dart:io';
 import 'store_app.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'core/sharing/env_variables.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await EnvVariable.instance.init(envType: EnvTypeEnum.prod);
+
   WidgetsFlutterBinding.ensureInitialized();
   Platform.isAndroid
       ? await Firebase.initializeApp(
@@ -14,6 +20,8 @@ void main() async {
               messagingSenderId: "562037944014",
               projectId: "store-5df85"))
       : await Firebase.initializeApp();
-
-  runApp(const StoreApp());
+  await SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then((_) {
+    runApp(const StoreApp());
+  });
 }
