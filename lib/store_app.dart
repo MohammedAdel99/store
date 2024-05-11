@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/sharing/env_variables.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store/core/theming/font_family_helper.dart';
+import 'package:store/core/theming/font_weight_helper.dart';
+
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});
@@ -19,7 +22,21 @@ class StoreApp extends StatelessWidget {
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: const Center(child: Text('My Store')),
+            title: const Center(child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Brand Store',
+                 style: TextStyle(
+                  fontSize: 20 , fontFamily: FontFamilyHelper.poppinsEnglish,
+                  fontWeight:FontWeightHelper.bold, ),),
+                SizedBox(width: 20),
+                Text('براند ستور',
+                  style: TextStyle(
+                    fontSize: 20 ,
+                     fontFamily: FontFamilyHelper.cairoArabic,
+                    fontWeight:FontWeightHelper.bold,),),
+              ],
+            ),),
           ),
         ),
       ),
