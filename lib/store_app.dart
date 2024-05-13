@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/routes/app_routes.dart';
+import 'package:store/core/theming/app_theme.dart';
 import 'package:store/core/sharing/env_variables.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,10 +17,7 @@ class StoreApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme:ThemeDark(),
         onGenerateRoute: AppRoutes.onGenerateRoute,
         initialRoute: AppRoutes.home,
       ),
