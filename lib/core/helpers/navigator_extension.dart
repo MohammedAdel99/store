@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/theming/color_extension.dart';
+import 'package:store/core/localization/app_localizations.dart';
 
 extension Navigation on BuildContext {
   //Todo: theme
   MyColors get color => Theme.of(this).extension<MyColors>()!;
+  //Todo:Localization
+  String translate(String langkey) {
+    return AppLocalizations.of(this)!.translate(langkey).toString();
+  }
   //Todo: navigator
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);

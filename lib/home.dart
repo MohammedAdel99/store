@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/routes/app_routes.dart';
+import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/helpers/navigator_extension.dart';
 import 'package:store/core/theming/fonts/font_family_helper.dart';
 import 'package:store/core/theming/fonts/font_weight_helper.dart';
@@ -12,26 +13,19 @@ class homescreen extends StatelessWidget {
     return Scaffold(
       //backgroundColor: Colors.yellow,
       appBar: AppBar(
-        title: const Row(
+        title:  Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Brand Store',
-              style: TextStyle(
+              context.translate(LangKeys.appName),
+              style: const TextStyle(
                 fontSize: 20,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
                 fontWeight: FontWeightHelper.bold,
               ),
             ),
-            SizedBox(width: 20),
-            Text(
-              'براند ستور',
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: FontFamilyHelper.cairoArabic,
-                fontWeight: FontWeightHelper.bold,
-              ),
-            ),
+            
+            
           ],
         ),
       ),
