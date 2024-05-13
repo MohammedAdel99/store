@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/routes/app_routes.dart';
-import 'package:store/core/theming/font_family_helper.dart';
-import 'package:store/core/theming/font_weight_helper.dart';
 import 'package:store/core/helpers/navigator_extension.dart';
+import 'package:store/core/theming/fonts/font_family_helper.dart';
+import 'package:store/core/theming/fonts/font_weight_helper.dart';
+
+
 
 class homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      //backgroundColor: Colors.yellow,
       appBar: AppBar(
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,

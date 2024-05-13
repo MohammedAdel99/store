@@ -10,7 +10,7 @@ class test1 extends StatelessWidget {
         title: Center(child: const Text('test1')),
       ),
       body:  Container(
-        color: Colors.blue,
+        color: context.color.mainColor,
         child: Center(
           child: TextButton(
               onPressed: () {
