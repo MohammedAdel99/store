@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+class onboardingscreen extends StatefulWidget {
+  const onboardingscreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<onboardingscreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingScreenState extends State<onboardingscreen> {
   late PageController _pageController;
   int _pageIndex = 0;
   @override
@@ -127,7 +127,7 @@ class OnboardingContent extends StatelessWidget {
     return Column(
       children: [
         const Spacer(),
-        Image.asset(image),
+        Image.asset(image,height: 250.h,),
         const Spacer(),
         Text(title),
         const SizedBox(height: 16),
