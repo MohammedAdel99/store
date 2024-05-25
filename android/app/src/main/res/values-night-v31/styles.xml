@@ -6,7 +6,15 @@
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+<<<<<<< Updated upstream
         <item name="android:windowSplashScreenBackground">#6EC1E5</item>
+=======
+<<<<<<< Updated upstream
+        <item name="android:windowSplashScreenBackground">#6EC1E5</item>
+=======
+        <item name="android:windowSplashScreenBackground">#ffffff</item>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
     </style>
     <!-- Theme applied to the Android Window as soon as the process has started.
