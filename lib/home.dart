@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/routes/app_routes.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/helpers/navigator_extension.dart';
 import 'package:store/core/theming/fonts/font_family_helper.dart';
 import 'package:store/core/theming/fonts/font_weight_helper.dart';
+
 
 
 
@@ -29,20 +29,11 @@ class homescreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-                onPressed: () {
-                  context.pushNamed(AppRoutes.testOne);
-                },
-                child: const Text('Go to test1'),),
-            TextButton(
-                onPressed: () {
-                  context.pushNamed(AppRoutes.testTwo);
-                },
-                child: const Text('Go to test2'),),
+           
           ],
         ),
       ),

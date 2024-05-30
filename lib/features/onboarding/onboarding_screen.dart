@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:store/core/routes/app_routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store/core/helpers/navigator_extension.dart';
+import 'package:store/features/onboarding/widgets/elevated_button.dart';
 
-class onboardingscreen extends StatefulWidget {
-  const onboardingscreen({super.key});
+class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
 
   @override
-  State<onboardingscreen> createState() => _OnboardingScreenState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<onboardingscreen> {
-  late PageController _pageController;
-  int _pageIndex = 0;
+late PageController _pageController;
+int _pageIndex = 0;
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
     super.initState();
@@ -35,49 +39,22 @@ class _OnboardingScreenState extends State<onboardingscreen> {
                 child: PageView.builder(
                   itemCount: onboard_data.length,
                   controller: _pageController,
-                  onPageChanged: (index){
+                  onPageChanged: (index) {
                     setState(() {
                       _pageIndex = index;
                     });
                   },
                   itemBuilder: (context, index) => OnboardingContent(
-                      image: onboard_data[index].image,
-                      title: onboard_data[index].title,
-                      description: onboard_data[index].description),
+                    image: onboard_data[index].image,
+                    title: onboard_data[index].title,
+                    description: onboard_data[index].description,
+                    textButton: onboard_data[index].buttonText,
+                  ),
                 ),
               ),
               SizedBox(
                 height: 60.h,
                 width: 60.w,
-              ),
-              Row(
-                children: [
-                  ...List.generate(
-                    onboard_data.length,
-                    (index) => Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: dotIndactor(
-                        isActive: index == _pageIndex,
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  ElevatedButton(
-                    onPressed: () {
-                      _pageController.nextPage(
-                        duration: const Duration(microseconds: 300),
-                        curve: Curves.ease,
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: const CircleBorder(),
-                    ),
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
               ),
             ],
           ),
@@ -88,27 +65,39 @@ class _OnboardingScreenState extends State<onboardingscreen> {
 }
 
 class OnBoard {
-  final String image, title, description;
   OnBoard(
-      {required this.image, required this.title, required this.description});
+      {required this.image,
+      required this.title,
+      required this.description,
+      required this.buttonText,}
+  );
+  final String image;
+  final String title;
+  final String description;
+   final String buttonText;
 }
 
 final List<OnBoard> onboard_data = [
   OnBoard(
-      image: 'assets/images/onboard(1).png',
-      title: 'Choose and Orderd online',
-      description:
-          'We have 100 thousand products. Choose your product from our store and order it'),
+    image: 'assets/images/onboard(1).png',
+    title: 'Choose and Orderd online',
+    description:
+        'We have 100 thousand products. Choose your product from our store and order it',
+    buttonText: 'Next',
+  ),
   OnBoard(
-      image: 'assets/images/onboard(2).png',
-      title: 'Easy and safe to buy',
-      description:
-          'You can pay in cash or through electronic payment gateways'),
+    image: 'assets/images/onboard(2).png',
+    title: 'Easy and safe to buy',
+    description: 'You can pay in cash or through electronic payment gateways',
+    buttonText: 'Next',
+  ),
   OnBoard(
-      image: 'assets/images/onboard(3).png',
-      title: 'Delivery service',
-      description:
-          'You can track your request at every stage and also track it through the map'),
+    image: 'assets/images/onboard(3).png',
+    title: 'Delivery service',
+    description:
+        'You can track your request at every stage and also track it through the map',
+    buttonText: 'Get Started',
+  ),
 ];
 
 class OnboardingContent extends StatelessWidget {
@@ -116,32 +105,71 @@ class OnboardingContent extends StatelessWidget {
     required this.image,
     required this.title,
     required this.description,
+    required this.textButton,
     super.key,
   });
   final String image;
   final String title;
   final String description;
+  final String textButton;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const Spacer(),
-        Image.asset(image,height: 250.h,),
+        Image.asset(
+          image,
+          height: 250.h,
+        ),
         const Spacer(),
-        Text(title),
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: const TextStyle(color: Color(0xff005ae0), fontSize: 25),
+        ),
         const SizedBox(height: 16),
-        Text(description),
+        Text(
+          description,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 20),
+        ),
         const Spacer(),
+        Row(
+          children: [
+            ...List.generate(
+              onboard_data.length,
+              (index) => Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: DotIndactor(
+                  isActive: index == _pageIndex,
+                ),
+              ),
+            ),
+            const Spacer(),
+            AppElevatedButton(
+              onPressed: () {
+                if (_pageIndex == onboard_data.length - 1) {
+                  context.pushReplacementNamed(AppRoutes.home);
+                } else {
+                  _pageController.nextPage(
+                    duration: const Duration(microseconds: 300),
+                    curve: Curves.ease,
+                  );
+                }
+              },
+              buttonText: textButton,
+            ),
+          ],
+        ),
       ],
     );
   }
 }
 
-class dotIndactor extends StatelessWidget {
-  const dotIndactor({super.key, this.isActive = false});
+class DotIndactor extends StatelessWidget {
+  const DotIndactor({super.key, this.isActive = false});
   final bool isActive;
-
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -149,7 +177,7 @@ class dotIndactor extends StatelessWidget {
       height: isActive ? 12.h : 4.h,
       width: 4.w,
       decoration: BoxDecoration(
-        color: isActive ? const Color.fromARGB(255, 2, 15, 159) : Colors.white,
+        color: isActive ? const Color(0xff005ae0) : Colors.grey,
         borderRadius: BorderRadius.all(Radius.circular(12.r)),
       ),
     );

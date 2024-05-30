@@ -19,13 +19,13 @@ class StoreApp extends StatelessWidget {
         debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
         title: 'Flutter Demo',
         theme:ThemeDark(),
-        locale:const Locale('ar') ,
+        locale:const Locale('en') ,
         supportedLocales:AppLocalizationsSetup.supportedLocales ,
         localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
         localizationsDelegates:AppLocalizationsSetup.localizationsDelegates ,
 
         onGenerateRoute: AppRoutes.onGenerateRoute,
-        initialRoute: AppRoutes.home,
+        initialRoute: AppRoutes.onboarding,
       ),
     );
   }
