@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/localization/lang_keys.dart';
-import 'package:store/core/helpers/navigator_extension.dart';
-import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/core/theming/fonts/font_family_helper.dart';
-import 'package:store/core/theming/fonts/font_weight_helper.dart';
 import 'package:store/core/helpers/fonts/font_weight_helper.dart';
 import 'package:store/core/helpers/fonts/font_family_helper.dart';
+
+
 
 
 
@@ -21,8 +18,8 @@ class homescreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              context.translate(LangKeys.appName),
-              style: const TextStyle(
+              'Brand store',
+              style:TextStyle(
                 fontSize: 20,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
                 fontWeight: FontWeightHelper.bold,
