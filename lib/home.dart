@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/helpers/navigator_extension.dart';
+import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/theming/fonts/font_family_helper.dart';
 import 'package:store/core/theming/fonts/font_weight_helper.dart';
+import 'package:store/core/helpers/fonts/font_weight_helper.dart';
+import 'package:store/core/helpers/fonts/font_family_helper.dart';
+
 
 
 
