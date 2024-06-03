@@ -18,8 +18,8 @@ class StoreApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
         title: 'Flutter Demo',
-        theme:ThemeDark(),
-        locale:const Locale('en') ,
+        theme:themeDark(),
+        locale: Locale('en') ,
         supportedLocales:AppLocalizationsSetup.supportedLocales ,
         localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallback,
         localizationsDelegates:AppLocalizationsSetup.localizationsDelegates ,

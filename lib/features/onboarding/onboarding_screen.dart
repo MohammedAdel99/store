@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/routes/app_routes.dart';
-import 'package:store/core/routes/app_routes.dart';
 import 'package:store/core/widgets/app_linear_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/widgets/app_custom_painter.dart';
-import 'package:store/core/helpers/navigator_extension.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/helpers/fonts/font_weight_helper.dart';
 import 'package:store/features/onboarding/widgets/elevated_button.dart';
+
+
+
 
 
 class OnboardingScreen extends StatefulWidget {
@@ -76,14 +76,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
               ),
-<<<<<<< Updated upstream
-              SizedBox(
-                height: 60.h,
-                width: 60.w,
-              ),
-=======
+
               
->>>>>>> Stashed changes
+
             ],
           ),
         ),
@@ -107,22 +102,18 @@ class OnBoard {
 
 final List<OnBoard> onboard_data = [
   OnBoard(
-<<<<<<< Updated upstream
-    image: 'assets/images/onboard(1).png',
-=======
+
     image: 'assets/images/core/onboard(1).png',
->>>>>>> Stashed changes
+
     title: 'Choose and Orderd online',
     description:
         'We have 100 thousand products. Choose your product from our store and order it',
     buttonText: 'Next',
   ),
   OnBoard(
-<<<<<<< Updated upstream
-    image: 'assets/images/onboard(2).png',
-=======
+
     image: 'assets/images/core/onboard(2).png',
->>>>>>> Stashed changes
+
     title: 'Easy and safe to buy',
     description: 'You can pay in cash or through electronic payment gateways',
     buttonText: 'Next',
@@ -161,21 +152,10 @@ class OnboardingContent extends StatelessWidget {
           height: 250.h,
         ),
         const Spacer(),
-<<<<<<< Updated upstream
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: const TextStyle(color: Color(0xff005ae0), fontSize: 25),
-        ),
-        const SizedBox(height: 16),
-        Text(
-          description,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 20),
-        ),
-        const Spacer(),
-        Row(
-=======
+       
+     
+        
+
        TextApp(
           text:title,
           textAlign: TextAlign.center,
@@ -205,7 +185,7 @@ class OnboardingContent extends StatelessWidget {
        SizedBox(height: 25.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
->>>>>>> Stashed changes
+
           children: [
             ...List.generate(
               onboard_data.length,
@@ -216,27 +196,14 @@ class OnboardingContent extends StatelessWidget {
                 ),
               ),
             ),
-<<<<<<< Updated upstream
-            const Spacer(),
-            AppElevatedButton(
-              onPressed: () {
-                if (_pageIndex == onboard_data.length - 1) {
-                  context.pushReplacementNamed(AppRoutes.home);
-                } else {
-                  _pageController.nextPage(
-                    duration: const Duration(microseconds: 300),
-                    curve: Curves.ease,
-                  );
-                }
-              },
-              buttonText: textButton,
-            ),
+
+           
           ],
         ),
-=======
+
             
-        ],),
->>>>>>> Stashed changes
+        
+
       ],
     );
   }
@@ -249,17 +216,14 @@ class DotIndactor extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
-<<<<<<< Updated upstream
-      height: isActive ? 12.h : 4.h,
-      width: 4.w,
-      decoration: BoxDecoration(
-        color: isActive ? const Color(0xff005ae0) : Colors.grey,
-=======
+
+    
+
       height: isActive ? 22.h : 8.h,
       width: 4.w,
       decoration: BoxDecoration(
         color: isActive ? context.color.bluePinkLight : Colors.grey,
->>>>>>> Stashed changes
+
         borderRadius: BorderRadius.all(Radius.circular(12.r)),
       ),
     );

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 class ColorsLight {
   static const Color mainColor = Color(0xffffffff);
-
-  static const Color textColor = Colors.black;
-
   static const Color pinkLight = Color(0xFFEE637A);
   static const Color pinkDark = Color(0xFF99162B);
   static const Color black = Color(0xff170605);
