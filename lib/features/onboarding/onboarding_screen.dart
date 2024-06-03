@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/widgets/app_custom_painter.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/helpers/fonts/font_weight_helper.dart';
-import 'package:store/features/onboarding/widgets/elevated_button.dart';
+
 
 
 
