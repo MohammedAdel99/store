@@ -13,8 +13,11 @@ import 'package:store/features/auth/signUp/presentation/screens/sign_up_screen.d
 class AppRoutes {
   static const String home = '/homescreen';
 
+
   static const String login = '/lodin';
   static const String signup = '/signup';
+  static const String login = '/login';
+
 
   static const String onboarding = '/OnboardingScreen';
   static Route<void> onGenerateRoute(RouteSettings settings) {
@@ -28,8 +31,10 @@ class AppRoutes {
         
       case AppRoutes.login:
         return BaseRoute(page: const LoginScreen());
+
       case AppRoutes.signup:  
         return BaseRoute(page: const SignUpScreen());  
+
 
       default:
         return BaseRoute(page: homescreen());
