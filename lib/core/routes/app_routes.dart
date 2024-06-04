@@ -12,13 +12,8 @@ import 'package:store/features/auth/signUp/presentation/screens/sign_up_screen.d
 
 class AppRoutes {
   static const String home = '/homescreen';
-
-
-  static const String login = '/lodin';
   static const String signup = '/signup';
   static const String login = '/login';
-
-
   static const String onboarding = '/OnboardingScreen';
   static Route<void> onGenerateRoute(RouteSettings settings) {
     final arg = settings.arguments;
