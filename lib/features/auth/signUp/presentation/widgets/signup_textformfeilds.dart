@@ -16,15 +16,15 @@ class SignUpTextFormFeilds extends StatelessWidget {
       children: [
         const AppTextFormField(hintText: LangKeys.fullName),
         SizedBox(
-          height: 25.h,
+          height: 20.h,
         ),
         const AppTextFormField(hintText: LangKeys.email),
         SizedBox(
-          height: 25.h,
+          height: 20.h,
         ),
         const AppTextFormField(hintText: LangKeys.password),
         SizedBox(
-          height: 30.h,
+          height: 20.h,
         ),
        
       ],

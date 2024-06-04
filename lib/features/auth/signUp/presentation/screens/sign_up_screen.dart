@@ -20,7 +20,7 @@ class SignUpScreen extends StatelessWidget {
       bottomNavigationBar: CustomPaint(
         size: Size(
           double.infinity,
-          150.h
+          120.h
         ),
         painter:  AppCustomPainter(
           gradient: LinearGradient(
@@ -39,8 +39,8 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             children: [
               const AuthThemeAndLangButtons(),
-              const UserAvaterImage(),
               const AuthTitle(title: LangKeys.signUp, description: LangKeys.signUpWelcome),
+              const UserAvaterImage(),
               const SignUpTextFormFeilds(),
               const AuthButton(Textbutton: LangKeys.signUp),
         AuthHaveAccountOrNot(

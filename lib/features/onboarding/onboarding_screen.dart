@@ -41,7 +41,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       bottomNavigationBar:  CustomPaint(
         size: Size(
           double.infinity,
-          150.h,
+          120.h,
         ),
         painter: AppCustomPainter(
           gradient: LinearGradient(
