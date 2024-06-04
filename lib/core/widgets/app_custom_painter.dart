@@ -21,7 +21,7 @@ class AppCustomPainter extends CustomPainter {
       ..moveTo(size.width * -0.0345067, size.height * 0.6583005)
       ..lineTo(size.width * 1.0372800, size.height * 1.0012192)
       ..lineTo(size.width * 1.0394667, size.height * 1.0054064)
-      ..lineTo(size.width * -0.0378133, size.height * 0.9998645);
+      ..lineTo(size.width * -1.0378133, size.height * 0.9998645);
   }
 
   @override

@@ -13,9 +13,12 @@ class LoginTextFormFeilds extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       AppTextFormField(hintText:LangKeys.email),
-                SizedBox(height: 25.h,),
+                SizedBox(height: 20.h,),
                 AppTextFormField(hintText:LangKeys.password ),
-                SizedBox(height: 30.h,),
+                SizedBox(height: 25.h,),
+
+                
+
 
     ],);
   }

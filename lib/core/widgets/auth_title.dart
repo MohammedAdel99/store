@@ -30,7 +30,9 @@ class AuthTitle extends StatelessWidget {
             theme: context.textStyle.copyWith(fontSize: 16.sp,fontWeight: FontWeightHelper.regular),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 35.h),
+
+          SizedBox(height: 15.h),
+
         ],
         
       ),

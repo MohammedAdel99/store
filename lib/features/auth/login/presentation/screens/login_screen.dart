@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store/core/routes/app_routes.dart';
 import 'package:store/core/widgets/auth_title.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +12,15 @@ import 'package:store/features/auth/login/presentation/widgets/login_textformfei
 
 
 
+
+
+
+
+
+
+
+
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -20,7 +30,7 @@ class LoginScreen extends StatelessWidget {
       bottomNavigationBar: CustomPaint(
         size: Size(
           double.infinity,
-          150.h,
+          120.h,
         ),
         painter: AppCustomPainter(
           gradient: LinearGradient(
@@ -36,13 +46,14 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         bottom: false,
         child: Padding(
+
           padding: EdgeInsets.symmetric(
             horizontal: 20.w, 
             vertical:20.h
-
-          ),    
+            ), 
                
          child: SingleChildScrollView(
+
 
             child: Column(
               children: [
@@ -53,13 +64,20 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const LoginTextFormFeilds(),
                 const AuthButton(Textbutton: LangKeys.login),
+
+                AuthHaveAccountOrNot(
+                    onpressed: () {
+                      context.pushReplacementNamed(AppRoutes.signup);
+                    },
+                    text: LangKeys.createAccount),
+
                 AuthHaveAccountOrNot(onpressed: (){}, text: LangKeys.createAccount),
+
               ],
             ),
           ),
         ),
       ),
-
     );
   }
 }

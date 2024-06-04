@@ -25,7 +25,9 @@ class AuthThemeAndLangButtons extends StatelessWidget {
                   
                     ],),
                       SizedBox(
-                  height: 45.h,
+
+                  height: 30.h,
+
                 ),
                   
       ],
