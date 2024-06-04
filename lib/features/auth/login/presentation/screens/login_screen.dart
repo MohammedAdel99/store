@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/widgets/app_text.dart';
+import 'package:store/core/routes/app_routes.dart';
 import 'package:store/core/widgets/auth_title.dart';
 import 'package:store/core/animations/animate_do.dart';
 import 'package:store/core/localization/lang_keys.dart';
@@ -57,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 25.h,),
                 AppTextFormField(hintText:context.translate(LangKeys.password)),
                 SizedBox(height: 30.h,),
-                CustomFadeInRight(duration: 600 ,child: LinearButton(onPressed: (){},width: double.infinity.w,height: 60.h, child: TextApp(text: context.translate(LangKeys.login) ,theme: context.textStyle.copyWith(fontSize:18.sp, fontWeight: FontWeightHelper.bold) ,))),
+                CustomFadeInRight(duration: 600 ,child: LinearButton(onPressed: (){ context.pushReplacementNamed(AppRoutes.signup);},width: double.infinity.w,height: 60.h, child: TextApp(text: context.translate(LangKeys.login) ,theme: context.textStyle.copyWith(fontSize:18.sp, fontWeight: FontWeightHelper.bold) ,))),
                 const SizedBox(height: 40,),
                 TextApp(text: context.translate(LangKeys.createAccount), theme: context.textStyle.copyWith(fontSize : 14.sp,fontWeight: FontWeightHelper.bold, color:context.color.bluePinkLight))
                 
