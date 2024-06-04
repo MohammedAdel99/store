@@ -19,21 +19,20 @@ class AuthTitle extends StatelessWidget {
       child: Column(
         children: [
           TextApp(
-            text: title,
+            text:context.translate(title),
             theme: context.textStyle
                 .copyWith(fontSize: 24.sp, fontWeight: FontWeightHelper.bold),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 10.h),
           TextApp(
-            text: description,
+            text:context.translate(description),
             theme: context.textStyle.copyWith(fontSize: 16.sp,fontWeight: FontWeightHelper.regular),
             textAlign: TextAlign.center,
           ),
-<<<<<<< Updated upstream
-=======
+
           SizedBox(height: 15.h),
->>>>>>> Stashed changes
+
         ],
         
       ),
