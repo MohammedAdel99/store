@@ -71,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                     },
                     text: LangKeys.createAccount),
 
-                AuthHaveAccountOrNot(onpressed: (){}, text: LangKeys.createAccount),
+               
 
               ],
             ),
