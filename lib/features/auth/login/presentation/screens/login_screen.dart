@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
       bottomNavigationBar: CustomPaint(
         size: Size(
           double.infinity,
-          120.h,
+          115.h,
         ),
         painter: AppCustomPainter(
           gradient: LinearGradient(
@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
               context.color.bluePinkLight!,
               context.color.bluePinkLight!,
               context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
+              context.color.bluePinkDark!,
             ],
           ),
         ),

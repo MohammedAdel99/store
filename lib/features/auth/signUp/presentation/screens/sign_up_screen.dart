@@ -20,7 +20,7 @@ class SignUpScreen extends StatelessWidget {
       bottomNavigationBar: CustomPaint(
         size: Size(
           double.infinity,
-          120.h
+          115.h
         ),
         painter:  AppCustomPainter(
           gradient: LinearGradient(
@@ -28,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
               context.color.bluePinkLight!,
               context.color.bluePinkLight!,
               context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
+              context.color.bluePinkDark!,
             ],
           ),
         ),
