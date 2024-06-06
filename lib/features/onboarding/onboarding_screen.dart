@@ -41,7 +41,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       bottomNavigationBar:  CustomPaint(
         size: Size(
           double.infinity,
-          120.h,
+          115.h,
         ),
         painter: AppCustomPainter(
           gradient: LinearGradient(
@@ -49,7 +49,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               context.color.bluePinkLight!,
               context.color.bluePinkLight!,
               context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
+              context.color.bluePinkDark!,
             ],
           ),
         ),),
@@ -181,7 +181,8 @@ class OnboardingContent extends StatelessWidget {
                 }
               },
               width: 140.w,
-         child:TextApp(text: textButton, theme:context.textStyle.copyWith(fontWeight: FontWeightHelper.bold,fontSize:16.sp))),
+         child:TextApp(text: textButton, theme:context.textStyle.copyWith(
+          fontWeight: FontWeightHelper.bold,color:Colors.white,fontSize:16.sp))),
        SizedBox(height: 25.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
