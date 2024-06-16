@@ -15,6 +15,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final String? Function(String?)? validator;
+  
   const AppTextFormField({
     Key? key,
     this.controller,
@@ -34,6 +35,8 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
+      
       controller: controller,
       decoration: InputDecoration(
         isDense: true,
@@ -78,6 +81,7 @@ class AppTextFormField extends StatelessWidget {
       ),
       obscureText: isObscureText ?? false,
       style: TextStyle(
+        color: context.color.textColor,
         fontSize: 16.sp,
       ),
       validator: (value) {

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:store/core/networking/api_constant.dart';
+import 'package:store/core/networking/constants.dart';
 import 'package:store/core/networking/api_error_model.dart';
 
 enum DataSource {
@@ -143,7 +143,7 @@ ApiErrorModel _handleError(DioException error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
-        return ApiErrorModel.fromJson(error.response!.data as Map<String, dynamic>);
+        return ApiErrorModel.fromJson(error.response!.data as Map<String, dynamic> );
       } else {
         return DataSource.DEFAULT.getFailure();
       }
@@ -151,7 +151,7 @@ ApiErrorModel _handleError(DioException error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
-        return ApiErrorModel.fromJson(error.response!.data as Map<String, dynamic>);
+        return ApiErrorModel.fromJson(error.response!.data as Map<String, dynamic> );
       } else {
         return DataSource.DEFAULT.getFailure();
       }

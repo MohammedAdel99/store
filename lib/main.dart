@@ -4,9 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:store/core/networking/constants.dart';
 import 'package:store/core/sharing/env_variables.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/core/networking/api_observer.dart';
+import 'package:store/core/extensions/navigator_extension.dart';
+import 'package:store/core/helpers/shared_pref/shared_pref_keys.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_helper.dart';
 
 void main() async {
@@ -25,12 +28,28 @@ void main() async {
           ),
         )
       : await Firebase.initializeApp();
-  await SharedPref().instantiatePreferences();
-  await setupInjector();
+
+  ;
+  
+  await SharedPref.instantiatePreferences();
+  
+  await setupGetIt();
+  
   Bloc.observer = AppCubitObserver();
+  await checkIfLoggedInUser();
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   ).then((_) {
+    
     runApp(const StoreApp());
   });
+}
+
+checkIfLoggedInUser() async {
+  String? userToken = await SharedPref.getString(SharedPrefKeys.userToken.toString());
+  if (!userToken.isNullOrEmpty()) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
+  }
 }

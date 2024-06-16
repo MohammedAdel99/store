@@ -7,12 +7,13 @@ import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/helpers/fonts/font_weight_helper.dart';
 
 
-
 class AuthButton extends StatelessWidget {
-  final String Textbutton;
+  final Widget childButton;
+  final void Function() onpreesed;
   const AuthButton({
     Key? key,
-    required this.Textbutton,
+    required this.childButton,
+    required this.onpreesed,
   }) : super(key: key);
 
   @override
@@ -22,17 +23,10 @@ class AuthButton extends StatelessWidget {
         CustomFadeInRight(
           duration: 600,
           child: LinearButton(
-            onPressed: () {},
+            onPressed:onpreesed,
             width: double.infinity.w,
             height: 60.h,
-            child: TextApp(
-              text: context.translate(Textbutton),
-              theme: context.textStyle.copyWith(
-                fontSize: 18.sp,
-                fontWeight: FontWeightHelper.bold,
-                color:Colors.white,
-              ),
-            ),
+            child:childButton
           ),
         ),
         SizedBox(

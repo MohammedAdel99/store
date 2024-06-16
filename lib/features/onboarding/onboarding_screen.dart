@@ -159,7 +159,7 @@ class OnboardingContent extends StatelessWidget {
        TextApp(
           text:title,
           textAlign: TextAlign.center,
-          theme: context.textStyle.copyWith(fontSize: 25.sp,fontWeight: FontWeightHelper.bold, color:context.color.bluePinkLight),
+          theme: context.textStyle.copyWith(fontSize: 25.sp,fontWeight: FontWeightHelper.bold, color:context.color.textColor),
           
           
         ),
@@ -167,7 +167,7 @@ class OnboardingContent extends StatelessWidget {
         TextApp(
           text:description,
           textAlign: TextAlign.center,
-          theme: context.textStyle.copyWith(fontSize: 20.sp,color:context.color.bluePinkLight),  
+          theme: context.textStyle.copyWith(fontSize: 20.sp,color:context.color.textColor),  
         ),
         SizedBox(height: 40.h),
         LinearButton(onPressed:(){
@@ -180,7 +180,8 @@ class OnboardingContent extends StatelessWidget {
                   );
                 }
               },
-              width: 140.w,
+              width: 180.w,
+              height: 55.h,
          child:TextApp(text: textButton, theme:context.textStyle.copyWith(
           fontWeight: FontWeightHelper.bold,color:Colors.white,fontSize:16.sp))),
        SizedBox(height: 25.h),

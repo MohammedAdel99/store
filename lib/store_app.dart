@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/routes/app_routes.dart';
 import 'package:store/core/theming/app_theme.dart';
+import 'package:store/core/networking/constants.dart';
 import 'package:store/core/sharing/env_variables.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,9 +17,9 @@ class StoreApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<AppCubit>()
+      create: (context) => getIt<AppCubit>()
         ..changeAppThemeMode(
-            sharedMode: SharedPref().getBoolean(SharedPrefKeys.themeMode))
+            sharedMode: SharedPref.getBool(SharedPrefKeys.themeMode),)
         ..getSavedLanguage(),
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
@@ -40,7 +41,11 @@ class StoreApp extends StatelessWidget {
               localizationsDelegates:
                   AppLocalizationsSetup.localizationsDelegates,
               onGenerateRoute: AppRoutes.onGenerateRoute,
-              initialRoute: AppRoutes.onboarding,
+              initialRoute: AppRoutes.onboarding,    
+              
+              
+              
+             
             );
           },
         ),
