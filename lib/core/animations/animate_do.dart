@@ -59,7 +59,7 @@ class CustomFadeInLeft extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //TODO: sharePreferences
-    return SharedPref().getString(SharedPrefKeys.language) == 'ar'
+    return SharedPref.getString(SharedPrefKeys.language) == 'ar'
         ? FadeInLeft(
             delay: const Duration(milliseconds: 300),
             duration: Duration(milliseconds: duration),
@@ -88,7 +88,7 @@ class CustomFadeInRight extends StatelessWidget {
   Widget build(BuildContext context) {
     //TODO: sharePreferences
      
-    return SharedPref().getString(SharedPrefKeys.language) == 'ar'
+    return SharedPref.getString(SharedPrefKeys.language) == 'ar'
         ? FadeInRight(
             delay: const Duration(milliseconds: 300),
             duration: Duration(milliseconds: duration),

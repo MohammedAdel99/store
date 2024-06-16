@@ -42,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
               const AuthTitle(title: LangKeys.signUp, description: LangKeys.signUpWelcome),
               const UserAvaterImage(),
               const SignUpTextFormFeilds(),
-              const AuthButton(Textbutton: LangKeys.signUp),
+              //const AuthButton(Textbutton: LangKeys.signUp),
         AuthHaveAccountOrNot(
             onpressed: () {
               context.pushReplacementNamed(AppRoutes.login);

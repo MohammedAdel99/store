@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_keys.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_helper.dart';
 
@@ -8,7 +9,7 @@ part 'app_state.dart';
 part 'app_cubit.freezed.dart';
 
 class AppCubit extends Cubit<AppState> {
-  AppCubit() : super(const AppState.initial());
+  AppCubit(dio) : super(const AppState.initial());
 
   bool isDark = true;
   String currantLang = 'en';
@@ -20,29 +21,23 @@ class AppCubit extends Cubit<AppState> {
       emit(AppState.themeChangeMode(isDark: isDark));
     } else {
       isDark = !isDark;
-      await SharedPref()
-          .setBool(SharedPrefKeys.themeMode, isDark)
-          .then((value) {
+      await SharedPref.setBool(SharedPrefKeys.themeMode, isDark).then((value) {
         emit(AppState.themeChangeMode(isDark: isDark));
       });
     }
   }
 
-
-
-  
-
 // Todos: Language
   void getSavedLanguage() {
-    final result = SharedPref().containPreference(SharedPrefKeys.language)
-        ? SharedPref().getString(SharedPrefKeys.language)
+    final result = SharedPref.containPreference(SharedPrefKeys.language)
+        ? SharedPref.getString(SharedPrefKeys.language)
         : 'en';
     currantLang = result!;
     emit(AppState.languageChange(locale: Locale(currantLang)));
   }
 
   Future<void> _changeLang(String langCode) async {
-    await SharedPref().setString(SharedPrefKeys.language, langCode);
+    await SharedPref.setString(SharedPrefKeys.language, langCode);
     currantLang = langCode;
     emit(AppState.languageChange(locale: Locale(currantLang)));
   }

@@ -1,7 +1,11 @@
+bool isLoggedInUser = false;
+
 class ApiConstants {
-  static const String apiBaseurl = 'https://student.valuxapps.com/api/';
-  
+  static const String apiBaseurl = 'https://api.escuelajs.co/api/v1/';
+  static const String login = 'auth/login';
+  static const String profile = 'auth/profile';
 }
+
 class ApiErrors {
   static const String badRequestError = 'badRequestError';
   static const String noContent = 'noContent';
@@ -19,5 +23,3 @@ class ApiErrors {
   static const String retryAgainMessage = 'retry_again_message';
   static const String ok = 'Ok';
 }
-
-
