@@ -4,6 +4,8 @@ class ApiConstants {
   static const String apiBaseurl = 'https://api.escuelajs.co/api/v1/';
   static const String login = 'auth/login';
   static const String profile = 'auth/profile';
+  static const String upload = 'files/upload';
+  static const String signup = 'users/';
 }
 
 class ApiErrors {

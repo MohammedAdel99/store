@@ -11,23 +11,33 @@ import 'package:store/core/widgets/auth_login_signup_button.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_keys.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_helper.dart';
 import 'package:store/features/auth/login/logic/cubit/login_cubit.dart';
-import 'package:store/features/auth/login/logic/cubit/login_state.dart';
+import 'package:store/features/auth/signUp/logic/cubit/signup_cubit.dart';
+import 'package:store/features/auth/signUp/logic/cubit/signup_state.dart';
+import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store/features/auth/login/data/models/login_request_model.dart';
+import 'package:store/features/auth/signUp/data/models/signup_request_model.dart';
 
-class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({super.key});
+class SignupBlocListener extends StatelessWidget {
+  const SignupBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
+    return BlocConsumer<SignupCubit, SignupState>(
         listenWhen: (previous, current) =>
             current is Success || current is Error,
         listener: (context, state) {
           state.whenOrNull(
-            success: (loginResponse) {
-            
+            success: (signupResponse) {
+              context.read<LoginCubit>().emitLoginState(
+                    LoginRequest(
+                      email: context.read<SignupCubit>().emailController.text,
+                      password:
+                          context.read<SignupCubit>().passwordController.text,
+                    ),
+                  );
+
               if (context
-                  .read<LoginCubit>()
+                  .read<SignupCubit>()
                   .emailController
                   .text
                   .contains('admin')) {
@@ -45,11 +55,11 @@ class LoginBlocListener extends StatelessWidget {
                 // }
 
                 return fluttertoast(
-                    text: context.translate(LangKeys.loggedSuccessfully) , state: ToastStates.Success);
+                    text: context.translate(LangKeys.signUpSuccessfully), state: ToastStates.Success);
               }
             },
             error: (error) {
-              return fluttertoast(text: context.translate(LangKeys.loggedError), state: ToastStates.Error);
+              return fluttertoast(text: context.translate(LangKeys.signUpError), state: ToastStates.Error);
             },
           );
         },
@@ -61,10 +71,10 @@ class LoginBlocListener extends StatelessWidget {
           }, orElse: () {
             return AuthButton(
               onpreesed: () {
-                validateThenDoLogin(context);
+                validateThenDoSignup(context);
               },
               childButton: TextApp(
-                text: context.translate(LangKeys.login),
+                text: context.translate(LangKeys.signUp),
                 theme: context.textStyle.copyWith(
                   fontSize: 18.sp,
                   fontWeight: FontWeightHelper.bold,
@@ -76,13 +86,21 @@ class LoginBlocListener extends StatelessWidget {
         });
   }
 
-  static void validateThenDoLogin(BuildContext context) {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginState(
-            LoginRequest(
-              email: context.read<LoginCubit>().emailController.text,
-              password: context.read<LoginCubit>().passwordController.text,
-            ),
+  static void validateThenDoSignup(BuildContext context) {
+    if (!context.read<SignupCubit>().formKey.currentState!.validate() ||  context.read<UploadImageCubit>().getImageUrl.isEmpty) {
+        if(context.read<UploadImageCubit>().getImageUrl.isEmpty){
+          return fluttertoast(text:context.translate( LangKeys.validPickImage), state: ToastStates.Error);
+        }
+      }else {
+      context.read<SignupCubit>().imageUrl =
+          context.read<UploadImageCubit>().getImageUrl;
+     
+      context.read<SignupCubit>().emitSignupStates(SignUpRequest()
+          // context.read<LoginCubit>().emitLoginState(
+          //       LoginRequest(
+          //         email: context.read<SignupCubit>().emailController.text,
+          //         password: context.read<SignupCubit>().passwordController.text,
+          //       ),
           );
     }
   }

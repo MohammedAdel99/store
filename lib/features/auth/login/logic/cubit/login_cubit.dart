@@ -9,8 +9,14 @@ import 'package:store/features/auth/login/data/models/login_request_model.dart';
 import 'package:store/features/auth/login/data/repositories/login_repository.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final LoginRepository _loginRepository;
-  LoginCubit(this._loginRepository) : super(LoginState.initial());
+  LoginCubit(this.loginRepository) : super(const LoginState.initial());
+  final LoginRepository loginRepository;
+  @override
+  void emit(LoginState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -18,7 +24,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> emitLoginState(LoginRequest loginRequest) async {
     emit(const LoginState.loading());
-    final response = await _loginRepository.login(loginRequest);
+    final response = await loginRepository.login(loginRequest);
     await response.when(
       success: (loginResponse) async {
         var token = loginResponse.accessToken.toString();
@@ -38,7 +44,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> saveUserToken(String token) async {
-    await SharedPref.setString(SharedPrefKeys.userToken, token);
+    await SharedPref.setSecuredString(SharedPrefKeys.userToken, token);
     DioFactory.setTokenAfterLogin(token);
   }
 }

@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/widgets/app_text_form_feild.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/features/auth/login/logic/cubit/login_cubit.dart';
+import 'package:store/features/auth/login/logic/cubit/login_state.dart';
+import 'package:store/features/auth/signUp/logic/cubit/signup_cubit.dart';
 import 'package:store/features/auth/login/presentation/widgets/password_validations.dart';
 
 class LoginTextFormFeilds extends StatefulWidget {
@@ -29,6 +31,8 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
     passwordController = context.read<LoginCubit>().passwordController;
     setupPasswordControllerListener();
   }
+  
+  
 
   void setupPasswordControllerListener() {
     passwordController.addListener(() {
@@ -55,7 +59,7 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+                return context.translate(LangKeys.emailValidation);
               }
             },
             controller: context.read<LoginCubit>().emailController,
@@ -74,28 +78,24 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
                   });
                 },
                 child: Icon(
-                  isObscureText ? Icons.visibility_off : Icons.visibility,color: context.color.textColor,
+                  isObscureText ? Icons.visibility_off : Icons.visibility,
+                  color: context.color.textColor,
                 ),
               ),
               validator: (value) {
-               
-                 if (hasLowercase == false) {
-                  return 'Please enter  password has lowercase';
-                } else if (hasUppercase == false) {
-                  return 'Please enter  password has uppercase';
-                } else if (hasNumber == false) {
-                  return 'Please enter  password has Number';
-                }
-                //  else if (hasSpecialCharacters == false) {
-                //   return 'Please enter  password has SpecialCharacters';
-                // }
-                 else if (hasLowercase == false) {
-                  return 'Please enter  password MinLength > 8 ';
-                } else if(value == null || value.isEmpty)  {
-                  return 'Please enter a valid password';
-                }
-                
-              }),
+                if (hasLowercase == false) {
+                return context.translate(LangKeys.passwordValidationLowercase);
+              } else if (hasUppercase == false) {
+                return context.translate(LangKeys.passwordValidationUppercase);
+              } else if (hasNumber == false) {
+                return context.translate(LangKeys.passwordValidationNumber);
+              }
+              else if (hasMinLength == false) {
+                return context.translate(LangKeys.passwordValidationLength);
+              } else if (value == null || value.isEmpty) {
+                return context.translate(LangKeys.passwordValidationEmpty);
+              }
+            }),
           SizedBox(
             height: 25.h,
           ),
@@ -103,9 +103,12 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
       ),
     );
   }
+
     @override
   void dispose() {
     passwordController.dispose();
     super.dispose();
   }
+ 
+  
 }
