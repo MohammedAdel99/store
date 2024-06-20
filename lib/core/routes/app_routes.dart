@@ -7,6 +7,8 @@ import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/features/customer/customer_screen.dart';
 import 'package:store/features/onboarding/onboarding_screen.dart';
 import 'package:store/features/auth/login/logic/cubit/login_cubit.dart';
+import 'package:store/features/auth/signUp/logic/cubit/signup_cubit.dart';
+import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:store/features/auth/signUp/presentation/screens/sign_up_screen.dart';
 
@@ -30,7 +32,15 @@ class AppRoutes {
                 ));
 
       case AppRoutes.signup:
-        return BaseRoute(page: const SignUpScreen());
+        return MaterialPageRoute(
+            builder: (_) => 
+            MultiBlocProvider(providers: [
+            BlocProvider(create: (context) => getIt<UploadImageCubit>()),
+            BlocProvider(create: (context) =>  getIt<SignupCubit>()),
+            BlocProvider(create: (context) =>  getIt<LoginCubit>())
+            ], child: 
+            const SignUpScreen(),
+                ));
       case AppRoutes.admin:
         return BaseRoute(page: const AdminScreen());
       case AppRoutes.customer:

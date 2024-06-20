@@ -2,16 +2,27 @@ class LangKeys {
   static const String language = 'language';
   static const String appName = 'app_name';
   static const String login = 'login';
+  static const String passwordValidationLowercase = 'password_validation_lowercase';
+  static const String passwordValidationUppercase = 'password_validation_uppercase';
+  static const String passwordValidationNumber = 'password_validation_number';
+  static const String passwordValidationLength = 'password_validation_length';
+  static const String passwordValidationEmpty = 'password_validation_empty';
+  static const String emailValidation = 'email_validation';
+  static const String  nameValidation = 'name_validation';
+  
   static const String welcome = 'welcome';
   static const String email = 'your_email';
   static const String password = 'password';
-  static const String validEmail = 'valid_email';
-  static const String validPasswrod = 'valid_passwrod';
+
+  
   static const String loggedSuccessfully = 'logged_successfully';
   static const String loggedError = 'logged_error';
   static const String createAccount = 'create_account';
   static const String signUpWelcome = 'sign_up_welcome';
   static const String signUp = 'sign_up';
+  static const String signUpSuccessfully = 'sign_up_successfully';
+  static const String signUpError = 'sign_up_error';
+
   static const String youHaveAccount = 'you_have_account';
   static const String fullName = 'full_name';
   static const String validName = 'valid_name';

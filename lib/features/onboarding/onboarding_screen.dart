@@ -38,22 +38,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:  CustomPaint(
-        size: Size(
-          double.infinity,
-          115.h,
-        ),
-        painter: AppCustomPainter(
-          gradient: LinearGradient(
-            colors: [
-              context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
-              context.color.bluePinkDark!,
-            ],
-          ),
-        ),),
-
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -169,7 +153,7 @@ class OnboardingContent extends StatelessWidget {
           textAlign: TextAlign.center,
           theme: context.textStyle.copyWith(fontSize: 20.sp,color:context.color.textColor),  
         ),
-        SizedBox(height: 40.h),
+        SizedBox(height: 50.h),
         LinearButton(onPressed:(){
            if (_pageIndex == onboard_data.length - 1) {
                   context.pushReplacementNamed(AppRoutes.login);
@@ -204,7 +188,7 @@ class OnboardingContent extends StatelessWidget {
         ),
 
             
-        
+        SizedBox(height: 50.h,)
 
       ],
     );

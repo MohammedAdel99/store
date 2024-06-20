@@ -20,42 +20,28 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomPaint(
-        size: Size(
-          double.infinity,
-          115.h,
-        ),
-        painter: AppCustomPainter(
-          gradient: LinearGradient(
-            colors: [
-              context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
-              context.color.bluePinkLight!,
-              context.color.bluePinkDark!,
-            ],
-          ),
-        ),
-      ),
       body: SafeArea(
         bottom: false,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const AuthThemeAndLangButtons(),
-                const AuthTitle(
-                    title: LangKeys.login, description: LangKeys.welcome),
-                const LoginTextFormFeilds(),
-              const LoginBlocListener(),
-                AuthHaveAccountOrNot(
-                  onpressed: () {
-                    context.pushReplacementNamed(AppRoutes.signup);
-                  },
-                  text: LangKeys.createAccount,
-                ),
-               
-              ],
+            child: Center(
+              child: Column(
+                children: [
+                  const AuthThemeAndLangButtons(),
+                  const AuthTitle(
+                      title: LangKeys.login, description: LangKeys.welcome),
+                  const LoginTextFormFeilds(),
+                const LoginBlocListener(),
+                  AuthHaveAccountOrNot(
+                    onpressed: () {
+                      context.pushReplacementNamed(AppRoutes.signup);
+                    },
+                    text: LangKeys.createAccount,
+                  ),
+                 
+                ],
+              ),
             ),
           ),
         ),

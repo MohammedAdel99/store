@@ -4,12 +4,13 @@ import 'package:store/core/routes/app_routes.dart';
 import 'package:store/core/theming/app_theme.dart';
 import 'package:store/core/networking/constants.dart';
 import 'package:store/core/sharing/env_variables.dart';
+import 'package:store/core/app/app_cubit/app_cubit.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store/core/networking/app_cubit/app_cubit.dart';
 import 'package:store/core/localization/app_localizations_setup.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_keys.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_helper.dart';
+
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});
@@ -40,8 +41,13 @@ class StoreApp extends StatelessWidget {
                   AppLocalizationsSetup.localeResolutionCallback,
               localizationsDelegates:
                   AppLocalizationsSetup.localizationsDelegates,
+              navigatorKey: getIt<GlobalKey<NavigatorState>>(),    
               onGenerateRoute: AppRoutes.onGenerateRoute,
-              initialRoute: AppRoutes.onboarding,    
+              initialRoute: isLoggedInUser  
+                        ? SharedPref.getString(SharedPrefKeys.userRole) == 'admin'
+                            ? AppRoutes.admin
+                            : AppRoutes.customer
+                        : AppRoutes.onboarding,    
               
               
               

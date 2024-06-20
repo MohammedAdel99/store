@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/extensions/color_extension.dart';
 import 'package:store/core/extensions/image_extension.dart';
 import 'package:store/core/localization/app_localizations.dart';
+import 'package:store/features/auth/login/logic/cubit/login_cubit.dart';
+
 
 extension Navigation on BuildContext {
    //Todo: color
   MyColors get color => Theme.of(this).extension<MyColors>()!;
-
   //Todo: images
   MyAssets get assets => Theme.of(this).extension<MyAssets>()!;
   //Todo: style
@@ -40,6 +42,7 @@ extension Navigation on BuildContext {
 
 
 }
+
 extension StringExtension on String? {
   bool isNullOrEmpty() => this == null || this == "";
 }

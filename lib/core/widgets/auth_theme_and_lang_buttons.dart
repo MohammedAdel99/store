@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/animations/animate_do.dart';
 import 'package:store/core/localization/lang_keys.dart';
+import 'package:store/core/app/app_cubit/app_cubit.dart';
 import 'package:store/core/widgets/app_linear_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/localization/app_localizations.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/core/networking/app_cubit/app_cubit.dart';
+
 
 class AuthThemeAndLangButtons extends StatelessWidget {
   const AuthThemeAndLangButtons({super.key});
