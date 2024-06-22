@@ -1,8 +1,6 @@
-import 'package:store/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/routes/base_routes.dart';
-import 'package:store/features/admin/admin_screen.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/features/customer/customer_screen.dart';
 import 'package:store/features/onboarding/onboarding_screen.dart';
@@ -11,6 +9,9 @@ import 'package:store/features/auth/signUp/logic/cubit/signup_cubit.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:store/features/auth/signUp/presentation/screens/sign_up_screen.dart';
+import 'package:store/features/admin/home_admin/presentation/screens/home_admin_screen.dart';
+
+
 
 class AppRoutes {
   static const String home = '/homescreen';
@@ -42,7 +43,7 @@ class AppRoutes {
             const SignUpScreen(),
                 ));
       case AppRoutes.admin:
-        return BaseRoute(page: const AdminScreen());
+        return  BaseRoute(page: const  HomeAdminScreen());
       case AppRoutes.customer:
         return BaseRoute(page: const CustomerScreen());    
 

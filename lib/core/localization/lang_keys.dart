@@ -2,19 +2,26 @@ class LangKeys {
   static const String language = 'language';
   static const String appName = 'app_name';
   static const String login = 'login';
-  static const String passwordValidationLowercase = 'password_validation_lowercase';
-  static const String passwordValidationUppercase = 'password_validation_uppercase';
+  static const String passwordValidationLowercase =
+      'password_validation_lowercase';
+  static const String passwordValidationUppercase =
+      'password_validation_uppercase';
   static const String passwordValidationNumber = 'password_validation_number';
   static const String passwordValidationLength = 'password_validation_length';
   static const String passwordValidationEmpty = 'password_validation_empty';
   static const String emailValidation = 'email_validation';
-  static const String  nameValidation = 'name_validation';
-  
+  static const String nameValidation = 'name_validation';
+  static const String dashboard = 'dashboard';
+  static const String categories = 'categories';
+  static const String products = 'products';
+  static const String users = 'users';
+  static const String notifications = 'notifications';
+  static const String logout = 'logout';
+
   static const String welcome = 'welcome';
   static const String email = 'your_email';
   static const String password = 'password';
 
-  
   static const String loggedSuccessfully = 'logged_successfully';
   static const String loggedError = 'logged_error';
   static const String createAccount = 'create_account';
@@ -43,10 +50,9 @@ class LangKeys {
   static const String no = 'no';
   static const String darkMode = 'dark_mode';
   static const String langCode = 'lang_code';
-  static const String notifications = 'notifications';
+  
   static const String subscribedToNotifications = 'subscribed_to_notifications';
   static const String unsubscribedToNotifications =
       'unsubscribed_to_notifications';
   static const String viewAll = 'view_all';
 }
-

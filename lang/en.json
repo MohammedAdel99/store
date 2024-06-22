@@ -9,6 +9,12 @@
     "password_validation_empty":"Please enter a valid password",
     "email_validation":"Please enter a valid email",
     "name_validation":"Please enter a valid name",
+    "dashboard": "dashboard",
+    "categories": "categories",
+    "products": "products",
+    "users": "users",
+    "notifications": "notifications",
+    "logout": "logout",
    
     "welcome": "Welcome, Please enter your email and get started.",
     "your_email": "Your Email",
