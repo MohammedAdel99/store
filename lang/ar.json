@@ -9,6 +9,12 @@
     "password_validation_empty":"من فضلك ادخال كلمة مرور صالحة",
     "email_validation":"من فضلك ادخال بريد الكترونى صالح",
     "name_validation":"من فضلك ادخال اسم صالح",
+    "dashboard": "لوحة التحكم",
+    "categories": "الاقسام",
+    "products": "المنتجات",
+    "users": "المستخدمين",
+    "notifications": "الاشعارات",
+    "logout": " تسجيل الخروج",
    
     "welcome": "مرحباً! الرجاء إدخال بريدك إلكتروني والبدء.",
     "your_email":   "بريدك الالكتروني",

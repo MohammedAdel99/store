@@ -20,11 +20,16 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   LoginRepository loginRepository = LoginRepository(ApiService(Dio()));
-
-
   String? imageUrl;
+
   //TextEditingController roleController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+   @override
+  void emit(SignupState state) {
+    if (!isClosed) {
+      super.emit(state);
+    }
+  }
   Future<void> emitSignupStates(SignUpRequest signUpRequest) async {
     emit(SignupState.loading());
     final response = await signUpRepository.signUp(SignUpRequest(

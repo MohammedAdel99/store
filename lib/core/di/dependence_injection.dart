@@ -22,7 +22,7 @@ Future<void> setupGetIt() async {
   getIt.registerSingleton<GlobalKey<NavigatorState>>(navigatorKey);
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerLazySingleton<UploadImageRepository>(() => UploadImageRepository(getIt()));
-  getIt.registerLazySingleton<UploadImageCubit>(() => UploadImageCubit(getIt()));
+  getIt.registerFactory<UploadImageCubit>(() => UploadImageCubit(getIt()));
   //Login
   getIt.registerLazySingleton<LoginRepository>(() => LoginRepository(getIt()));
   getIt.registerFactory<LoginCubit>(()=> LoginCubit(getIt()));

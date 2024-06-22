@@ -9,6 +9,7 @@ class LinearButton extends StatelessWidget {
     this.height,
     this.width,
     super.key,
+    
   });
   final VoidCallback onPressed;
   final Widget child;
