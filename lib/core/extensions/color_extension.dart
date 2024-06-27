@@ -18,6 +18,7 @@ class MyColors extends ThemeExtension<MyColors> {
     required this.containerShadow2,
     required this.containerLinear1,
     required this.containerLinear2,
+    required this.shimmer,
   });
 
   final Color? mainColor;
@@ -31,6 +32,7 @@ class MyColors extends ThemeExtension<MyColors> {
   final Color? containerShadow2;
   final Color? containerLinear1;
   final Color? containerLinear2;
+  final Color? shimmer;
 
   @override
   ThemeExtension<MyColors> copyWith({
@@ -44,6 +46,7 @@ class MyColors extends ThemeExtension<MyColors> {
     Color? containerShadow1,
     Color? containerShadow2,
     Color? containerLinear1,
+    Color? shimmer
   }) {
     return MyColors(
       mainColor: mainColor,
@@ -57,6 +60,7 @@ class MyColors extends ThemeExtension<MyColors> {
       containerShadow2: containerShadow2,
       containerLinear1: containerLinear1,
       containerLinear2: containerLinear2,
+      shimmer:shimmer
     );
   }
 
@@ -80,6 +84,7 @@ class MyColors extends ThemeExtension<MyColors> {
       containerShadow2: containerShadow2,
       containerLinear1: containerLinear1,
       containerLinear2: containerLinear2,
+      shimmer: shimmer
     );
   }
 
@@ -88,13 +93,14 @@ class MyColors extends ThemeExtension<MyColors> {
     bluePinkDark: ColorsDark.blueDark,
     bluePinkLight: ColorsDark.blueLight,
     textColor: ColorsDark.white,
-    textFormBorder: ColorsDark.blueLight,
+    textFormBorder: ColorsDark.white,
     navBarbg: ColorsDark.navBarDark,
     navBarSelectedTab: ColorsDark.white,
     containerShadow1: ColorsDark.black1,
     containerShadow2: ColorsDark.black2,
     containerLinear1: ColorsDark.black1,
     containerLinear2: ColorsDark.black2,
+    shimmer: ColorsDark.grey
   );
 
   static const MyColors light = MyColors(
@@ -102,12 +108,13 @@ class MyColors extends ThemeExtension<MyColors> {
     bluePinkDark: ColorsLight.pinkDark,
     bluePinkLight: ColorsLight.pinkLight,
     textColor: ColorsLight.black,
-    textFormBorder: ColorsLight.pinkLight,
+    textFormBorder: ColorsLight.black,
     navBarbg: ColorsLight.mainColor,
     navBarSelectedTab: ColorsLight.pinkDark,
-    containerShadow1: ColorsLight.white,
+    containerShadow1: ColorsLight.grey,
     containerShadow2: ColorsLight.white,
     containerLinear1: ColorsLight.pinkDark,
     containerLinear2: ColorsLight.pinkLight,
+    shimmer: ColorsLight.grey
   );
 }

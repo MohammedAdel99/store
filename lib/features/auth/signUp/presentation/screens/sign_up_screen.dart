@@ -5,9 +5,9 @@ import 'package:store/core/localization/lang_keys.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/widgets/app_custom_painter.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
+import 'package:store/core/widgets/theme_and_lang_buttons.dart';
 import 'package:store/core/widgets/auth_have_account_or_not.dart';
 import 'package:store/core/widgets/auth_login_signup_button.dart';
-import 'package:store/core/widgets/auth_theme_and_lang_buttons.dart';
 import 'package:store/features/auth/signUp/presentation/widgets/signup_button.dart';
 import 'package:store/features/auth/signUp/presentation/widgets/user_avater_image.dart';
 import 'package:store/features/auth/signUp/presentation/widgets/signup_textformfeilds.dart';
@@ -24,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                const AuthThemeAndLangButtons(),
+                const ThemeAndLangButtons(),
                 const AuthTitle(title: LangKeys.signUp, description: LangKeys.signUpWelcome),
                 const UserAvaterImage(),
                 const SignUpTextFormFeilds(),

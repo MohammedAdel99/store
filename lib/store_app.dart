@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/localization/app_localizations_setup.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_keys.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_helper.dart';
+import 'package:store/features/admin/home_admin/presentation/screens/home_admin_screen.dart';
 
 
 class StoreApp extends StatelessWidget {
@@ -43,11 +44,11 @@ class StoreApp extends StatelessWidget {
                   AppLocalizationsSetup.localizationsDelegates,
               navigatorKey: getIt<GlobalKey<NavigatorState>>(),    
               onGenerateRoute: AppRoutes.onGenerateRoute,
-              initialRoute: isLoggedInUser  
+              initialRoute :             isLoggedInUser  
                         ? SharedPref.getString(SharedPrefKeys.userRole) == 'admin'
                             ? AppRoutes.admin
                             : AppRoutes.customer
-                        : AppRoutes.onboarding,    
+                        : AppRoutes.onboarding,   
               
               
               

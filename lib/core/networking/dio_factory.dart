@@ -25,6 +25,7 @@ class DioFactory {
 
   static void addDioHeader() async {
     dio?.options.headers = {
+      'Accept': 'application/json',
       'Authorization':
           'Bearer ${await SharedPref.getSecuredString(SharedPrefKeys.userToken)}',
     };
@@ -32,6 +33,7 @@ class DioFactory {
 
   static void setTokenAfterLogin(String token) {
     dio?.options.headers = {
+      
       'Authorization': 'Bearer $token',
     };
   }

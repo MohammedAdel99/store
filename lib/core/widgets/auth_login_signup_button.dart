@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/widgets/app_text.dart';
+import 'package:store/core/widgets/app_button.dart';
 import 'package:store/core/animations/animate_do.dart';
-import 'package:store/core/widgets/app_linear_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/helpers/fonts/font_weight_helper.dart';
@@ -22,7 +22,7 @@ class AuthButton extends StatelessWidget {
       children: [
         CustomFadeInRight(
           duration: 600,
-          child: LinearButton(
+          child: AppButton(
             onPressed:onpreesed,
             width: double.infinity.w,
             height: 60.h,
@@ -30,7 +30,7 @@ class AuthButton extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 10.h,
+          height: 15.h,
         ),
       ],
     );

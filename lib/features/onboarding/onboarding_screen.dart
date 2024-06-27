@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/routes/app_routes.dart';
-import 'package:store/core/widgets/app_linear_button.dart';
+import 'package:store/core/widgets/app_button.dart';
+import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/widgets/app_custom_painter.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
@@ -40,7 +41,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding:  EdgeInsets.symmetric(vertical: 16.h , horizontal: 20.w),
           child: Column(
             children: [
               Expanded(
@@ -143,7 +144,7 @@ class OnboardingContent extends StatelessWidget {
        TextApp(
           text:title,
           textAlign: TextAlign.center,
-          theme: context.textStyle.copyWith(fontSize: 25.sp,fontWeight: FontWeightHelper.bold, color:context.color.textColor),
+          theme: context.textStyle.copyWith(fontSize: 25.sp,fontWeight: FontWeightHelper.bold, color:mainBlue),
           
           
         ),
@@ -154,7 +155,7 @@ class OnboardingContent extends StatelessWidget {
           theme: context.textStyle.copyWith(fontSize: 20.sp,color:context.color.textColor),  
         ),
         SizedBox(height: 50.h),
-        LinearButton(onPressed:(){
+        AppButton(onPressed:(){
            if (_pageIndex == onboard_data.length - 1) {
                   context.pushReplacementNamed(AppRoutes.login);
                 } else {
@@ -164,7 +165,7 @@ class OnboardingContent extends StatelessWidget {
                   );
                 }
               },
-              width: 180.w,
+              width: double.infinity,
               height: 55.h,
          child:TextApp(text: textButton, theme:context.textStyle.copyWith(
           fontWeight: FontWeightHelper.bold,color:Colors.white,fontSize:16.sp))),
@@ -208,7 +209,7 @@ class DotIndactor extends StatelessWidget {
       height: isActive ? 22.h : 8.h,
       width: 4.w,
       decoration: BoxDecoration(
-        color: isActive ? context.color.bluePinkLight : Colors.grey,
+        color: isActive ? mainBlue : Colors.grey,
 
         borderRadius: BorderRadius.all(Radius.circular(12.r)),
       ),

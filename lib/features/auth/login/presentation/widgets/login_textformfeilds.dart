@@ -65,7 +65,7 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
             controller: context.read<LoginCubit>().emailController,
           ),
           SizedBox(
-            height: 20.h,
+            height: 25.h,
           ),
           AppTextFormField(
               hintText: LangKeys.password,
@@ -97,7 +97,7 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
               }
             }),
           SizedBox(
-            height: 25.h,
+            height: 30.h,
           ),
         ],
       ),

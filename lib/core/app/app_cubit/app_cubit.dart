@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_keys.dart';
 import 'package:store/core/helpers/shared_pref/shared_pref_helper.dart';
 
-part 'app_state.dart';
+
 part 'app_cubit.freezed.dart';
+part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
   AppCubit(dio) : super(const AppState.initial());
