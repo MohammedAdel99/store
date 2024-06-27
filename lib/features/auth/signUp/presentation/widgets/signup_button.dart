@@ -78,7 +78,7 @@ class SignupBlocListener extends StatelessWidget {
                 theme: context.textStyle.copyWith(
                   fontSize: 18.sp,
                   fontWeight: FontWeightHelper.bold,
-                  color: Colors.white,
+                  color:  Colors.white,
                 ),
               ),
             );

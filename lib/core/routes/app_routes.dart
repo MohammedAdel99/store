@@ -13,13 +13,17 @@ import 'package:store/features/admin/home_admin/presentation/screens/home_admin_
 
 
 
+
+
+
 class AppRoutes {
-  static const String home = '/homescreen';
-  static const String signup = '/signup';
-  static const String login = '/login';
-  static const String onboarding = '/OnboardingScreen';
+  static const String home = 'home';
+  static const String signup = 'signup';
+  static const String login = 'login';
+  static const String onboarding = 'onboarding';
   static const String customer = 'customer';
   static const String admin = 'admin';
+
   static Route<void>? onGenerateRoute(RouteSettings settings) {
     final arg = settings.arguments;
     switch (settings.name) {
@@ -45,7 +49,8 @@ class AppRoutes {
       case AppRoutes.admin:
         return  BaseRoute(page: const  HomeAdminScreen());
       case AppRoutes.customer:
-        return BaseRoute(page: const CustomerScreen());    
+        return BaseRoute(page: const CustomerScreen());  
+     
 
       default:
         return null;

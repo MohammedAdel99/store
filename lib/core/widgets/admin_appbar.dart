@@ -33,8 +33,8 @@ class AdminAppBar extends StatelessWidget implements PreferredSizeWidget {
       surfaceTintColor: Colors.transparent,
       title: TextApp(
         text: title,
-        theme: TextStyles.font20BBoldWhite
-            .copyWith(color: Colors.white),
+        theme: TextStyles.font20BoldWhite
+            .copyWith(color: isMain? context.color.textColor : Colors.white),
       ),
       leading:
       isMain?

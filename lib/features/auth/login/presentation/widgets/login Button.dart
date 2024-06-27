@@ -57,7 +57,7 @@ class LoginBlocListener extends StatelessWidget {
           return state.maybeWhen(loading: () {
             return AuthButton(
                 onpreesed: () {},
-                childButton: CircularProgressIndicator(color: Colors.white));
+                childButton: CircularProgressIndicator(color:  Colors.white));
           }, orElse: () {
             return AuthButton(
               onpreesed: () {
@@ -68,7 +68,7 @@ class LoginBlocListener extends StatelessWidget {
                 theme: context.textStyle.copyWith(
                   fontSize: 18.sp,
                   fontWeight: FontWeightHelper.bold,
-                  color: Colors.white,
+                  color:  Colors.white,
                 ),
               ),
             );

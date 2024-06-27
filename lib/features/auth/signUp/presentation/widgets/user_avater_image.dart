@@ -4,6 +4,7 @@ import 'package:store/core/widgets/app_toast.dart';
 import 'package:store/core/helpers/image_picker.dart';
 import 'package:store/core/animations/animate_do.dart';
 import 'package:store/core/localization/lang_keys.dart';
+import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/helpers/images/image_helper.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
@@ -64,7 +65,7 @@ class UserAvaterImage extends StatelessWidget {
                                   .getImageUrl) as ImageProvider
                               : const AssetImage(AppImages.userAvatar),
                           radius: 38,
-                          backgroundColor: Colors.grey.withOpacity(0.1),
+                          backgroundColor: context.color.textColor!.withOpacity(0.1),
                           child: Stack(
                             alignment: AlignmentDirectional.center,
                             children: [
@@ -80,7 +81,7 @@ class UserAvaterImage extends StatelessWidget {
                                       },
                                       icon: Icon(
                                         Icons.delete,
-                                        color: context.color.bluePinkDark,
+                                        color: context.color.textColor,
                                       )),
                                 )
                               else
@@ -90,9 +91,9 @@ class UserAvaterImage extends StatelessWidget {
                                 height: 100.h,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: isImageUploaded
-                                      ? Colors.transparent
-                                      : Colors.black.withOpacity(0.4),
+                                  color:
+                                      Colors.grey.withOpacity(0.1),
+                                     
                                 ),
                               ),
                               if (isImageUploaded)
@@ -102,7 +103,7 @@ class UserAvaterImage extends StatelessWidget {
                                     onPressed: () {
                                       context.read<UploadImageCubit>().upload();
                                     },
-                                    icon: Icon(Icons.add_a_photo))
+                                    icon: Icon(Icons.add_a_photo,color:Colors.white))
                             ],
                           ));
                     },

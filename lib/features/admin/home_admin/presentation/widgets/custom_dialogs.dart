@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/widgets/app_text.dart';
-import 'package:store/core/widgets/app_linear_button.dart';
+import 'package:store/core/widgets/app_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/helpers/fonts/font_family_helper.dart';
@@ -43,7 +43,7 @@ class CustomDialog {
           ),
         ),
         actions: [
-          LinearButton(
+          AppButton(
          
             onPressed: onPressed,
             child:Text( textButton1),
@@ -52,7 +52,7 @@ class CustomDialog {
            
           ),
           SizedBox(height: 10.h, width: 1.w),
-          LinearButton(
+          AppButton(
             onPressed: () {
               context.pop();
             },

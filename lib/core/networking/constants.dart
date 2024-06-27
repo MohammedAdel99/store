@@ -6,6 +6,9 @@ class ApiConstants {
   static const String profile = 'auth/profile';
   static const String upload = 'files/upload';
   static const String signup = 'users/';
+  static const String getAllProducts = 'products/';
+  static const String getAllCategories = 'categories/';
+  static const String getAllUsers = 'users/';
 }
 
 class ApiErrors {

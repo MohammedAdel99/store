@@ -21,7 +21,7 @@ class AuthHaveAccountOrNot extends StatelessWidget {
           theme: context.textStyle.copyWith(
             fontSize: 14.sp,
             fontWeight: FontWeightHelper.bold,
-            color: context.color.bluePinkLight,
+            color: context.color.bluePinkDark,
           ),
         ),);
   }

@@ -73,7 +73,7 @@ class _SignUpTextFormFeildsState extends State<SignUpTextFormFeilds> {
             controller: context.read<SignupCubit>().emailController,
         ),
         SizedBox(
-          height: 20.h,
+          height: 25.h,
         ),
         AppTextFormField(
             hintText: LangKeys.password,
@@ -105,7 +105,7 @@ class _SignUpTextFormFeildsState extends State<SignUpTextFormFeilds> {
               }
             }),
         SizedBox(
-          height: 20.h,
+          height: 30.h,
         ),
       ],
     ));

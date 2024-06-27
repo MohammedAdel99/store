@@ -9,16 +9,16 @@ class TextStyles  {
     color:Colors.white,
   );
 
-  static TextStyle font20BBoldWhite = TextStyle(
+  static TextStyle font20BoldWhite = TextStyle(
     fontSize: 20.sp,
     fontWeight: FontWeightHelper.bold,
     color: Colors.white,
   );
 
-  static TextStyle font13BlueSemiBold = TextStyle(
-    fontSize: 13.sp,
+  static TextStyle font24BoldWhite = TextStyle(
+    fontSize: 24.sp,
     fontWeight: FontWeightHelper.bold,
-    color: Colors.blue,
+    color: Colors.white,
   );
 
   static TextStyle font13DarkBlueMedium = TextStyle(
