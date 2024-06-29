@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/features/admin/dashboard/data/repositories/dashboard_repository.dart';
+import 'package:store/features/admin/dashboard/data/repository/dashboard_repository.dart';
 import 'package:store/features/admin/dashboard/logic/categories_number/categories_state.dart';
 
 
@@ -19,9 +19,9 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     }
   }
 
-  Future<void> GetCategories() async {
+  Future<void> getTotalNumOfCategories() async {
     emit(CategoriesState.loading());
-    final response = await dashboardRepository.getAllCategories();
+    final response = await dashboardRepository.getTotalNumOfCategories();
     await response.when(success: (category) async {
       emit(CategoriesState.
       success(category));

@@ -24,9 +24,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-            BlocProvider(create: (context) => getIt<ProductsCubit>()..GetProducts() ),
-            BlocProvider(create: (context) =>  getIt<CategoriesCubit>()..GetCategories()),
-            BlocProvider(create: (context) =>  getIt<UsersCubit>()..GetUsers())
+            BlocProvider(create: (context) => getIt<ProductsCubit>()..getTotalNumOfProducts() ),
+            BlocProvider(create: (context) =>  getIt<CategoriesCubit>()..getTotalNumOfCategories()),
+            BlocProvider(create: (context) =>  getIt<UsersCubit>()..getTotalNumOfUsers())
             ], child:  
           
                   

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:store/features/admin/dashboard/logic/users_number/users_state.dart';
 import 'package:store/features/admin/dashboard/logic/products_number/products_state.dart';
-import 'package:store/features/admin/dashboard/data/repositories/dashboard_repository.dart';
+import 'package:store/features/admin/dashboard/data/repository/dashboard_repository.dart';
 
 
 
@@ -20,9 +20,9 @@ class UsersCubit extends Cubit<UsersState> {
     }
   }
 
-  Future<void> GetUsers() async {
+  Future<void> getTotalNumOfUsers() async {
     emit(UsersState.loading());
-    final response = await dashboardRepository.getAllUsers();
+    final response = await dashboardRepository.getTotalNumOfUsers();
     await response.when(success: (users) async {
       emit(UsersState.success(users));
     }, failure: (errorHandler) {

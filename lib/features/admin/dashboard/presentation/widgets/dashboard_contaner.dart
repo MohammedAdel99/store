@@ -27,7 +27,7 @@ class DashboardContainer extends StatelessWidget {
        return
           
         
-          CustomContainerLinearAdmin(
+          CustomContainerAdmin(
             height: 150.h,
              width: double.infinity,
               child:Padding(

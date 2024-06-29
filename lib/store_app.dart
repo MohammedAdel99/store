@@ -44,11 +44,13 @@ class StoreApp extends StatelessWidget {
                   AppLocalizationsSetup.localizationsDelegates,
               navigatorKey: getIt<GlobalKey<NavigatorState>>(),    
               onGenerateRoute: AppRoutes.onGenerateRoute,
-              initialRoute :             isLoggedInUser  
-                        ? SharedPref.getString(SharedPrefKeys.userRole) == 'admin'
-                            ? AppRoutes.admin
-                            : AppRoutes.customer
-                        : AppRoutes.onboarding,   
+               initialRoute :  AppRoutes.admin       
+              
+              //    isLoggedInUser  
+              //           ? SharedPref.getString(SharedPrefKeys.userRole) == 'admin'
+              //               ? AppRoutes.admin
+              //               : AppRoutes.customer
+              //           : AppRoutes.onboarding,   
               
               
               

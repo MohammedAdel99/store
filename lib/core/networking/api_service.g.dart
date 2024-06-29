@@ -104,7 +104,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<ProductResponse>> getAllProducts() async {
+  Future<List<ProductResponse>> getTotalNumOfProducts() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -133,7 +133,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<CategoryResponse>> getAllCategories() async {
+  Future<List<CategoryResponse>> getTotalNumOfCategories() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -163,7 +163,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<UserResponse>> getAllUsers() async {
+  Future<List<UserResponse>> getTotalNumOfUsers() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -187,6 +187,36 @@ class _ApiService implements ApiService {
             ))));
     var value = _result.data!
         .map((dynamic i) => UserResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<List<GetCategoryResponse>> getAllCategories() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<GetCategoryResponse>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'categories/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) =>
+            GetCategoryResponse.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

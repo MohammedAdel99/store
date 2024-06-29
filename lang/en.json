@@ -11,6 +11,10 @@
     "name_validation":"Please enter a valid name",
     "dashboard": "Dashboard",
     "categories": "Categories",
+    "all_categories": "All Categories",
+    "add":"Add",
+    "update":"update",
+    "delete":"Delete",
     "products": "Products",
     "users": "Users",
     "notifications": "Notifications",
@@ -19,6 +23,7 @@
     "welcome": "Welcome, Please enter your email and get started.",
     "your_email": "Your Email",
     "password": "Password",
+    "no_categories" : "Thare are no Categories, try to add a new category",
   
     "logged_successfully": "You have been logged in successfully",
     "logged_error":"There was an error logging in. Try again",

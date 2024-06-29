@@ -30,7 +30,7 @@ class CategoriesContainer extends StatelessWidget {
               number: categorylist.length,
               image: 'assets/images/admin/categories_drawer.png',
               isLoading: false);
-        }, error: (error) {
+        }, error: (errorHandler) {
           return SizedBox.shrink();
         });
       }),

@@ -13,8 +13,8 @@ import 'package:store/features/admin/users/presentation/screens/users_screen.dar
 import 'package:store/features/admin/add_products/presentation/add_products_screen.dart';
 import 'package:store/features/admin/home_admin/presentation/widgets/custom_dialogs.dart';
 import 'package:store/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
-import 'package:store/features/admin/add_categories/presentation/add_categories_screen.dart';
 import 'package:store/features/admin/add_notifications/presentation/add_notifications_screen.dart';
+import 'package:store/features/admin/add_categories/presentation/screens/add_categories_screen.dart';
 
 List<DrawerItemModel> adminDrawerList(BuildContext context) {
   return [

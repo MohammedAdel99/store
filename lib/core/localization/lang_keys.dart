@@ -13,10 +13,12 @@ class LangKeys {
   static const String nameValidation = 'name_validation';
   static const String dashboard = 'dashboard';
   static const String categories = 'categories';
+  static const String allCategories = 'all_categories';
   static const String products = 'products';
   static const String users = 'users';
   static const String notifications = 'notifications';
   static const String logout = 'logout';
+  static const String noCategories ='no_categories';
 
   static const String welcome = 'welcome';
   static const String email = 'your_email';
@@ -42,6 +44,11 @@ class LangKeys {
   static const String changeToTheLanguage = 'change_to_the_language';
   static const String sure = 'sure';
   static const String cancel = 'cancel';
+
+  static const String delete = 'delete';
+  static const String update = 'update';
+  static const String add = 'add';
+
   static const String buildVersion = 'build_version';
   static const String buildDeveloper = 'build_developer';
   static const String logOut = 'log_out';

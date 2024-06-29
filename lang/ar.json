@@ -11,6 +11,13 @@
     "name_validation":"من فضلك ادخال اسم صالح",
     "dashboard": "لوحة التحكم",
     "categories": "الاقسام",
+    "all_categories":"كل الاقسام",
+    "add":"أضافة",
+    "update":"تعديل",
+    "delete":"حذف",
+    "no_categories" : "لا يوجد اقسام حاول اضافة اقسام",
+  
+    
     "products": "المنتجات",
     "users": "المستخدمين",
     "notifications": "الاشعارات",

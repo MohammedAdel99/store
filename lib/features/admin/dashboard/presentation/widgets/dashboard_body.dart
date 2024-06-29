@@ -21,9 +21,9 @@ class DashboardBody extends StatelessWidget {
         child: RefreshIndicator(
           color: context.color.textColor,
             onRefresh: () async {
-              context.read<ProductsCubit>().GetProducts();
-              await context.read<CategoriesCubit>().GetCategories();
-              await context.read<UsersCubit>().GetUsers();
+              context.read<ProductsCubit>().getTotalNumOfProducts();
+              await context.read<CategoriesCubit>().getTotalNumOfCategories();
+              await context.read<UsersCubit>().getTotalNumOfUsers();
             },
             child: ListView(children: [
               SizedBox(
