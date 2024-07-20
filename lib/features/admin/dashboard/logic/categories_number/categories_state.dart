@@ -5,8 +5,8 @@ part  'categories_state.freezed.dart';
 
 
 @freezed
-class CategoriesState with _$CategoriesState {
-  const factory CategoriesState.loading() = Loading;
-  const factory CategoriesState.success(List<CategoryResponse> categories) = Success;
-  const factory CategoriesState.error(ErrorHandler errorHandler) = Error;
+class GetCategoriesState with _$GetCategoriesState {
+  const factory GetCategoriesState.loading() = Loading;
+  const factory GetCategoriesState.success(List<CategoryResponse> categories) = Success;
+  const factory GetCategoriesState.error(ErrorHandler errorHandler) = Error;
 }

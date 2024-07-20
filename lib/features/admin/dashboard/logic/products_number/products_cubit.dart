@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:store/features/admin/dashboard/logic/products_number/products_state.dart';
-import 'package:store/features/admin/dashboard/data/repositories/dashboard_repository.dart';
+import 'package:store/features/admin/dashboard/data/repository/dashboard_repository.dart';
 
 
 
@@ -20,9 +20,9 @@ class ProductsCubit extends Cubit<ProductsState> {
 
 
 
-  void GetProducts() async {
+  void getTotalNumOfProducts() async {
     emit(ProductsState.loading());
-    final response = await dashboardRepository.getProducts();
+    final response = await dashboardRepository.getTotalNumOfProducts();
 
   
     

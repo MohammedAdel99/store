@@ -9,11 +9,15 @@ import 'package:store/features/auth/signUp/logic/cubit/signup_cubit.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store/features/auth/login/data/repositories/login_repository.dart';
 import 'package:store/features/admin/dashboard/logic/users_number/users_cubit.dart';
+import 'package:store/features/admin/add_categories/logic/get/categories_cubit.dart';
 import 'package:store/features/auth/signUp/data/repositories/signup_repository.dart';
 import 'package:store/features/admin/dashboard/logic/products_number/products_cubit.dart';
-import 'package:store/features/admin/dashboard/data/repositories/dashboard_repository.dart';
+import 'package:store/features/admin/dashboard/data/repository/dashboard_repository.dart';
+import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
 import 'package:store/features/admin/dashboard/logic/categories_number/categories_cubit.dart';
+import 'package:store/features/admin/add_categories/data/repository/categories_repository.dart';
 import 'package:store/core/app/upload_image/upload_image_repository.dart/upload_image_repo.dart';
+
 
 final getIt = GetIt.instance;
 
@@ -35,11 +39,14 @@ Future<void> setupGetIt() async {
       .registerLazySingleton<SignupRepository>(() => SignupRepository(getIt()));
   getIt..registerFactory<SignupCubit>(() => SignupCubit(getIt()));
   //dashboard
-  getIt
-    ..registerLazySingleton<DashboardRepository>(
-      () => DashboardRepository(getIt()),
-    );
+  getIt..registerLazySingleton<DashboardRepository>(() => DashboardRepository(getIt()),);
   getIt..registerFactory<ProductsCubit>(() => ProductsCubit(getIt()));
-  getIt..registerFactory<CategoriesCubit>(() => CategoriesCubit(getIt()));
+  getIt..registerFactory<GetCategoriesCubit>(() => GetCategoriesCubit(getIt()));
   getIt..registerFactory<UsersCubit>(() => UsersCubit(getIt()));
+  // Add_categories
+  getIt..registerLazySingleton<CategoriesRepository>(() => CategoriesRepository(getIt()));
+  getIt..registerFactory<CategoriesCubit>(() => CategoriesCubit(getIt()));
+  getIt..registerFactory<CreateCategoryCubit>(() => CreateCategoryCubit(getIt()));
+ 
+ 
 }

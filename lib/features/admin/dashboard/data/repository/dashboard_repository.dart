@@ -13,9 +13,9 @@ class DashboardRepository {
      this.apiService,
   );
    //getAllProducts
-  Future<ApiResult<List<ProductResponse>>> getProducts() async{
+  Future<ApiResult<List<ProductResponse>>> getTotalNumOfProducts() async{
     try{
-      final response = await apiService.getAllProducts();
+      final response = await apiService.getTotalNumOfProducts();
       
       return ApiResult.success(response);
     }catch(error){
@@ -23,18 +23,18 @@ class DashboardRepository {
     }
   } 
    //getAllCategories
-   Future<ApiResult<List<CategoryResponse>>> getAllCategories() async{
+   Future<ApiResult<List<CategoryResponse>>> getTotalNumOfCategories() async{
     try{
-      final response = await apiService.getAllCategories();
+      final response = await apiService.getTotalNumOfCategories();
       return ApiResult.success(response);
     }catch(error){
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
   //getAllUsers
-   Future<ApiResult<List<UserResponse>>> getAllUsers() async{
+   Future<ApiResult<List<UserResponse>>> getTotalNumOfUsers() async{
     try{
-      final response = await apiService.getAllUsers();
+      final response = await apiService.getTotalNumOfUsers();
       return ApiResult.success(response);
     }catch(error){
       return ApiResult.failure(ErrorHandler.handle(error));

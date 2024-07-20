@@ -71,7 +71,7 @@ class SignupBlocListener extends StatelessWidget {
           }, orElse: () {
             return AuthButton(
               onpreesed: () {
-                validateThenDoSignup(context);
+                validateThenSignup(context);
               },
               childButton: TextApp(
                 text: context.translate(LangKeys.signUp),
@@ -86,7 +86,7 @@ class SignupBlocListener extends StatelessWidget {
         });
   }
 
-  static void validateThenDoSignup(BuildContext context) {
+  static void validateThenSignup(BuildContext context) {
     if (!context.read<SignupCubit>().formKey.currentState!.validate() ||  context.read<UploadImageCubit>().getImageUrl.isEmpty) {
         if(context.read<UploadImageCubit>().getImageUrl.isEmpty){
           return fluttertoast(text:context.translate( LangKeys.validPickImage), state: ToastStates.Error);
@@ -96,11 +96,7 @@ class SignupBlocListener extends StatelessWidget {
           context.read<UploadImageCubit>().getImageUrl;
      
       context.read<SignupCubit>().emitSignupStates(SignUpRequest()
-          // context.read<LoginCubit>().emitLoginState(
-          //       LoginRequest(
-          //         email: context.read<SignupCubit>().emailController.text,
-          //         password: context.read<SignupCubit>().passwordController.text,
-          //       ),
+         
           );
     }
   }

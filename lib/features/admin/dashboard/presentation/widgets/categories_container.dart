@@ -15,7 +15,7 @@ class CategoriesContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: BlocBuilder<CategoriesCubit, CategoriesState>(
+      child: BlocBuilder<GetCategoriesCubit, GetCategoriesState>(
           builder: (context, state) {
         return state.when(loading: () {
           return DashboardContainer(
@@ -30,7 +30,7 @@ class CategoriesContainer extends StatelessWidget {
               number: categorylist.length,
               image: 'assets/images/admin/categories_drawer.png',
               isLoading: false);
-        }, error: (error) {
+        }, error: (errorHandler) {
           return SizedBox.shrink();
         });
       }),

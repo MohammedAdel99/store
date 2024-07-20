@@ -1,24 +1,23 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'category_response.g.dart';
+part 'create_category_response.g.dart';
 
 @JsonSerializable()
-class CategoryResponse {
+class  CreateCategoryResponse {
   int? id;
     String? name;
     String? image;
     DateTime? creationAt;
     DateTime? updatedAt;
 
-  CategoryResponse({
+  CreateCategoryResponse({
     this.id,
     this.name,
     this.image,
     this.creationAt,
     this.updatedAt,
   });
-  factory CategoryResponse.fromJson(Map<String, dynamic> json) =>
-      _$CategoryResponseFromJson(json);
+  factory CreateCategoryResponse.fromJson(Map<String, dynamic> json) =>
+      _$CreateCategoryResponseFromJson(json);
 }
-
 

@@ -12,12 +12,14 @@ class AppButton extends StatelessWidget {
     required this.child,
     this.height,
     this.width,
+    this.color,
     super.key,
   });
   final VoidCallback onPressed;
   final Widget child;
   final double? height;
   final double? width;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class AppButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),
           ),
-          color: mainBlue,
+          color:color ?? mainBlue,
         ),
         child: Center(child: child),
       ),
