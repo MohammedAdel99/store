@@ -18,7 +18,16 @@ class LangKeys {
   static const String users = 'users';
   static const String notifications = 'notifications';
   static const String logout = 'logout';
-  static const String noCategories ='no_categories';
+  static const String noCategories = 'no_categories';
+
+  static const String createCategory = 'create_category';
+  static const String categoryName = 'category_name';
+  static const String createCategorySuccessfully = 'create_category_successfully';
+  static const String createCategoryFailed = 'create_category_failed';
+  
+  static const String addPhoto = 'add_photo';
+  static const String enterCategoryName = 'Enter the category name';
+  static const String createNewCategory = 'create a new category';
 
   static const String welcome = 'welcome';
   static const String email = 'your_email';
@@ -57,7 +66,7 @@ class LangKeys {
   static const String no = 'no';
   static const String darkMode = 'dark_mode';
   static const String langCode = 'lang_code';
-  
+
   static const String subscribedToNotifications = 'subscribed_to_notifications';
   static const String unsubscribedToNotifications =
       'unsubscribed_to_notifications';

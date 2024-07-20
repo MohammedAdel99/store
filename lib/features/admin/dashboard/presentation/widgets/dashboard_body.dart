@@ -22,7 +22,7 @@ class DashboardBody extends StatelessWidget {
           color: context.color.textColor,
             onRefresh: () async {
               context.read<ProductsCubit>().getTotalNumOfProducts();
-              await context.read<CategoriesCubit>().getTotalNumOfCategories();
+              await context.read<GetCategoriesCubit>().getTotalNumOfCategories();
               await context.read<UsersCubit>().getTotalNumOfUsers();
             },
             child: ListView(children: [

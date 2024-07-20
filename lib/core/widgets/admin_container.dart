@@ -5,8 +5,8 @@ import 'package:store/core/theming/colors/colors.light.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 
 
-class CustomContainerAdmin extends StatelessWidget {
-  const CustomContainerAdmin({this.height,
+class ContainerAdmin extends StatelessWidget {
+  const ContainerAdmin({this.height,
     this.width,
     required this.child,
     super.key,
@@ -19,6 +19,7 @@ class CustomContainerAdmin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      
 
       padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
       margin: EdgeInsets.all(0),
@@ -26,7 +27,8 @@ class CustomContainerAdmin extends StatelessWidget {
       height: height ?? 170.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-       color: context.color.containerShadow1!.withOpacity(0.8)
+       color: context.color.containerShadow1!.withOpacity(0.8),
+       
        
       ),
       child: child,

@@ -20,7 +20,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
   Future<void> upload() async {
     final pickerImage = await PickImage().pickImage();
     if (pickerImage == null) return;
-    emit(UploadImageState.ladding());
+    emit(UploadImageState.loadding());
     final result = await uploadImageRepository.upload(imagefile: pickerImage);
     result.when(success: (image) {
       getImageUrl = image.location ?? '';

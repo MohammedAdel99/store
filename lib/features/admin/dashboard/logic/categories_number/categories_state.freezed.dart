@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CategoriesState {
+mixin _$GetCategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
@@ -63,16 +63,16 @@ mixin _$CategoriesState {
 }
 
 /// @nodoc
-abstract class $CategoriesStateCopyWith<$Res> {
-  factory $CategoriesStateCopyWith(
-          CategoriesState value, $Res Function(CategoriesState) then) =
-      _$CategoriesStateCopyWithImpl<$Res, CategoriesState>;
+abstract class $GetCategoriesStateCopyWith<$Res> {
+  factory $GetCategoriesStateCopyWith(
+          GetCategoriesState value, $Res Function(GetCategoriesState) then) =
+      _$GetCategoriesStateCopyWithImpl<$Res, GetCategoriesState>;
 }
 
 /// @nodoc
-class _$CategoriesStateCopyWithImpl<$Res, $Val extends CategoriesState>
-    implements $CategoriesStateCopyWith<$Res> {
-  _$CategoriesStateCopyWithImpl(this._value, this._then);
+class _$GetCategoriesStateCopyWithImpl<$Res, $Val extends GetCategoriesState>
+    implements $GetCategoriesStateCopyWith<$Res> {
+  _$GetCategoriesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,7 +89,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$GetCategoriesStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -103,7 +103,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'CategoriesState.loading()';
+    return 'GetCategoriesState.loading()';
   }
 
   @override
@@ -184,7 +184,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements CategoriesState {
+abstract class Loading implements GetCategoriesState {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -199,7 +199,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$GetCategoriesStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -235,7 +235,7 @@ class _$SuccessImpl implements Success {
 
   @override
   String toString() {
-    return 'CategoriesState.success(categories: $categories)';
+    return 'GetCategoriesState.success(categories: $categories)';
   }
 
   @override
@@ -326,7 +326,7 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements CategoriesState {
+abstract class Success implements GetCategoriesState {
   const factory Success(final List<CategoryResponse> categories) =
       _$SuccessImpl;
 
@@ -347,7 +347,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$GetCategoriesStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -377,7 +377,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'CategoriesState.error(errorHandler: $errorHandler)';
+    return 'GetCategoriesState.error(errorHandler: $errorHandler)';
   }
 
   @override
@@ -467,7 +467,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements CategoriesState {
+abstract class Error implements GetCategoriesState {
   const factory Error(final ErrorHandler errorHandler) = _$ErrorImpl;
 
   ErrorHandler get errorHandler;

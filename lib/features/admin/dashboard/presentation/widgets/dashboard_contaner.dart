@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:store/core/theming/styles.dart';
 import 'package:store/core/widgets/shimmer.dart';
 import 'package:store/core/widgets/app_text.dart';
+import 'package:store/core/widgets/admin_container.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/core/widgets/admin_custom_container_linear.dart';
 
 
 
@@ -27,7 +27,7 @@ class DashboardContainer extends StatelessWidget {
        return
           
         
-          CustomContainerAdmin(
+          ContainerAdmin(
             height: 150.h,
              width: double.infinity,
               child:Padding(

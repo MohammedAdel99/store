@@ -24,6 +24,14 @@
     "your_email": "Your Email",
     "password": "Password",
     "no_categories" : "Thare are no Categories, try to add a new category",
+    "create_category": "Create Category",
+    "category_name": "Category Name",
+    "create_category_successfully": "successfully create category",
+    "create_category_failed": "Failed Create Category",
+
+    "add_photo": "Add a photo",
+    "Enter the category name" : "Enter the category name",
+    "create a new category" : "Create a new category",
   
     "logged_successfully": "You have been logged in successfully",
     "logged_error":"There was an error logging in. Try again",

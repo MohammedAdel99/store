@@ -4,16 +4,22 @@ import 'package:store/core/widgets/app_toast.dart';
 import 'package:store/core/helpers/image_picker.dart';
 import 'package:store/core/animations/animate_do.dart';
 import 'package:store/core/localization/lang_keys.dart';
-import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:store/core/helpers/images/image_helper.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/features/auth/signUp/logic/cubit/signup_cubit.dart';
-import 'package:store/core/app/upload_image/cubit/upload_image_state.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
+import 'package:store/core/app/upload_image/cubit/upload_image_state.dart';
+
 
 class UserAvaterImage extends StatelessWidget {
-  const UserAvaterImage({super.key});
+  const UserAvaterImage({
+    Key? key,
+  
+  }) : super(key: key);
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +34,7 @@ class UserAvaterImage extends StatelessWidget {
                   state.whenOrNull(
                     sucess: () {
                       return fluttertoast(
-                          text: context.translate( LangKeys.imageUploaded),
+                          text: context.translate(LangKeys.imageUploaded),
                           state: ToastStates.Success);
                     },
                     removeImage: (removeImage) {
@@ -45,7 +51,7 @@ class UserAvaterImage extends StatelessWidget {
                   final isImageUploaded =
                       context.read<UploadImageCubit>().getImageUrl.isNotEmpty;
                   return state.maybeWhen(
-                    ladding: () {
+                    loadding: () {
                       return CircleAvatar(
                         backgroundImage: AssetImage(AppImages.userAvatar),
                         radius: 38,
@@ -57,7 +63,6 @@ class UserAvaterImage extends StatelessWidget {
                       );
                     },
                     orElse: () {
-                     
                       return CircleAvatar(
                           backgroundImage: isImageUploaded
                               ? NetworkImage(context
@@ -65,7 +70,8 @@ class UserAvaterImage extends StatelessWidget {
                                   .getImageUrl) as ImageProvider
                               : const AssetImage(AppImages.userAvatar),
                           radius: 38,
-                          backgroundColor: context.color.textColor!.withOpacity(0.1),
+                          backgroundColor:
+                              context.color.textColor!.withOpacity(0.1),
                           child: Stack(
                             alignment: AlignmentDirectional.center,
                             children: [
@@ -91,9 +97,7 @@ class UserAvaterImage extends StatelessWidget {
                                 height: 100.h,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color:
-                                      Colors.grey.withOpacity(0.1),
-                                     
+                                  color: Colors.grey.withOpacity(0.1),
                                 ),
                               ),
                               if (isImageUploaded)
@@ -103,7 +107,8 @@ class UserAvaterImage extends StatelessWidget {
                                     onPressed: () {
                                       context.read<UploadImageCubit>().upload();
                                     },
-                                    icon: Icon(Icons.add_a_photo,color:Colors.white))
+                                    icon: Icon(Icons.add_a_photo,
+                                        color: Colors.white))
                             ],
                           ));
                     },

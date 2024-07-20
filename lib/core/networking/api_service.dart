@@ -10,6 +10,8 @@ import 'package:store/features/admin/dashboard/data/models/product_response.dart
 import 'package:store/features/auth/signUp/data/models/signup_response_model.dart';
 import 'package:store/features/admin/dashboard/data/models/category_response.dart';
 import 'package:store/features/admin/add_categories/data/models/get_category_response.dart';
+import 'package:store/features/admin/add_categories/data/models/create_category_request.dart';
+import 'package:store/features/admin/add_categories/data/models/create_category_response.dart';
 
 
 
@@ -39,8 +41,11 @@ abstract class ApiService {
    //(Dashboard) get Total Number of Users
    @GET(ApiConstants.getAllUsers)
    Future<List<UserResponse>> getTotalNumOfUsers ();
-   //(AddCategories) Get all Categories
+   //(Add_Categories) Get all Categories
    @GET(ApiConstants.getAllCategories)
    Future<List<GetCategoryResponse>> getAllCategories ();
+   //(Add_Categories) Create category
+   @POST(ApiConstants.getAllCategories)
+   Future<CreateCategoryResponse> createCategory(@Body() CreateCategoryRequest createCategoryRequest);
 
 }

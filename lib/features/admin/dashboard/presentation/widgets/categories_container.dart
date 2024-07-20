@@ -15,7 +15,7 @@ class CategoriesContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: BlocBuilder<CategoriesCubit, CategoriesState>(
+      child: BlocBuilder<GetCategoriesCubit, GetCategoriesState>(
           builder: (context, state) {
         return state.when(loading: () {
           return DashboardContainer(

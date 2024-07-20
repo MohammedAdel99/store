@@ -7,26 +7,26 @@ import 'package:store/features/admin/dashboard/logic/categories_number/categorie
 
 
 
-class CategoriesCubit extends Cubit<CategoriesState> {
-  CategoriesCubit(
+class GetCategoriesCubit extends Cubit<GetCategoriesState> {
+  GetCategoriesCubit(
     this.dashboardRepository,
-  ) : super(CategoriesState.loading());
+  ) : super(GetCategoriesState.loading());
   final DashboardRepository dashboardRepository;
    @override
-  void emit(CategoriesState state) {
+  void emit(GetCategoriesState state) {
     if (!isClosed) {
       super.emit(state);
     }
   }
 
   Future<void> getTotalNumOfCategories() async {
-    emit(CategoriesState.loading());
+    emit(GetCategoriesState.loading());
     final response = await dashboardRepository.getTotalNumOfCategories();
-    await response.when(success: (category) async {
-      emit(CategoriesState.
-      success(category));
+    await response.when(success: (categories) async {
+      emit(GetCategoriesState.
+      success(categories));
     }, failure: (errorHandler) {
-      emit(CategoriesState.error(errorHandler));
+      emit(GetCategoriesState.error(errorHandler));
     });
   }
 }
