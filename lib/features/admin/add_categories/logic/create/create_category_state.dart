@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:store/core/networking/api_error_handler.dart';import 'package:store/features/admin/add_categories/data/models/create_category_response.dart';
+import 'package:store/core/networking/api_error_handler.dart';
+import 'package:store/features/admin/add_categories/data/models/create/create_category_response.dart';
 
 
 part  'create_category_state.freezed.dart';

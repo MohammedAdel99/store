@@ -13,6 +13,7 @@ import 'package:store/features/admin/add_categories/logic/get/categories_cubit.d
 import 'package:store/features/auth/signUp/data/repositories/signup_repository.dart';
 import 'package:store/features/admin/dashboard/logic/products_number/products_cubit.dart';
 import 'package:store/features/admin/dashboard/data/repository/dashboard_repository.dart';
+import 'package:store/features/admin/add_categories/logic/delete/delete_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
 import 'package:store/features/admin/dashboard/logic/categories_number/categories_cubit.dart';
 import 'package:store/features/admin/add_categories/data/repository/categories_repository.dart';
@@ -47,6 +48,7 @@ Future<void> setupGetIt() async {
   getIt..registerLazySingleton<CategoriesRepository>(() => CategoriesRepository(getIt()));
   getIt..registerFactory<CategoriesCubit>(() => CategoriesCubit(getIt()));
   getIt..registerFactory<CreateCategoryCubit>(() => CreateCategoryCubit(getIt()));
+  getIt..registerFactory<DeleteCategoryCubit>(() => DeleteCategoryCubit(getIt()));
  
  
 }
