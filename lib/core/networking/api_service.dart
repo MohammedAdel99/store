@@ -9,9 +9,10 @@ import 'package:store/features/auth/signUp/data/models/signup_request_model.dart
 import 'package:store/features/admin/dashboard/data/models/product_response.dart';
 import 'package:store/features/auth/signUp/data/models/signup_response_model.dart';
 import 'package:store/features/admin/dashboard/data/models/category_response.dart';
-import 'package:store/features/admin/add_categories/data/models/get_category_response.dart';
-import 'package:store/features/admin/add_categories/data/models/create_category_request.dart';
-import 'package:store/features/admin/add_categories/data/models/create_category_response.dart';
+import 'package:store/features/admin/add_categories/data/models/get/get_category_response.dart';
+import 'package:store/features/admin/add_categories/data/models/create/create_category_request.dart';
+import 'package:store/features/admin/add_categories/data/models/create/create_category_response.dart';
+
 
 
 
@@ -32,20 +33,23 @@ abstract class ApiService {
   //(Signup)
   @POST(ApiConstants.signup)
   Future<SignUpResponse> signup(@Body() SignUpRequest signUpRequest);
-   //(Dashboard) get Total Number of Products
+   //(Dashboard) => get Total Number of Products
    @GET(ApiConstants.getAllProducts)
    Future<List<ProductResponse>> getTotalNumOfProducts ();
-   //(Dashboard) get Total Number of Categories
+   //(Dashboard) => get Total Number of Categories
    @GET(ApiConstants.getAllCategories)
    Future<List<CategoryResponse>> getTotalNumOfCategories ();
-   //(Dashboard) get Total Number of Users
+   //(Dashboard) => get Total Number of Users
    @GET(ApiConstants.getAllUsers)
    Future<List<UserResponse>> getTotalNumOfUsers ();
-   //(Add_Categories) Get all Categories
+   //(Add_Categories) =>Get all Categories
    @GET(ApiConstants.getAllCategories)
    Future<List<GetCategoryResponse>> getAllCategories ();
-   //(Add_Categories) Create category
+   //(Add_Categories) => Create category
    @POST(ApiConstants.getAllCategories)
    Future<CreateCategoryResponse> createCategory(@Body() CreateCategoryRequest createCategoryRequest);
+   //(Add_Categories) => Delete category
+   @POST(ApiConstants.graphql )
+   Future<void> deleteCategory(@Body() Map<String, dynamic> mutation);
 
 }

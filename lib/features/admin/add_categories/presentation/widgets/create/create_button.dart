@@ -11,9 +11,11 @@ import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/widgets/auth_login_signup_button.dart';
 import 'package:store/features/auth/login/logic/cubit/login_state.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
+import 'package:store/features/admin/add_categories/logic/get/categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_state.dart';
-import 'package:store/features/admin/add_categories/data/models/create_category_request.dart';
+import 'package:store/features/admin/add_categories/data/models/create/create_category_request.dart';
+
 
 class CreateCategoryBlocListener extends StatelessWidget {
   const CreateCategoryBlocListener({super.key});
@@ -26,6 +28,7 @@ class CreateCategoryBlocListener extends StatelessWidget {
         listener: (context, state) {
           state.whenOrNull(
             createCategorySuccess: (CreateCategoriesResponse) {
+               context.read<CategoriesCubit>()..getCategories();
               return fluttertoast(
                   text: context.translate(LangKeys.createCategorySuccessfully),
                   state: ToastStates.Success);

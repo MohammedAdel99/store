@@ -1,14 +1,15 @@
 bool isLoggedInUser = false;
 
 class ApiConstants {
-  static const String apiBaseurl = 'https://api.escuelajs.co/api/v1/';
-  static const String login = 'auth/login';
-  static const String profile = 'auth/profile';
-  static const String upload = 'files/upload';
-  static const String signup = 'users/';
-  static const String getAllProducts = 'products/';
-  static const String getAllCategories = 'categories/';
-  static const String getAllUsers = 'users/';
+  static const String apiBaseurl = 'https://api.escuelajs.co/';
+  static const String login = 'api/v1/auth/login';
+  static const String profile = 'api/v1/auth/profile';
+  static const String upload = 'api/v1/files/upload';
+  static const String signup = 'api/v1/users/';
+  static const String getAllProducts = 'api/v1/products/';
+  static const String getAllCategories = 'api/v1/categories/';
+  static const String getAllUsers = 'api/v1/users/';
+  static const String graphql = 'graphql';
 }
 
 class ApiErrors {

@@ -12,6 +12,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:store/features/admin/add_categories/logic/get/categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/get/categories_state.dart';
 import 'package:store/features/admin/dashboard/presentation/widgets/categories_container.dart';
+import 'package:store/features/admin/add_categories/presentation/widgets/delete/delete_category.dart';
 
 
 
@@ -79,12 +80,7 @@ class CategoriesBlocBuilder extends StatelessWidget {
                                 theme: TextStyles.font20BoldWhite
                                     .copyWith(color: context.color.textColor)),
                             Row(children: [
-                              IconButton(
-                                  icon: Icon(
-                                    Icons.delete,
-                                    color: Colors.red,
-                                  ),
-                                  onPressed: () {}),
+                              DeleteCategory(categoryId: categoryList[index].id.toString()),
                               SizedBox(
                                 width: 10.w,
                               ),
