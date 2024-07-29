@@ -5,20 +5,21 @@ import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/widgets/app_toast.dart';
 import 'package:store/core/widgets/app_button.dart';
 import 'package:store/core/localization/lang_keys.dart';
+import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/widgets/auth_login_signup_button.dart';
 import 'package:store/features/auth/login/logic/cubit/login_state.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
-import 'package:store/features/admin/add_categories/logic/get/categories_cubit.dart';
+import 'package:store/features/admin/add_categories/logic/get/get_all_categories_state.dart';
+import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_state.dart';
 import 'package:store/features/admin/add_categories/data/models/create/create_category_request.dart';
 
-
 class CreateCategoryBlocListener extends StatelessWidget {
-  const CreateCategoryBlocListener({super.key});
+  const CreateCategoryBlocListener();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,9 @@ class CreateCategoryBlocListener extends StatelessWidget {
         listener: (context, state) {
           state.whenOrNull(
             createCategorySuccess: (CreateCategoriesResponse) {
-               context.read<CategoriesCubit>()..getCategories();
+               context.pop();
+             
+             
               return fluttertoast(
                   text: context.translate(LangKeys.createCategorySuccessfully),
                   state: ToastStates.Success);
@@ -42,9 +45,12 @@ class CreateCategoryBlocListener extends StatelessWidget {
         },
         builder: (context, state) {
           return state.maybeWhen(createCategoryLoading: () {
-            return AuthButton(
-                onpreesed: () {},
-                childButton: CircularProgressIndicator(color: mainBlue));
+            return AppButton(
+                height: 60.h,
+                width: double.infinity,
+                onPressed: () {},
+                color: Colors.white,
+                child: CircularProgressIndicator(color: mainBlue));
           }, orElse: () {
             return AppButton(
                 height: 60.h,
@@ -60,8 +66,8 @@ class CreateCategoryBlocListener extends StatelessWidget {
           });
         });
   }
- 
- // ValidateThenCreateCategory
+
+  // ValidateThenCreateCategory
   static void validateThenCreateCategory(BuildContext context) {
     if (!context.read<CreateCategoryCubit>().formKey.currentState!.validate() ||
         context.read<UploadImageCubit>().getImageUrl.isEmpty) {
@@ -73,9 +79,7 @@ class CreateCategoryBlocListener extends StatelessWidget {
     } else {
       context.read<CreateCategoryCubit>().imageUrl =
           context.read<UploadImageCubit>().getImageUrl;
-      CreateCategoryRequest(
-       
-      );
+      CreateCategoryRequest();
       context
           .read<CreateCategoryCubit>()
           .createCategory(CreateCategoryRequest());

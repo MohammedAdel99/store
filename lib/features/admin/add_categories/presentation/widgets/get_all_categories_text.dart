@@ -10,14 +10,15 @@ import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
+import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
-import 'package:store/features/admin/add_categories/presentation/widgets/create/create_body.dart';
+import 'package:store/features/admin/add_categories/presentation/widgets/create/create_category_bottom_sheet_content.dart';
 
 
 
 
-class GetAllCategoriesText extends StatelessWidget {
-  const GetAllCategoriesText({super.key});
+class AllCategoryTextAndAddCategoryButton extends StatelessWidget {
+  const  AllCategoryTextAndAddCategoryButton ({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +41,16 @@ class GetAllCategoriesText extends StatelessWidget {
                         BlocProvider(
                             create: (context) => getIt<UploadImageCubit>()),
                         BlocProvider(
-                            create: (context) => getIt<CreateCategoryCubit>()
-                              )
-                      ], child: CreateBody()));
+                            create: (context) => getIt<CreateCategoryCubit>()),
+                        
+                              
+                      ], child: CreateCategoryBottomSheetContent()),
+                      whenComplete: (){
+                         context.read<GetAllCategoriesCubit>()..getAllCategories();
+
+                      }
+                      );
+                      
                 },
                 child: TextApp(
                   text: context.translate(LangKeys.add),

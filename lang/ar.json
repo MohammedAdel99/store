@@ -17,12 +17,13 @@
     "delete":"حذف",
     "no_categories" : "لا يوجد اقسام حاول اضافة اقسام",
     "create_category": "أنشاء قسم",
+    "update_category": "تعديل قسم",
     "category_name": "اسم القسم",
     "create_category_successfully": "تم انشاء قسم بنجاح",
     "create_category_failed": "فشل انشاء قسم",
     "add_photo": "اضف صورة",
     "Enter the category name" : "ادخل اسم القسم",
-    "create a new category" : "أنشاء قسم جديد",
+    "create_new_category" : "أنشاء قسم جديد",
   
     
     "products": "المنتجات",
@@ -54,6 +55,7 @@
     "change_to_the_language": "هل تريد تأكيد تغيير اللغة إلى اللغة الإنجليزية؟",
     "sure": "تآكيد",
     "cancel": "إلغاء",
+    "remove": "أزالة",
     "build_version": "نسخة التطبيق",
     "build_developer": "مطور التطبيق",
     "log_out": "تسجيل خروج",

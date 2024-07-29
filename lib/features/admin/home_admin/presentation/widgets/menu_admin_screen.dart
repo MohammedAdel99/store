@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/widgets/admin_appbar.dart';
 import 'package:store/core/localization/lang_keys.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/features/admin/home_admin/presentation/widgets/admin_drawer_list.dart';
@@ -22,19 +23,25 @@ class MenuAdminScreen extends StatelessWidget {
           title: context.translate(LangKeys.appName),
           
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-          children:
-           
-           adminDrawerList(context)
-              .map((e) => ListTile(
-                  onTap: () {
-                    onPageChanged(e.page);
-                  },
-                  title: e.title,
-                  leading: e.icon))
-              .toList(),
-        ));
+        body:
+            SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              
+                children:
+                
+                 
+                 adminDrawerList(context)
+                    .map((e) => ListTile(
+                        onTap: () {
+                          onPageChanged(e.page);
+                        },
+                        title: e.title,
+                        leading: e.icon)).toList()
+                    ,
+             ),
+            ),
+          
+        );
   }
 }

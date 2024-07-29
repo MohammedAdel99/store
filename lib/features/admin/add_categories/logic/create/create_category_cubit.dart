@@ -4,36 +4,31 @@ import 'package:store/features/admin/add_categories/logic/create/create_category
 import 'package:store/features/admin/add_categories/data/repository/categories_repository.dart';
 import 'package:store/features/admin/add_categories/data/models/create/create_category_request.dart';
 
-
-
-
-
-
 class CreateCategoryCubit extends Cubit<CreateCategoryState> {
   CreateCategoryCubit(this.categoriesRepository)
-      : super(CreateCategoryState.createCategoryInitial() );
+      : super(CreateCategoryState.createCategoryInitial());
   final CategoriesRepository categoriesRepository;
   @override
   void emit(CreateCategoryState state) {
     if (!isClosed) {
       super.emit(state);
     }
-  
   }
+
   final formKey = GlobalKey<FormState>();
   TextEditingController categoryNameController = TextEditingController();
   String? imageUrl;
-  
 
   // Create Category
-  Future<void> createCategory(CreateCategoryRequest createCategoryRequest) async {
-    
-    final response = await categoriesRepository.createCategory(CreateCategoryRequest(
-      name: categoryNameController.text ,image: imageUrl));
+  Future<void> createCategory(
+      CreateCategoryRequest createCategoryRequest) async {
+    emit(CreateCategoryState.createCategoryLoading());
+
+    final response = await categoriesRepository.createCategory(
+        CreateCategoryRequest(
+            name: categoryNameController.text, image: imageUrl));
     await response.when(success: (createCategoryResponse) async {
-      
-        emit(CreateCategoryState.createCategorySuccess(createCategoryResponse));
-     
+      emit(CreateCategoryState.createCategorySuccess(createCategoryResponse));
     }, failure: (errorHandler) {
       emit(CreateCategoryState.createCategoryError(errorHandler));
     });

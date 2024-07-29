@@ -38,7 +38,7 @@ class DashboardContainer extends StatelessWidget {
                   Column(
                     children: [
                       TextApp(text: context.translate(title), theme: TextStyles.font24BoldWhite.copyWith(color: context.color.textColor)),
-                      SizedBox(height: 15.h,),
+                      Spacer(),
                       if(isLoading)
                       LoadingShimmer(height: 30.h,width: 100.w,)
                       else
