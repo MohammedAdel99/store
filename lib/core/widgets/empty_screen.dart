@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/theming/styles.dart';
-import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
+
+
 
 class EmptyScreen extends StatelessWidget {
   const EmptyScreen({super.key});

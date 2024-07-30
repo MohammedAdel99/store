@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store/core/theming/colors/colors_dark.dart';
-import 'package:store/core/theming/colors/colors.light.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
+
 
 
 class ContainerAdmin extends StatelessWidget {
@@ -21,10 +20,10 @@ class ContainerAdmin extends StatelessWidget {
     return Container(
       
 
-      padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-      margin: EdgeInsets.all(0),
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
+      
       width: width ?? double.infinity,
-      height: height ?? 170.h,
+      height: height ?? 130.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
        color: context.color.containerShadow1!.withOpacity(0.8),

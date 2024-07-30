@@ -6,11 +6,12 @@ import 'package:store/core/di/dependence_injection.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/features/admin/add_categories/logic/get/categories_cubit.dart';
+import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/delete/delete_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
+import 'package:store/features/admin/add_categories/presentation/widgets/get/get_list_category.dart';
 import 'package:store/features/admin/add_categories/presentation/widgets/get_all_categories_text.dart';
-import 'package:store/features/admin/add_categories/presentation/widgets/get/categories_bloc_builder.dart';
+
 
 
 
@@ -23,30 +24,39 @@ class AddCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
           
-            BlocProvider( create: (context) => getIt<CategoriesCubit>()..getCategories()),
+            BlocProvider( create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories()),
             BlocProvider(create: (context) => getIt<DeleteCategoryCubit>()),
+         
+          
             
     ],
      
-          child: Scaffold(
-            backgroundColor: context.color.mainColor,
-            appBar: AdminAppBar(
-              isMain: true,
-              background: context.color.mainColor ?? ColorsDark.mainColor,
-              title: context.translate(LangKeys.categories),
-            ),
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-              child: Column(
-                children: [
-                  GetAllCategoriesText(),
-                  Expanded(
-                    child: CategoriesBlocBuilder(),
+         
+            
+              child: 
+              Scaffold(
+                backgroundColor: context.color.mainColor,
+                appBar: AdminAppBar(
+                  isMain: true,
+                  background: context.color.mainColor ?? ColorsDark.mainColor,
+                  title: context.translate(LangKeys.categories),
+                ),
+                body:
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                    child: Column(
+                      children: [
+                         AllCategoryTextAndAddCategoryButton (),
+                        Expanded(
+                          child: GetListCategory(),
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
-            ),
-          ),
-        );
+                ),
+              
+            
+          
+      );
   }
 }

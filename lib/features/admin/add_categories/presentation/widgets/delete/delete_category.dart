@@ -4,7 +4,7 @@ import 'package:store/core/widgets/app_toast.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/features/admin/add_categories/logic/get/categories_cubit.dart';
+import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/delete/delete_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/delete/delete_category_state.dart';
 import 'package:store/features/admin/dashboard/logic/categories_number/categories_cubit.dart';
@@ -24,16 +24,16 @@ class DeleteCategory extends StatelessWidget {
           listener: (context, state) {
             state.whenOrNull(
               deleteCategorySuccess: () {
-                context.read<CategoriesCubit>()..getCategories();
+                context.read<GetAllCategoriesCubit>()..getAllCategories();
                 return fluttertoast(
                     text:
-                        context.translate(LangKeys.createCategorySuccessfully),
+                        context.translate(LangKeys.deleteCategorySuccessfully),
                     state: ToastStates.Success);
               },
               deleteCategoryError: (errorHandler) {
                 return fluttertoast(
                     text:
-                        context.translate(LangKeys.createCategorySuccessfully),
+                        context.translate(LangKeys.deleteCategorySuccessfully),
                     state: ToastStates.Error);
               },
             );

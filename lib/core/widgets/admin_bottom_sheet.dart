@@ -27,7 +27,7 @@ class AdminBottomSheet {
                 bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
+                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
                 child: widget,
               ),
             ),

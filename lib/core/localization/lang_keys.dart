@@ -21,13 +21,19 @@ class LangKeys {
   static const String noCategories = 'no_categories';
 
   static const String createCategory = 'create_category';
+  static const String updateCategory = 'update_category';
   static const String categoryName = 'category_name';
   static const String createCategorySuccessfully = 'create_category_successfully';
   static const String createCategoryFailed = 'create_category_failed';
+   static const String deleteCategorySuccessfully = 'delete_category_successfully';
+  static const String deleteCategoryFailed = 'delete_category_failed';
+  static const String updateCategorySuccessfully = 'update_category_successfully';
+  static const String updateCategoryFailed = 'update_category_failed';
   
-  static const String addPhoto = 'add_photo';
+  static const String addImage = 'add_image';
   static const String enterCategoryName = 'Enter the category name';
-  static const String createNewCategory = 'create a new category';
+  static const String createNewCategory = 'create_new_category';
+  static const String updateThisCategory = 'update_this_category';
 
   static const String welcome = 'welcome';
   static const String email = 'your_email';
@@ -53,6 +59,7 @@ class LangKeys {
   static const String changeToTheLanguage = 'change_to_the_language';
   static const String sure = 'sure';
   static const String cancel = 'cancel';
+  static const String remove = 'remove';
 
   static const String delete = 'delete';
   static const String update = 'update';

@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_category_response.dart';
+part of 'get_all_categories_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetCategoryResponse _$GetCategoryResponseFromJson(Map<String, dynamic> json) =>
-    GetCategoryResponse(
+GetAllCategoryResponse _$GetAllCategoryResponseFromJson(
+        Map<String, dynamic> json) =>
+    GetAllCategoryResponse(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       image: json['image'] as String?,
@@ -19,8 +20,8 @@ GetCategoryResponse _$GetCategoryResponseFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$GetCategoryResponseToJson(
-        GetCategoryResponse instance) =>
+Map<String, dynamic> _$GetAllCategoryResponseToJson(
+        GetAllCategoryResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
