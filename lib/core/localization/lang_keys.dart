@@ -13,7 +13,9 @@ class LangKeys {
   static const String nameValidation = 'name_validation';
   static const String dashboard = 'dashboard';
   static const String categories = 'categories';
-  static const String allCategories = 'all_categories';
+  static const String getAllCategories = 'get_all_categories';
+  static const String getAllProducts = 'get_all_products';
+  static const String getAllUsers = 'get_all_users';
   static const String products = 'products';
   static const String users = 'users';
   static const String notifications = 'notifications';

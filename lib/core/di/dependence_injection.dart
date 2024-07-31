@@ -10,12 +10,14 @@ import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store/features/auth/login/data/repositories/login_repository.dart';
 import 'package:store/features/admin/dashboard/logic/users_number/users_cubit.dart';
 import 'package:store/features/auth/signUp/data/repositories/signup_repository.dart';
+import 'package:store/features/admin/add_products/logic/get/get_all_products_cubit.dart';
 import 'package:store/features/admin/dashboard/logic/products_number/products_cubit.dart';
 import 'package:store/features/admin/dashboard/data/repository/dashboard_repository.dart';
 import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/update/update_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/delete/delete_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
+import 'package:store/features/admin/add_products/data/repositories/products_repository.dart';
 import 'package:store/features/admin/dashboard/logic/categories_number/categories_cubit.dart';
 import 'package:store/features/admin/add_categories/data/repository/categories_repository.dart';
 import 'package:store/core/app/upload_image/upload_image_repository.dart/upload_image_repo.dart';
@@ -52,6 +54,8 @@ Future<void> setupGetIt() async {
   getIt..registerFactory<CreateCategoryCubit>(() => CreateCategoryCubit(getIt()));
   getIt..registerFactory<DeleteCategoryCubit>(() => DeleteCategoryCubit(getIt()));
   getIt..registerFactory<UpdateCategoryCubit>(() => UpdateCategoryCubit(getIt()));
- 
+  // Admin_products
+  getIt..registerLazySingleton<ProductsRepository>(() => ProductsRepository(getIt()));
+  getIt..registerFactory<GetAllProductsCubit>(() => GetAllProductsCubit(getIt()));
  
 }

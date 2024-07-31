@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/theming/styles.dart';
-import 'package:store/core/widgets/app_text.dart';
-import 'package:store/core/widgets/app_button.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/core/widgets/admin_bottom_sheet.dart';
-import 'package:store/core/theming/colors/colors_dark.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store/core/extensions/navigator_extension.dart';
+import 'package:store/core/widgets/admin_text_and_add_button.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
@@ -17,25 +12,13 @@ import 'package:store/features/admin/add_categories/presentation/widgets/create/
 
 
 
-class AllCategoryTextAndAddCategoryButton extends StatelessWidget {
-  const  AllCategoryTextAndAddCategoryButton ({super.key});
+class GetAllCategoryTextAndAddButton extends StatelessWidget {
+  const  GetAllCategoryTextAndAddButton ({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextApp(
-                text: context.translate(LangKeys.allCategories),
-                theme: TextStyles.font20BoldWhite.copyWith(
-                  color: mainBlue,
-                )),
-            AppButton(
-                width: 80.w,
-                onPressed: () {
-                  return AdminBottomSheet.showModalBottomSheetContainer(
+    return
+    AdminTextAndAddButton(text:LangKeys.getAllCategories , onpressed: (){ return AdminBottomSheet.showModalBottomSheetContainer(
                       context: context,
                       widget: MultiBlocProvider(providers: [
                         BlocProvider(
@@ -51,17 +34,5 @@ class AllCategoryTextAndAddCategoryButton extends StatelessWidget {
                       }
                       );
                       
-                },
-                child: TextApp(
-                  text: context.translate(LangKeys.add),
-                  theme: TextStyles.font17BoldWhite,
-                )),
-          ],
-        ),
-        SizedBox(
-          height: 15.h,
-        ),
-      ],
-    );
-  }
-}
+                });
+}}

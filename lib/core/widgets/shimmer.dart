@@ -8,17 +8,19 @@ class LoadingShimmer extends StatelessWidget {
     this.height,
     this.width,
     this.borderRadius,
+    this.child,
   });
   final double? height;
   final double? width;
   final double? borderRadius;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor:  Color(0xFFC2C2C2),
+      baseColor: context.color.containerShadow1!.withOpacity(0.8), //Color(0xFFC2C2C2),
       //Colors.grey.shade100,
-      highlightColor:Colors.white,
+      highlightColor:context.color.mainColor!, //Colors.white,
       //Colors.grey.shade600
       child: Container(
         height: height,
@@ -30,6 +32,7 @@ class LoadingShimmer extends StatelessWidget {
             Radius.circular(borderRadius ?? 14),
           ),
         ),
+        child: child?? SizedBox.shrink(),
       ),
     );
   }

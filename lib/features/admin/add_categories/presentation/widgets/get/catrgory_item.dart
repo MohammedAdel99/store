@@ -25,9 +25,14 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContainerAdmin(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+      child: 
+    
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              
+           
+      
           Container(
               width: 150.w,
               child: Column(
