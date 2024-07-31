@@ -8,6 +8,11 @@ class TextStyles  {
     fontWeight: FontWeightHelper.bold,
     color:Colors.white,
   );
+  static TextStyle font17RegularWhite = TextStyle(
+    fontSize: 17.sp,
+    fontWeight: FontWeightHelper.regular,
+    color:Colors.white,
+  );
 
   static TextStyle font20BoldWhite = TextStyle(
     fontSize: 20.sp,

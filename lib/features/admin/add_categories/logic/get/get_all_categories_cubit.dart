@@ -14,9 +14,8 @@ class GetAllCategoriesCubit extends Cubit<GetAllCategoriesState> {
     }
   }
 
-  bool imageUrlIsWrong =false;
-  TextEditingController categoryNameController = TextEditingController();
-  String? imageUrl;
+
+ 
   // Get Categories
   Future<void> getAllCategories() async {
     emit(const GetAllCategoriesState.getCategoriesLoading());

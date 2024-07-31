@@ -35,7 +35,8 @@ class StoreApp extends StatelessWidget {
             return MaterialApp(
               debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
               title: 'Flutter Demo',
-              theme:cubit.isDark?  themeDark() : themeLight(),
+              theme: themeDark(),
+              // theme:cubit.isDark?  themeDark() : themeLight(),
               locale: Locale(cubit.currantLang),
               supportedLocales: AppLocalizationsSetup.supportedLocales,
               localeResolutionCallback:

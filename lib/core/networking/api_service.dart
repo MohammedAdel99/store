@@ -9,6 +9,7 @@ import 'package:store/features/auth/signUp/data/models/signup_request_model.dart
 import 'package:store/features/admin/dashboard/data/models/product_response.dart';
 import 'package:store/features/auth/signUp/data/models/signup_response_model.dart';
 import 'package:store/features/admin/dashboard/data/models/category_response.dart';
+import 'package:store/features/admin/add_products/data/models/get/get_all_products_response.dart';
 import 'package:store/features/admin/add_categories/data/models/update/update_category_request.dart';
 import 'package:store/features/admin/add_categories/data/models/create/create_category_request.dart';
 import 'package:store/features/admin/add_categories/data/models/get/get_all_categories_response.dart';
@@ -51,7 +52,10 @@ abstract class ApiService {
   //(Add_Categories) => Delete category
   @POST(ApiConstants.graphql)
   Future<void> deleteCategory(@Body() Map<String, dynamic> mutation);
+  //(Add_Categories) => Update category
   @PUT('${ApiConstants.getAllCategories}{id}')
   Future<void> updateCategory(@Path('id') String CategoryId,
       @Body() UpdateCategoryRequest updateCategoryRequest);
+  @GET(ApiConstants.getAllProducts)
+  Future<List<GetProductResponse>> getAllProducts();    
 }
