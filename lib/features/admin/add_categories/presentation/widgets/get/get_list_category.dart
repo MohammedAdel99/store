@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/get/get_all_categories_state.dart';
 import 'package:store/features/admin/add_categories/presentation/widgets/get/catrgory_item.dart';
-import 'package:store/features/admin/add_categories/data/models/get/get_all_categories_response.dart';
 
 class GetListCategory extends StatelessWidget {
   const GetListCategory({super.key});
@@ -48,11 +47,11 @@ class GetListCategory extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return CategoryItem(
-                        nameCategory:
+                        categoryName:
                             categoryList[index].name ?? '1',
-                        imageCategory:
+                        categoryImage:
                             categoryList[index].image ?? '',
-                        idCategory:
+                        categoryId:
                            categoryList[index].id.toString());
                   },
                   clipBehavior: Clip.none,

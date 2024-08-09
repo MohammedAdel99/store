@@ -2,6 +2,7 @@ import 'package:store/core/networking/api_result.dart';
 import 'package:store/core/networking/api_service.dart';
 import 'package:store/core/networking/api_error_handler.dart';
 import 'package:store/features/admin/add_products/data/models/create/create_product_request.dart';
+import 'package:store/features/admin/add_products/data/models/delete/delete_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/get/get_all_products_response.dart';
 import 'package:store/features/admin/add_products/data/models/create/create_product_response.dart';
 
@@ -31,4 +32,16 @@ class ProductsRepository {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  //Delete Category
+  Future<ApiResult<void>> deleteProduct({required String productId}) async {
+    try {
+      final response = await apiService.deleteProduct(
+          ProductsQueries().deleteMapQuery(productId: productId));
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+  
 }

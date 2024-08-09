@@ -63,5 +63,8 @@ abstract class ApiService {
   //(Add_Products) => Create Product
   @POST(ApiConstants.getAllProducts)
   Future<CreateProductResponse> createProduct(
-      @Body() CreateProductRequest createProductRequest);    
+      @Body() CreateProductRequest createProductRequest);  
+    //(Add_Categories) => Delete category
+  @POST(ApiConstants.graphql)
+  Future<void> deleteProduct(@Body() Map<String, dynamic> mutation);      
 }

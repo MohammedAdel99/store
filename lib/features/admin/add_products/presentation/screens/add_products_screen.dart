@@ -7,6 +7,7 @@ import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/features/admin/add_products/logic/get/get_all_products_cubit.dart';
+import 'package:store/features/admin/add_products/logic/delete/delete_product_cubit.dart';
 import 'package:store/features/admin/add_products/logic/create/create_product_cubit.dart';
 import 'package:store/features/admin/add_products/presentation/widgets/get/get_list_product.dart';
 import 'package:store/features/admin/add_categories/presentation/widgets/get/get_list_category.dart';
@@ -20,7 +21,7 @@ class AddProductsScreen extends StatelessWidget {
     return MultiBlocProvider(providers: [
           
             BlocProvider( create: (context) => getIt<GetAllProductsCubit>()..getAllProducts()),
-            
+            BlocProvider(create: (context) => getIt<DeleteProductCubit>()),
             
          
           

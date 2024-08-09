@@ -4,8 +4,8 @@ import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/widgets/admin_container.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/features/admin/add_categories/presentation/widgets/delete/delete_category.dart';
 import 'package:store/features/admin/add_categories/presentation/widgets/update/update_category_icon.dart';
+import 'package:store/features/admin/add_categories/presentation/widgets/delete/delete_category_icon_button.dart';
 
 
 
@@ -13,12 +13,12 @@ import 'package:store/features/admin/add_categories/presentation/widgets/update/
 class CategoryItem extends StatelessWidget {
   const CategoryItem(
       {super.key,
-      required this.nameCategory,
-      required this.imageCategory,
-      required this.idCategory});
-  final String nameCategory;
-  final String imageCategory;
-  final String idCategory;
+      required this.categoryName,
+      required this.categoryImage,
+      required this.categoryId});
+  final String categoryName;
+  final String categoryImage;
+  final String categoryId;
 
 
 
@@ -40,20 +40,20 @@ class CategoryItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextApp(
-                        text: nameCategory,
+                        text: categoryName,
                         maxLines: 1,
                         textOverflow: TextOverflow.ellipsis,
                         theme: TextStyles.font20BoldWhite
                             .copyWith(color: context.color.textColor)),
                     Row(children: [
-                      DeleteCategory(categoryId: idCategory),
+                      DeleteCategoryIconButton(categoryId: categoryId),
                       SizedBox(
                         width: 10.w,
                       ),
                       UpdateCategoryIcon(
-                          nameCategory:nameCategory,
-                          imageCategory: imageCategory,
-                          idCategory:idCategory),
+                          nameCategory:categoryName,
+                          imageCategory: categoryImage,
+                          idCategory:categoryId),
                     ]),
                   ])),
           // Flexible(
@@ -78,7 +78,7 @@ class CategoryItem extends StatelessWidget {
 
          
                        Image.network(
-              imageCategory,
+              categoryImage,
               height: 150.h,
               width: 130.w,
               fit: BoxFit.fill,
