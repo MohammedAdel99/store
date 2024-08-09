@@ -11,6 +11,7 @@ import 'package:store/features/auth/login/data/repositories/login_repository.dar
 import 'package:store/features/admin/dashboard/logic/users_number/users_cubit.dart';
 import 'package:store/features/auth/signUp/data/repositories/signup_repository.dart';
 import 'package:store/features/admin/add_products/logic/get/get_all_products_cubit.dart';
+import 'package:store/features/admin/add_products/logic/create/create_product_cubit.dart';
 import 'package:store/features/admin/dashboard/logic/products_number/products_cubit.dart';
 import 'package:store/features/admin/dashboard/data/repository/dashboard_repository.dart';
 import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
@@ -57,5 +58,6 @@ Future<void> setupGetIt() async {
   // Admin_products
   getIt..registerLazySingleton<ProductsRepository>(() => ProductsRepository(getIt()));
   getIt..registerFactory<GetAllProductsCubit>(() => GetAllProductsCubit(getIt()));
+  getIt..registerFactory<CreateProductCubit>(() => CreateProductCubit(getIt()));
  
 }

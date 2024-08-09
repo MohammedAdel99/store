@@ -32,7 +32,7 @@ class UserAvaterImage extends StatelessWidget {
                 child: BlocConsumer<UploadImageCubit, UploadImageState>(
                     listener: (context, state) {
                   state.whenOrNull(
-                    sucess: () {
+                    success: () {
                       return fluttertoast(
                           text: context.translate(LangKeys.imageUploaded),
                           state: ToastStates.Success);
@@ -51,7 +51,7 @@ class UserAvaterImage extends StatelessWidget {
                   final isImageUploaded =
                       context.read<UploadImageCubit>().getImageUrl.isNotEmpty;
                   return state.maybeWhen(
-                    loadding: () {
+                    loading: () {
                       return CircleAvatar(
                         backgroundImage: AssetImage(AppImages.userAvatar),
                         radius: 38,

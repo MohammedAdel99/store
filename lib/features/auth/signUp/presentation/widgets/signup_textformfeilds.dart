@@ -49,6 +49,7 @@ class _SignUpTextFormFeildsState extends State<SignUpTextFormFeilds> {
      child: Column(
       children: [
         AppTextFormField(
+          keyboardType: TextInputType.name,
           hintText: LangKeys.fullName,
           validator: (value) {
             if (value == null ||
@@ -62,7 +63,9 @@ class _SignUpTextFormFeildsState extends State<SignUpTextFormFeilds> {
         SizedBox(
           height: 20.h,
         ),
-        AppTextFormField(hintText: LangKeys.email,
+        AppTextFormField(
+          keyboardType: TextInputType.emailAddress,
+          hintText: LangKeys.email,
         validator: (value) {
               if (value == null ||
                   value.isEmpty ||
@@ -76,6 +79,7 @@ class _SignUpTextFormFeildsState extends State<SignUpTextFormFeilds> {
           height: 25.h,
         ),
         AppTextFormField(
+          keyboardType: TextInputType.visiblePassword,
             hintText: LangKeys.password,
             controller: context.read<SignupCubit>().passwordController,
             isObscureText: isObscureText,

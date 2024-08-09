@@ -6,31 +6,34 @@ import 'package:store/core/extensions/navigator_extension.dart';
 class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final EdgeInsetsGeometry? contrntPadding;
-  final InputBorder? focusedBorder;
-  final InputBorder? enabledBorder;
-  final InputBorder? errorBorder;
-  final InputBorder? focusedErrorBorder;
+  final Color? focusedBorderColor;
+  final Color? enabledBorderColor;
+  final Color? errorBorderColor;
+  final Color? focusedErrorBorderColor;
   final String hintText;
   final TextStyle? hintStyle;
   final bool? isObscureText;
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final String? Function(String?)? validator;
+  final TextInputType keyboardType;
+  final int? maxLines;
   
   const AppTextFormField({
     Key? key,
     this.controller,
     this.contrntPadding,
-    this.focusedBorder,
-    this.enabledBorder,
-    this.errorBorder,
-    this.focusedErrorBorder,
+    this.focusedBorderColor,
+    this.enabledBorderColor,
+    this.errorBorderColor,
+    this.focusedErrorBorderColor,
     required this.hintText,
     this.hintStyle,
     this.isObscureText,
     this.suffixIcon,
     this.backgroundColor,
-    this.validator,
+    this.validator, required this.keyboardType,
+    this.maxLines
   }) : super(key: key);
 
   @override
@@ -39,35 +42,38 @@ class AppTextFormField extends StatelessWidget {
       
       
       controller: controller,
+      maxLines: maxLines??1,
+      
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         isDense: true,
         contentPadding: contrntPadding ??
             EdgeInsets.symmetric(vertical: 18.h, horizontal: 20.w),
-        focusedBorder: focusedBorder ??
+        focusedBorder: 
             OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: mainBlue,
+                  color: focusedBorderColor ?? mainBlue,
                   width: 1.3,
                 ),
                 borderRadius: BorderRadius.circular(16.r)),
-        enabledBorder: enabledBorder ??
+        enabledBorder: 
             OutlineInputBorder(
                 borderSide:BorderSide(
-                  color: Colors.grey,
+                  color: enabledBorderColor ?? Colors.grey,
                   width: 1.3,
                 ),
                 borderRadius: BorderRadius.circular(16.r)),
-        errorBorder: errorBorder ??
+        errorBorder: 
             OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: Colors.red,
+                borderSide:  BorderSide(
+                  color: errorBorderColor??Colors.red,
                   width: 1.3,
                 ),
                 borderRadius: BorderRadius.circular(16.r)),
-        focusedErrorBorder: focusedErrorBorder ??
+        focusedErrorBorder: 
             OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: Colors.red,
+                borderSide: BorderSide(
+                  color: focusedErrorBorderColor??Colors.red,
                   width: 1.3,
                 ),
                 borderRadius: BorderRadius.circular(16.r)),

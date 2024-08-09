@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/core/widgets/admin_bottom_sheet_content.dart';
+import 'package:store/core/widgets/admin_category_bottom_sheet_content.dart';
 import 'package:store/features/admin/add_categories/logic/update/update_category_cubit.dart';
 import 'package:store/features/admin/add_categories/presentation/widgets/update/update_button.dart';
 import 'package:store/features/admin/add_categories/presentation/widgets/update/update_categoy_upload_image.dart';
@@ -45,9 +45,9 @@ class _UpdateCategoryBottomSheetContentState
 
   @override
   Widget build(BuildContext context) {
-    return AdminBottomSheetContent(
+    return AdminCategoryBottomSheetContent(
         textTitle: LangKeys.updateCategory,
-        textAddImage: context.translate(LangKeys.addImage),
+        textAddImage: context.translate(LangKeys.addPhoto),
         uploadImageWidget: UpdateCategoryUploadImage(
           imageUrl:widget.imageUrl
         ),

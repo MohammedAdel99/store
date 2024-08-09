@@ -20,7 +20,7 @@ mixin _$GetAllCategoriesState {
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoriesLoading,
     required TResult Function() getCategoriesEmpty,
-    required TResult Function(List<GetAllCategoryResponse> getAllCategories)
+    required TResult Function(List<GetCategoryResponse> getAllCategory)
         getCategoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) getCategoriesError,
   }) =>
@@ -29,7 +29,7 @@ mixin _$GetAllCategoriesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoriesLoading,
     TResult? Function()? getCategoriesEmpty,
-    TResult? Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult? Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getCategoriesError,
   }) =>
@@ -38,7 +38,7 @@ mixin _$GetAllCategoriesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoriesLoading,
     TResult Function()? getCategoriesEmpty,
-    TResult Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? getCategoriesError,
     required TResult orElse(),
@@ -136,7 +136,7 @@ class _$GetAllCategoriesLoadingImpl implements GetAllCategoriesLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoriesLoading,
     required TResult Function() getCategoriesEmpty,
-    required TResult Function(List<GetAllCategoryResponse> getAllCategories)
+    required TResult Function(List<GetCategoryResponse> getAllCategory)
         getCategoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) getCategoriesError,
   }) {
@@ -148,7 +148,7 @@ class _$GetAllCategoriesLoadingImpl implements GetAllCategoriesLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoriesLoading,
     TResult? Function()? getCategoriesEmpty,
-    TResult? Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult? Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getCategoriesError,
   }) {
@@ -160,7 +160,7 @@ class _$GetAllCategoriesLoadingImpl implements GetAllCategoriesLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoriesLoading,
     TResult Function()? getCategoriesEmpty,
-    TResult Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? getCategoriesError,
     required TResult orElse(),
@@ -258,7 +258,7 @@ class _$GetAllCategoriesEmptyImpl implements GetAllCategoriesEmpty {
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoriesLoading,
     required TResult Function() getCategoriesEmpty,
-    required TResult Function(List<GetAllCategoryResponse> getAllCategories)
+    required TResult Function(List<GetCategoryResponse> getAllCategory)
         getCategoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) getCategoriesError,
   }) {
@@ -270,7 +270,7 @@ class _$GetAllCategoriesEmptyImpl implements GetAllCategoriesEmpty {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoriesLoading,
     TResult? Function()? getCategoriesEmpty,
-    TResult? Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult? Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getCategoriesError,
   }) {
@@ -282,7 +282,7 @@ class _$GetAllCategoriesEmptyImpl implements GetAllCategoriesEmpty {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoriesLoading,
     TResult Function()? getCategoriesEmpty,
-    TResult Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? getCategoriesError,
     required TResult orElse(),
@@ -344,7 +344,7 @@ abstract class _$$GetAllCategoriesSuccessImplCopyWith<$Res> {
           $Res Function(_$GetAllCategoriesSuccessImpl) then) =
       __$$GetAllCategoriesSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<GetAllCategoryResponse> getAllCategories});
+  $Res call({List<GetCategoryResponse> getAllCategory});
 }
 
 /// @nodoc
@@ -360,13 +360,13 @@ class __$$GetAllCategoriesSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? getAllCategories = null,
+    Object? getAllCategory = null,
   }) {
     return _then(_$GetAllCategoriesSuccessImpl(
-      null == getAllCategories
-          ? _value._getAllCategories
-          : getAllCategories // ignore: cast_nullable_to_non_nullable
-              as List<GetAllCategoryResponse>,
+      null == getAllCategory
+          ? _value._getAllCategory
+          : getAllCategory // ignore: cast_nullable_to_non_nullable
+              as List<GetCategoryResponse>,
     ));
   }
 }
@@ -375,21 +375,20 @@ class __$$GetAllCategoriesSuccessImplCopyWithImpl<$Res>
 
 class _$GetAllCategoriesSuccessImpl implements GetAllCategoriesSuccess {
   const _$GetAllCategoriesSuccessImpl(
-      final List<GetAllCategoryResponse> getAllCategories)
-      : _getAllCategories = getAllCategories;
+      final List<GetCategoryResponse> getAllCategory)
+      : _getAllCategory = getAllCategory;
 
-  final List<GetAllCategoryResponse> _getAllCategories;
+  final List<GetCategoryResponse> _getAllCategory;
   @override
-  List<GetAllCategoryResponse> get getAllCategories {
-    if (_getAllCategories is EqualUnmodifiableListView)
-      return _getAllCategories;
+  List<GetCategoryResponse> get getAllCategory {
+    if (_getAllCategory is EqualUnmodifiableListView) return _getAllCategory;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_getAllCategories);
+    return EqualUnmodifiableListView(_getAllCategory);
   }
 
   @override
   String toString() {
-    return 'GetAllCategoriesState.getCategoriesSuccess(getAllCategories: $getAllCategories)';
+    return 'GetAllCategoriesState.getCategoriesSuccess(getAllCategory: $getAllCategory)';
   }
 
   @override
@@ -398,12 +397,12 @@ class _$GetAllCategoriesSuccessImpl implements GetAllCategoriesSuccess {
         (other.runtimeType == runtimeType &&
             other is _$GetAllCategoriesSuccessImpl &&
             const DeepCollectionEquality()
-                .equals(other._getAllCategories, _getAllCategories));
+                .equals(other._getAllCategory, _getAllCategory));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_getAllCategories));
+      runtimeType, const DeepCollectionEquality().hash(_getAllCategory));
 
   @JsonKey(ignore: true)
   @override
@@ -417,11 +416,11 @@ class _$GetAllCategoriesSuccessImpl implements GetAllCategoriesSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoriesLoading,
     required TResult Function() getCategoriesEmpty,
-    required TResult Function(List<GetAllCategoryResponse> getAllCategories)
+    required TResult Function(List<GetCategoryResponse> getAllCategory)
         getCategoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) getCategoriesError,
   }) {
-    return getCategoriesSuccess(getAllCategories);
+    return getCategoriesSuccess(getAllCategory);
   }
 
   @override
@@ -429,11 +428,11 @@ class _$GetAllCategoriesSuccessImpl implements GetAllCategoriesSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoriesLoading,
     TResult? Function()? getCategoriesEmpty,
-    TResult? Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult? Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getCategoriesError,
   }) {
-    return getCategoriesSuccess?.call(getAllCategories);
+    return getCategoriesSuccess?.call(getAllCategory);
   }
 
   @override
@@ -441,13 +440,13 @@ class _$GetAllCategoriesSuccessImpl implements GetAllCategoriesSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoriesLoading,
     TResult Function()? getCategoriesEmpty,
-    TResult Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? getCategoriesError,
     required TResult orElse(),
   }) {
     if (getCategoriesSuccess != null) {
-      return getCategoriesSuccess(getAllCategories);
+      return getCategoriesSuccess(getAllCategory);
     }
     return orElse();
   }
@@ -494,10 +493,10 @@ class _$GetAllCategoriesSuccessImpl implements GetAllCategoriesSuccess {
 
 abstract class GetAllCategoriesSuccess implements GetAllCategoriesState {
   const factory GetAllCategoriesSuccess(
-          final List<GetAllCategoryResponse> getAllCategories) =
+          final List<GetCategoryResponse> getAllCategory) =
       _$GetAllCategoriesSuccessImpl;
 
-  List<GetAllCategoryResponse> get getAllCategories;
+  List<GetCategoryResponse> get getAllCategory;
   @JsonKey(ignore: true)
   _$$GetAllCategoriesSuccessImplCopyWith<_$GetAllCategoriesSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -573,7 +572,7 @@ class _$GetAllCategoriesErrorImpl implements GetAllCategoriesError {
   TResult when<TResult extends Object?>({
     required TResult Function() getCategoriesLoading,
     required TResult Function() getCategoriesEmpty,
-    required TResult Function(List<GetAllCategoryResponse> getAllCategories)
+    required TResult Function(List<GetCategoryResponse> getAllCategory)
         getCategoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) getCategoriesError,
   }) {
@@ -585,7 +584,7 @@ class _$GetAllCategoriesErrorImpl implements GetAllCategoriesError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getCategoriesLoading,
     TResult? Function()? getCategoriesEmpty,
-    TResult? Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult? Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getCategoriesError,
   }) {
@@ -597,7 +596,7 @@ class _$GetAllCategoriesErrorImpl implements GetAllCategoriesError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getCategoriesLoading,
     TResult Function()? getCategoriesEmpty,
-    TResult Function(List<GetAllCategoryResponse> getAllCategories)?
+    TResult Function(List<GetCategoryResponse> getAllCategory)?
         getCategoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? getCategoriesError,
     required TResult orElse(),

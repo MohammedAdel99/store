@@ -192,13 +192,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<GetAllCategoryResponse>> getAllCategories() async {
+  Future<List<GetCategoryResponse>> getAllCategories() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<GetAllCategoryResponse>>(Options(
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<GetCategoryResponse>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -216,7 +216,7 @@ class _ApiService implements ApiService {
             ))));
     var value = _result.data!
         .map((dynamic i) =>
-            GetAllCategoryResponse.fromJson(i as Map<String, dynamic>))
+            GetCategoryResponse.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
@@ -330,6 +330,35 @@ class _ApiService implements ApiService {
         .map((dynamic i) =>
             GetProductResponse.fromJson(i as Map<String, dynamic>))
         .toList();
+    return value;
+  }
+
+  @override
+  Future<CreateProductResponse> createProduct(
+      CreateProductRequest createProductRequest) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(createProductRequest.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<CreateProductResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'api/v1/products/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = CreateProductResponse.fromJson(_result.data!);
     return value;
   }
 

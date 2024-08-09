@@ -18,8 +18,8 @@ import 'package:store/features/admin/add_categories/logic/create/create_category
 import 'package:store/features/admin/add_categories/logic/create/create_category_state.dart';
 import 'package:store/features/admin/add_categories/data/models/create/create_category_request.dart';
 
-class CreateCategoryBlocListener extends StatelessWidget {
-  const CreateCategoryBlocListener();
+class CreateCategoryButton extends StatelessWidget {
+  const CreateCategoryButton();
 
   @override
   Widget build(BuildContext context) {

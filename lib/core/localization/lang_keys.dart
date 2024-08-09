@@ -11,8 +11,19 @@ class LangKeys {
   static const String passwordValidationEmpty = 'password_validation_empty';
   static const String emailValidation = 'email_validation';
   static const String nameValidation = 'name_validation';
+  static const String priceValidation = 'price_validation';
+  static const String titleValidation = 'title_validation';
+  static const String descriptionValidation = 'Description_validation';
+  static const String productTitle = 'title';
+  static const String productPrice = 'price';
+  static const String productDescription = 'description';
+  static const String selectCategory = 'select_category';
+   static const String selectCategoryValidition = 'select_category_validition';
+
+
   static const String dashboard = 'dashboard';
   static const String categories = 'categories';
+  static const String category = 'category';
   static const String getAllCategories = 'get_all_categories';
   static const String getAllProducts = 'get_all_products';
   static const String getAllUsers = 'get_all_users';
@@ -24,6 +35,8 @@ class LangKeys {
 
   static const String createCategory = 'create_category';
   static const String updateCategory = 'update_category';
+  static const String createProduct = 'create_product';
+  static const String updateProduct = 'update_product';
   static const String categoryName = 'category_name';
   static const String createCategorySuccessfully = 'create_category_successfully';
   static const String createCategoryFailed = 'create_category_failed';
@@ -31,8 +44,15 @@ class LangKeys {
   static const String deleteCategoryFailed = 'delete_category_failed';
   static const String updateCategorySuccessfully = 'update_category_successfully';
   static const String updateCategoryFailed = 'update_category_failed';
+  static const String createProductSuccessfully = 'create_product_successfully';
+  static const String createProductFailed = 'create_product_failed';
+   static const String deleteProductSuccessfully = 'delete_product_successfully';
+  static const String deleteProductFailed = 'delete_product_failed';
+  static const String updateProductSuccessfully = 'update_product_successfully';
+  static const String updateProductFailed = 'update_product_failed';
   
-  static const String addImage = 'add_image';
+  static const String addPhoto = 'add_photo';
+  static const String addPhotos = 'add_photos';
   static const String enterCategoryName = 'Enter the category name';
   static const String createNewCategory = 'create_new_category';
   static const String updateThisCategory = 'update_this_category';
