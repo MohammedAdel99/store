@@ -4,8 +4,9 @@ part  'upload_image_state.freezed.dart';
 @freezed
 abstract class UploadImageState<T> with _$UploadImageState<T> {
   const factory UploadImageState.initial() = _Initial;
-  const factory UploadImageState.loadding() = Loading;
-   const factory UploadImageState.sucess() = Success;
+  const factory UploadImageState.loading() = Loading;
+  const factory UploadImageState.loadingList(int index) = LoadingListState;
+   const factory UploadImageState.success() = Success;
    const factory UploadImageState.removeImage({required String imageUrl}) = RemoveImage;
     const factory UploadImageState.error({required String error}) = Error;
   

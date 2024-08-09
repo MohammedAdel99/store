@@ -17,7 +17,7 @@ class UpdateCategoryUploadImage extends StatelessWidget {
     return BlocConsumer<UploadImageCubit, UploadImageState>(
         listener: (context, state) {
       state.whenOrNull(
-        sucess: () {
+        success: () {
           return fluttertoast(
               text: context.translate(LangKeys.imageUploaded),
               state: ToastStates.Success);
@@ -30,11 +30,11 @@ class UpdateCategoryUploadImage extends StatelessWidget {
         error: (error) {
           return fluttertoast(text: error, state: ToastStates.Error);
         },
-      );
-    }, builder: (context, state) {
+      );},
+    builder: (context, state) {
       final isImageUploaded =
           context.read<UploadImageCubit>().getImageUrl.isNotEmpty;
-      return state.maybeWhen(loadding: () {
+      return state.maybeWhen(loading: () {
         return Container(
             width: double.infinity,
             height: 120.h,

@@ -54,6 +54,7 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
       child: Column(
         children: [
           AppTextFormField(
+            keyboardType: TextInputType.emailAddress,
             hintText: LangKeys.email,
             validator: (value) {
               if (value == null ||
@@ -68,6 +69,7 @@ class _LoginTextFormFeildsState extends State<LoginTextFormFeilds> {
             height: 25.h,
           ),
           AppTextFormField(
+              keyboardType: TextInputType.visiblePassword,
               hintText: LangKeys.password,
               controller: context.read<LoginCubit>().passwordController,
               isObscureText: isObscureText,

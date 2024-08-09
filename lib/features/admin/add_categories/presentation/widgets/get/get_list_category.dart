@@ -8,7 +8,6 @@ import 'package:store/features/admin/add_categories/logic/get/get_all_categories
 import 'package:store/features/admin/add_categories/presentation/widgets/get/catrgory_item.dart';
 import 'package:store/features/admin/add_categories/data/models/get/get_all_categories_response.dart';
 
-
 class GetListCategory extends StatelessWidget {
   const GetListCategory({super.key});
 
@@ -35,28 +34,30 @@ class GetListCategory extends StatelessWidget {
                       height: 130.h,
                       borderRadius: 15,
                     );
-
-                    
                   },
                   separatorBuilder: (context, index) => SizedBox(height: 15.h),
                   itemCount: 4,
                 );
               }, getCategoriesEmpty: () {
                 return const EmptyScreen();
-              }, getCategoriesSuccess: (getAllCategories) {
-                List<GetAllCategoryResponse> categoryList = getAllCategories;
+              }, getCategoriesSuccess: (categoryList) {
+               
+
                 return ListView.separated(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return CategoryItem(
-                        nameCategory: categoryList[index].name ?? '',
-                        imageCategory: categoryList[index].image ?? '',
-                        idCategory: categoryList[index].id.toString());
+                        nameCategory:
+                            categoryList[index].name ?? '1',
+                        imageCategory:
+                            categoryList[index].image ?? '',
+                        idCategory:
+                           categoryList[index].id.toString());
                   },
                   clipBehavior: Clip.none,
                   separatorBuilder: (context, index) => SizedBox(height: 25.h),
-                  itemCount: getAllCategories.length,
+                  itemCount: categoryList.length,
                 );
               }, getCategoriesError: (errerHandler) {
                 return SizedBox.shrink();

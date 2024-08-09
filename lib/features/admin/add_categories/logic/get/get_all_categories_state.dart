@@ -13,7 +13,7 @@ class GetAllCategoriesState with _$GetAllCategoriesState {
   
   const factory GetAllCategoriesState.getCategoriesLoading() = GetAllCategoriesLoading;
   const factory GetAllCategoriesState.getCategoriesEmpty() = GetAllCategoriesEmpty;
-  const factory GetAllCategoriesState.getCategoriesSuccess(List<GetAllCategoryResponse> getAllCategories ) = GetAllCategoriesSuccess;
+  const factory GetAllCategoriesState.getCategoriesSuccess(List<GetCategoryResponse> getAllCategory ) = GetAllCategoriesSuccess;
   const factory GetAllCategoriesState.getCategoriesError(ErrorHandler errorHandler ) = GetAllCategoriesError;
 
 }

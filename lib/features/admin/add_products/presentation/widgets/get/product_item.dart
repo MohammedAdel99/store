@@ -3,7 +3,9 @@ import 'package:store/core/theming/styles.dart';
 import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/widgets/admin_container.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store/core/extensions/string_exetension.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
+
 
 class ProductItem extends StatelessWidget {
   const ProductItem(
@@ -46,26 +48,48 @@ class ProductItem extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-             Flexible(
-               child: Center(
-                 child: Image.network(
-                    productImage,
-                    height: 200.h,
-                    width: 130.w,
-                    fit: BoxFit.fill,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Image.asset(
-                        'assets/images/core/no_image_available.png',
-                        height: 200.h,
-                        width: 130.w,
-                        fit: BoxFit.fill,
-                      );
-                    },
-                  
-                             ),
-               ),
-             ),
-             SizedBox(height: 7.h,),
+
+            //     Flexible(
+            //   child: CachedNetworkImage(
+
+            //       height: 200.h,
+            //       width: 130.w,
+
+            //       imageUrl: productImage,
+            //       fit: BoxFit.fill,
+            //       // placeholder: (context, url) {
+            //       //   return LoadingShimmer(height: 150.h,
+            //       // width: 130.w,borderRadius: 0,);
+            //       // },
+            //       errorWidget: (context, url, error) => Image.asset(
+            //             'assets/images/core/no_image_available.png',
+            //             height: 200.h,
+            //             width: 130.w,
+            //             fit: BoxFit.fill,
+            //           )),
+            // ),
+
+            Flexible(
+              child: Center(
+                child: Image.network(
+                  productImage.imageProductFormate(),
+                  height: 200.h,
+                  width: 130.w,
+                  fit: BoxFit.fill,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      'assets/images/core/no_image_available.png',
+                      height: 200.h,
+                      width: 130.w,
+                      fit: BoxFit.fill,
+                    );
+                  },
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 7.h,
+            ),
             Container(
                 width: 130.w,
                 child: TextApp(
@@ -74,7 +98,9 @@ class ProductItem extends StatelessWidget {
                     textOverflow: TextOverflow.ellipsis,
                     theme: TextStyles.font17BoldWhite
                         .copyWith(color: context.color.textColor))),
-            SizedBox(height: 7.h,),            
+            SizedBox(
+              height: 7.h,
+            ),
             Container(
               width: 130.w,
               child: TextApp(
@@ -84,15 +110,18 @@ class ProductItem extends StatelessWidget {
                   theme: TextStyles.font17RegularWhite
                       .copyWith(color: context.color.textColor)),
             ),
-            SizedBox(height: 7.h,),
+            SizedBox(
+              height: 7.h,
+            ),
             Container(
               width: 130.w,
               child: TextApp(
                   text: "\$ $productPrice",
                   maxLines: 1,
                   textOverflow: TextOverflow.ellipsis,
-                  theme: TextStyles.font17BoldWhite
-                      .copyWith(color: context.color.textColor,fontWeight: FontWeight.w400)),
+                  theme: TextStyles.font17BoldWhite.copyWith(
+                      color: context.color.textColor,
+                      fontWeight: FontWeight.w400)),
             )
           ],
         ));

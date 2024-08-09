@@ -7,8 +7,8 @@ import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:store/core/widgets/app_text_form_feild.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
 
-class AdminBottomSheetContent extends StatelessWidget {
-  const AdminBottomSheetContent({
+class AdminCategoryBottomSheetContent extends StatelessWidget {
+  const AdminCategoryBottomSheetContent({
     Key? key,
     required this.textTitle,
     required this.textAddImage,
@@ -62,7 +62,7 @@ class AdminBottomSheetContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextApp(
-                text: context.translate(LangKeys.addImage),
+                text: context.translate(LangKeys.addPhoto),
                 theme: TextStyles.font17BoldWhite
                     .copyWith(fontWeight: FontWeight.normal),
               ),
@@ -79,6 +79,7 @@ class AdminBottomSheetContent extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.normal),
           ),
           AppTextFormField(
+            keyboardType: TextInputType.text,
             hintText: LangKeys.categoryName,
             controller: textFieldController,
             validator: (value) {
@@ -89,12 +90,11 @@ class AdminBottomSheetContent extends StatelessWidget {
             backgroundColor: mainBlue,
             hintStyle:
                 TextStyle(color: Colors.white, fontWeight: FontWeight.w300),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.white,
-                  width: 0.5,
-                ),
-                borderRadius: BorderRadius.circular(16.r)),
+                focusedBorderColor:Colors.grey,
+            enabledBorderColor:
+               
+                   Colors.white,
+                 
           ),
           SizedBox(height: 17.h),
           blocListenerWidget,

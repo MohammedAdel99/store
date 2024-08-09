@@ -9,6 +9,10 @@ class UploadImageCubit extends Cubit<UploadImageState> {
       : super(UploadImageState.initial());
   final UploadImageRepository uploadImageRepository;
   String getImageUrl = '';
+    List<String> imageList = ['','',''];
+    
+  List<String> imageUpdateList = [];
+  
   @override
   void emit(UploadImageState state) {
     if (!isClosed) {
@@ -20,16 +24,63 @@ class UploadImageCubit extends Cubit<UploadImageState> {
   Future<void> upload() async {
     final pickerImage = await PickImage().pickImage();
     if (pickerImage == null) return;
-    emit(UploadImageState.loadding());
+    emit(UploadImageState.loading());
     final result = await uploadImageRepository.upload(imagefile: pickerImage);
     result.when(success: (image) {
       getImageUrl = image.location ?? '';
-      emit(const UploadImageState.sucess());
+      emit(const UploadImageState.success());
     }, failure: (error) {
       emit(
         UploadImageState.error(error: error.apiErrorModel.message ?? ''),
       );
     });
+  }
+
+  // pick image and save it in file and upload it to server with List
+  Future<void> uploadImageList({required int indexId}) async {
+    final pickedImage = await PickImage().pickImage();
+    if (pickedImage == null) return;
+
+    emit(UploadImageState.loadingList(indexId));
+    final result = await uploadImageRepository.upload(imagefile: pickedImage);
+
+    result.when(
+      success: (image) {
+   
+        imageList
+          ..removeAt(indexId)
+          ..insert(indexId, image.location ?? '');
+        emit(const UploadImageState.success());
+      },
+      failure: (error) {
+        emit(UploadImageState.error(error: error.apiErrorModel.message ?? ''));
+      },
+    );
+  }
+
+// Upload update image list
+  Future<void> uploadUpdateImageList({
+    required int indexId,
+    required List<String> productImageList,
+  }) async {
+    final pickedImage = await PickImage().pickImage();
+    if (pickedImage == null) return;
+
+    emit(UploadImageState.loadingList(indexId));
+    final result = await uploadImageRepository.upload(imagefile: pickedImage);
+
+    result.when(
+      success: (image) {
+        imageUpdateList = productImageList;
+        imageUpdateList
+          ..removeAt(indexId)
+          ..insert(indexId, image.location ?? '');
+        emit(const UploadImageState.success());
+      },
+      failure: (error) {
+        emit(UploadImageState.error(error: error.apiErrorModel.message ?? ''));
+      },
+    );
   }
 
   //removeImage

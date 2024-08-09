@@ -18,7 +18,7 @@ class CategoriesRepository {
   );
 
   //getAllCategories
-  Future<ApiResult<List<GetAllCategoryResponse>>> getAllCategories() async {
+  Future<ApiResult<List<GetCategoryResponse>>> getAllCategories() async {
     try {
       final response = await apiService.getAllCategories();
       return ApiResult.success(response.reversed.toList());
