@@ -5,6 +5,7 @@ import 'package:store/core/widgets/admin_container.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/extensions/string_exetension.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
+import 'package:store/features/admin/add_products/presentation/widgets/delete/delete_product_icon_button.dart';
 
 
 class ProductItem extends StatelessWidget {
@@ -32,12 +33,7 @@ class ProductItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              IconButton(
-                  icon: Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  ),
-                  onPressed: () {}),
+             DeleteProductIconButton(productId: productId),
               IconButton(
                   icon: Icon(
                     Icons.edit,

@@ -4,43 +4,42 @@ import 'package:store/core/widgets/app_toast.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
-import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
-import 'package:store/features/admin/add_categories/logic/delete/delete_category_cubit.dart';
-import 'package:store/features/admin/add_categories/logic/delete/delete_category_state.dart';
-import 'package:store/features/admin/dashboard/logic/categories_number/categories_cubit.dart';
+import 'package:store/features/admin/add_products/logic/get/get_all_products_cubit.dart';
+import 'package:store/features/admin/add_products/logic/delete/delete_product_cubit.dart';
+import 'package:store/features/admin/add_products/logic/delete/delete_product_state.dart';
 
-class DeleteCategory extends StatelessWidget {
-  const DeleteCategory({super.key, required this.categoryId});
-  final String categoryId;
+class DeleteProductIconButton extends StatelessWidget {
+  const DeleteProductIconButton({super.key, required this.productId});
+  final String productId;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => getIt<DeleteCategoryCubit>(),
-        child: BlocConsumer<DeleteCategoryCubit, DeleteCategoryState>(
+        create: (context) => getIt<DeleteProductCubit>(),
+        child: BlocConsumer<DeleteProductCubit, DeleteProductState>(
           listenWhen: (previous, current) =>
-              current is DeleteCategorySuccess ||
-              current is DeleteCategoryError,
+              current is DeleteProductSuccess ||
+              current is DeleteProductError,
           listener: (context, state) {
             state.whenOrNull(
-              deleteCategorySuccess: () {
-                context.read<GetAllCategoriesCubit>()..getAllCategories();
+              deleteProductSuccess: () {
+                context.read<GetAllProductsCubit>()..getAllProducts();
                 return fluttertoast(
                     text:
-                        context.translate(LangKeys.deleteCategorySuccessfully),
+                        context.translate(LangKeys.deleteProductSuccessfully),
                     state: ToastStates.Success);
               },
-              deleteCategoryError: (errorHandler) {
+              deleteProductError: (errorHandler) {
                 return fluttertoast(
                     text:
-                        context.translate(LangKeys.deleteCategorySuccessfully),
+                        context.translate(LangKeys.deleteProductFailed),
                     state: ToastStates.Error);
               },
             );
           },
           builder: (context, state) {
-            return state.maybeWhen(deleteCategoryLoading: (id) {
-              if (id == categoryId) {
+            return state.maybeWhen(deleteProductLoading: (id) {
+              if (id == productId) {
                 return CircularProgressIndicator(
                   color: context.color.textColor,
                 );
@@ -60,8 +59,8 @@ class DeleteCategory extends StatelessWidget {
                   ),
                   onPressed: () {
                     context
-                        .read<DeleteCategoryCubit>()
-                        .deleteCategory(categoryId: categoryId);
+                        .read<DeleteProductCubit>()
+                        .deleteProduct(productId: productId);
                   });
             });
           },
