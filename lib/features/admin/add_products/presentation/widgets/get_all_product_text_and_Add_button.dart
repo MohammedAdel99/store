@@ -25,6 +25,8 @@ class GetAllProductTextAndAddButton extends StatelessWidget {
                         BlocProvider(
                             create: (context) => getIt<CreateProductCubit>()),
                         BlocProvider(
+                            create: (context) => getIt<GetAllCategoriesCubit>()),    
+                        BlocProvider(
                             create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories()),    
                         
                               

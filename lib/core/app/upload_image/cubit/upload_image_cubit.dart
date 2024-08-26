@@ -9,10 +9,12 @@ class UploadImageCubit extends Cubit<UploadImageState> {
       : super(UploadImageState.initial());
   final UploadImageRepository uploadImageRepository;
   String getImageUrl = '';
-    List<String> imageList = ['','',''];
+  List<String> imageList = ['','',''];
+
+  List<String> imageUpdateList = [
     
-  List<String> imageUpdateList = [];
-  
+  ];
+
   @override
   void emit(UploadImageState state) {
     if (!isClosed) {
@@ -31,29 +33,32 @@ class UploadImageCubit extends Cubit<UploadImageState> {
       emit(const UploadImageState.success());
     }, failure: (error) {
       emit(
-        UploadImageState.error(error: error.apiErrorModel.message ?? ''),
+        UploadImageState.error(error),
       );
     });
   }
 
   // pick image and save it in file and upload it to server with List
-  Future<void> uploadImageList({required int indexId}) async {
+  Future<void> uploadImageList({required int index}) async {
     final pickedImage = await PickImage().pickImage();
     if (pickedImage == null) return;
 
-    emit(UploadImageState.loadingList(indexId));
+    emit( UploadImageState.loadingList(index));
     final result = await uploadImageRepository.upload(imagefile: pickedImage);
+     
+    
 
     result.when(
       success: (image) {
-   
         imageList
-          ..removeAt(indexId)
-          ..insert(indexId, image.location ?? '');
+          ..removeAt(index)
+          ..insert(index, image.location??'' );
+         
+         
         emit(const UploadImageState.success());
       },
       failure: (error) {
-        emit(UploadImageState.error(error: error.apiErrorModel.message ?? ''));
+        emit(UploadImageState.error(error));
       },
     );
   }
@@ -74,11 +79,11 @@ class UploadImageCubit extends Cubit<UploadImageState> {
         imageUpdateList = productImageList;
         imageUpdateList
           ..removeAt(indexId)
-          ..insert(indexId, image.location ?? '');
+          ..insert(indexId, image.location?? '');
         emit(const UploadImageState.success());
       },
       failure: (error) {
-        emit(UploadImageState.error(error: error.apiErrorModel.message ?? ''));
+        emit(UploadImageState.error(error));
       },
     );
   }

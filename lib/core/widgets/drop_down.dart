@@ -31,7 +31,14 @@ class DropDown extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
+        child: 
+        
+        
+        
+        
+        
+        
+        DropdownButton<String>(
           iconSize: 30,
           borderRadius: BorderRadius.circular(12),
           dropdownColor: mainBlue,
@@ -47,7 +54,7 @@ class DropDown extends StatelessWidget {
             color: Colors.white,
           ),
           onChanged: onChanged,
-          value: items.isNotEmpty ? value : null,
+          value: items.isNotEmpty ? value : '',
           isExpanded: true,
           hint: TextApp(
             text:context.translate(hintText),

@@ -20,18 +20,18 @@ class UpdateCategoryCubit extends Cubit<UpdateCategoryState> {
   TextEditingController categoryNameController = TextEditingController();
   String imageUrl ='';
 
-  // Create Category
+  // Update Category
   Future<void> updateCategory(
     UpdateCategoryRequest updateCategoryRequest,
       {required String categoryId})
       
       async {
     emit(UpdateCategoryState.updateCategoryLoading(categoryId: categoryId));
-    final response = await categoriesRepository.updateCategory( UpdateCategoryRequest(id: categoryId, name: categoryNameController.text, image: imageUrl) ,CategoryId: categoryId);
-    //await categoriesRepository.updateCategory(CategoryId: categoryId, 
+    final response = await categoriesRepository.updateCategory( UpdateCategoryRequest(
+      id: categoryId,
+       name: categoryNameController.text, image: imageUrl) ,CategoryId: categoryId);
+    
         
-        //updateCategoryRequest: UpdateCategoryRequest()
-        //);
     await response.when(success: (_) async {
       emit(UpdateCategoryState.updateCategorySuccess());
     }, failure: (errorHandler) {

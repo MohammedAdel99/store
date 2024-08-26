@@ -32,6 +32,7 @@ class CreateProductButton extends StatelessWidget {
             },
             createProductError: (error) {
               return fluttertoast(
+                
                   text: context.translate(LangKeys.createProductFailed),
                   state: ToastStates.Error);
             },
@@ -63,33 +64,36 @@ class CreateProductButton extends StatelessWidget {
 
   //ValidateThenCreateProduct
   static void validateThenCreateProduct(BuildContext context) {
-    final indexEmptyImage = context
-        .read<UploadImageCubit>()
-        .imageList
-        .where((element) => element.isEmpty);
-
-
-    if (context.read<CreateProductCubit>().formKey.currentState!.validate() ||
-        indexEmptyImage.isNotEmpty  ||
-        context.read<CreateProductCubit>().categoryName == null) {
-      if (indexEmptyImage.isNotEmpty) {
+    var imageListCubit = context.read<UploadImageCubit>().imageList;
+    for (var index = 2; index >= 0; index--) {
+      if (imageListCubit.every((element) => element.isEmpty)) {
         return fluttertoast(
             text: context.translate(LangKeys.validPickImage),
             state: ToastStates.Error);
-      } else if (context.read<CreateProductCubit>().categoryName == null) {
+      } else if (
+        imageListCubit.any((element) => element.isNotEmpty) && imageListCubit[index].isEmpty) {
+        imageListCubit..removeAt(index);
+      }
+    }
+
+ 
+
+    if (context.read<CreateProductCubit>().formKey.currentState!.validate() ||
+   
+        context.read<CreateProductCubit>().categoryName == null) {
+    
+      if (context.read<CreateProductCubit>().categoryName == null) {
         return fluttertoast(
             text: context.translate(LangKeys.selectCategoryValidition),
             state: ToastStates.Error);
       } else {
-        
-      context.read<CreateProductCubit>().imageList =
-          context.read<UploadImageCubit>().imageList;
+        context.read<CreateProductCubit>().imageList =
+            context.read<UploadImageCubit>().imageList;
 
-      
-        context.read<CreateProductCubit>().createProduct(CreateProductRequest(
-         
-));
-      } 
+        context
+            .read<CreateProductCubit>()
+            .createProduct(CreateProductRequest());
+      }
     }
   }
 }

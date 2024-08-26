@@ -44,7 +44,7 @@ class UserAvaterImage extends StatelessWidget {
                     },
                     error: (error) {
                       return fluttertoast(
-                          text: error, state: ToastStates.Error);
+                          text: context.translate(LangKeys.updateProductFailed), state: ToastStates.Error);
                     },
                   );
                 }, builder: (context, state) {

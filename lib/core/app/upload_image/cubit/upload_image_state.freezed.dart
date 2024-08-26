@@ -23,7 +23,7 @@ mixin _$UploadImageState<T> {
     required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
-    required TResult Function(String error) error,
+    required TResult Function(ErrorHandler errorHandler) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,7 +33,7 @@ mixin _$UploadImageState<T> {
     TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
-    TResult? Function(String error)? error,
+    TResult? Function(ErrorHandler errorHandler)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,7 +43,7 @@ mixin _$UploadImageState<T> {
     TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
-    TResult Function(String error)? error,
+    TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,7 +141,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
-    required TResult Function(String error) error,
+    required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return initial();
   }
@@ -154,7 +154,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
-    TResult? Function(String error)? error,
+    TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return initial?.call();
   }
@@ -167,7 +167,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
-    TResult Function(String error)? error,
+    TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -267,7 +267,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
-    required TResult Function(String error) error,
+    required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return loading();
   }
@@ -280,7 +280,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
-    TResult? Function(String error)? error,
+    TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return loading?.call();
   }
@@ -293,7 +293,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
-    TResult Function(String error)? error,
+    TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -420,7 +420,7 @@ class _$LoadingListStateImpl<T> implements LoadingListState<T> {
     required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
-    required TResult Function(String error) error,
+    required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return loadingList(index);
   }
@@ -433,7 +433,7 @@ class _$LoadingListStateImpl<T> implements LoadingListState<T> {
     TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
-    TResult? Function(String error)? error,
+    TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return loadingList?.call(index);
   }
@@ -446,7 +446,7 @@ class _$LoadingListStateImpl<T> implements LoadingListState<T> {
     TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
-    TResult Function(String error)? error,
+    TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (loadingList != null) {
@@ -551,7 +551,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
-    required TResult Function(String error) error,
+    required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return success();
   }
@@ -564,7 +564,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
-    TResult? Function(String error)? error,
+    TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return success?.call();
   }
@@ -577,7 +577,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
-    TResult Function(String error)? error,
+    TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -705,7 +705,7 @@ class _$RemoveImageImpl<T> implements RemoveImage<T> {
     required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
-    required TResult Function(String error) error,
+    required TResult Function(ErrorHandler errorHandler) error,
   }) {
     return removeImage(imageUrl);
   }
@@ -718,7 +718,7 @@ class _$RemoveImageImpl<T> implements RemoveImage<T> {
     TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
-    TResult? Function(String error)? error,
+    TResult? Function(ErrorHandler errorHandler)? error,
   }) {
     return removeImage?.call(imageUrl);
   }
@@ -731,7 +731,7 @@ class _$RemoveImageImpl<T> implements RemoveImage<T> {
     TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
-    TResult Function(String error)? error,
+    TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (removeImage != null) {
@@ -800,7 +800,7 @@ abstract class _$$ErrorImplCopyWith<T, $Res> {
           _$ErrorImpl<T> value, $Res Function(_$ErrorImpl<T>) then) =
       __$$ErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({ErrorHandler errorHandler});
 }
 
 /// @nodoc
@@ -814,13 +814,13 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? errorHandler = null,
   }) {
     return _then(_$ErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == errorHandler
+          ? _value.errorHandler
+          : errorHandler // ignore: cast_nullable_to_non_nullable
+              as ErrorHandler,
     ));
   }
 }
@@ -828,14 +828,14 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$ErrorImpl<T> implements Error<T> {
-  const _$ErrorImpl({required this.error});
+  const _$ErrorImpl(this.errorHandler);
 
   @override
-  final String error;
+  final ErrorHandler errorHandler;
 
   @override
   String toString() {
-    return 'UploadImageState<$T>.error(error: $error)';
+    return 'UploadImageState<$T>.error(errorHandler: $errorHandler)';
   }
 
   @override
@@ -843,11 +843,12 @@ class _$ErrorImpl<T> implements Error<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.errorHandler, errorHandler) ||
+                other.errorHandler == errorHandler));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, errorHandler);
 
   @JsonKey(ignore: true)
   @override
@@ -863,9 +864,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
-    required TResult Function(String error) error,
+    required TResult Function(ErrorHandler errorHandler) error,
   }) {
-    return error(this.error);
+    return error(errorHandler);
   }
 
   @override
@@ -876,9 +877,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
-    TResult? Function(String error)? error,
+    TResult? Function(ErrorHandler errorHandler)? error,
   }) {
-    return error?.call(this.error);
+    return error?.call(errorHandler);
   }
 
   @override
@@ -889,11 +890,11 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
-    TResult Function(String error)? error,
+    TResult Function(ErrorHandler errorHandler)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(errorHandler);
     }
     return orElse();
   }
@@ -943,9 +944,9 @@ class _$ErrorImpl<T> implements Error<T> {
 }
 
 abstract class Error<T> implements UploadImageState<T> {
-  const factory Error({required final String error}) = _$ErrorImpl<T>;
+  const factory Error(final ErrorHandler errorHandler) = _$ErrorImpl<T>;
 
-  String get error;
+  ErrorHandler get errorHandler;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;

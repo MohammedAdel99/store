@@ -4,6 +4,7 @@ import 'package:store/core/networking/api_error_handler.dart';
 import 'package:store/features/admin/add_products/data/models/create/create_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/delete/delete_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/get/get_all_products_response.dart';
+import 'package:store/features/admin/add_products/data/models/update/update_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/create/create_product_response.dart';
 
 class ProductsRepository {
@@ -38,6 +39,15 @@ class ProductsRepository {
     try {
       final response = await apiService.deleteProduct(
           ProductsQueries().deleteMapQuery(productId: productId));
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+  //Update Cate
+  Future<ApiResult<void>> updateProduct(UpdateProductRequest updateProductRequest,{required int productId}) async {
+    try {
+      final response = await apiService.updateProduct(productId, updateProductRequest);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
