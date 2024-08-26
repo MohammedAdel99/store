@@ -47,7 +47,7 @@ class _CreateProductBottomSheetContentState
                     getCategoriesSuccess: (catgeory) {
                       return DropDown(
                         hintText:LangKeys.selectCategory ,
-                        items: context.read<GetAllCategoriesCubit>().categoryDropdownList,
+                        items: context.read<GetAllCategoriesCubit>().categoryDropdownList.toSet().toList(),
                         onChanged: (value) {
                           setState(() {
                             context.read<CreateProductCubit>().categoryName = value;
@@ -55,7 +55,7 @@ class _CreateProductBottomSheetContentState
                             context.read<CreateProductCubit>().categoryId = catgeory
                                 
                                 .firstWhere((e) => e.name == value)
-                                .id!;
+                                .id;
                            
                           });
                         },

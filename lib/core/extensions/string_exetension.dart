@@ -7,3 +7,13 @@ extension StringFormate on String {
 
   }
 }
+
+// extension ListFormate on List<String>{
+//   String imageProductFormate() {
+
+
+//     return  replaceFirst(RegExp(r'[]'), '');
+
+
+//   }
+// }

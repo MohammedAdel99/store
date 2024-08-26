@@ -17,6 +17,7 @@ import 'package:store/features/admin/add_categories/logic/get/get_all_categories
 import 'package:store/features/admin/add_categories/logic/create/create_category_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/create/create_category_state.dart';
 import 'package:store/features/admin/add_categories/data/models/create/create_category_request.dart';
+import 'package:store/features/admin/add_categories/data/models/get/get_all_categories_response.dart';
 
 class CreateCategoryButton extends StatelessWidget {
   const CreateCategoryButton();
@@ -29,9 +30,8 @@ class CreateCategoryButton extends StatelessWidget {
         listener: (context, state) {
           state.whenOrNull(
             createCategorySuccess: (CreateCategoriesResponse) {
-               context.pop();
-             
-             
+              context.pop();
+
               return fluttertoast(
                   text: context.translate(LangKeys.createCategorySuccessfully),
                   state: ToastStates.Success);
@@ -69,6 +69,9 @@ class CreateCategoryButton extends StatelessWidget {
 
   // ValidateThenCreateCategory
   static void validateThenCreateCategory(BuildContext context) {
+    
+    
+
     if (!context.read<CreateCategoryCubit>().formKey.currentState!.validate() ||
         context.read<UploadImageCubit>().getImageUrl.isEmpty) {
       if (context.read<UploadImageCubit>().getImageUrl.isEmpty) {

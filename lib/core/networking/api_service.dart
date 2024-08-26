@@ -9,6 +9,7 @@ import 'package:store/features/auth/signUp/data/models/signup_request_model.dart
 import 'package:store/features/admin/dashboard/data/models/product_response.dart';
 import 'package:store/features/auth/signUp/data/models/signup_response_model.dart';
 import 'package:store/features/admin/dashboard/data/models/category_response.dart';
+import 'package:store/features/admin/add_products/data/models/update/update_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/create/create_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/get/get_all_products_response.dart';
 import 'package:store/features/admin/add_products/data/models/create/create_product_response.dart';
@@ -64,7 +65,11 @@ abstract class ApiService {
   @POST(ApiConstants.getAllProducts)
   Future<CreateProductResponse> createProduct(
       @Body() CreateProductRequest createProductRequest);  
-    //(Add_Categories) => Delete category
+    //(Add_Products) => Delete Product
   @POST(ApiConstants.graphql)
-  Future<void> deleteProduct(@Body() Map<String, dynamic> mutation);      
+  Future<void> deleteProduct(@Body() Map<String, dynamic> mutation);
+   //(Add_Products) => Update Product
+  @PUT('${ApiConstants.getAllProducts}{id}')
+  Future<void> updateProduct(@Path('id') int productId,
+      @Body() UpdateProductRequest updateProductRequest);      
 }

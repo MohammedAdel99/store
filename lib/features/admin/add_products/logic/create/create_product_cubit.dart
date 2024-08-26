@@ -40,8 +40,7 @@ class CreateProductCubit extends Cubit<CreateProductState> {
     )
     );
     await response.when(success: (createProductResponse) async {
-     // print(
-         // 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm${imageList!.first}');
+     
       emit(CreateProductState.createProductSuccess(createProductResponse));
     }, failure: (errorHandler) {
       emit(CreateProductState.createProductError(errorHandler));

@@ -14,9 +14,7 @@ class DeleteProductIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => getIt<DeleteProductCubit>(),
-        child: BlocConsumer<DeleteProductCubit, DeleteProductState>(
+    return  BlocConsumer<DeleteProductCubit, DeleteProductState>(
           listenWhen: (previous, current) =>
               current is DeleteProductSuccess ||
               current is DeleteProductError,
@@ -64,6 +62,6 @@ class DeleteProductIconButton extends StatelessWidget {
                   });
             });
           },
-        ));
+        );
   }
 }

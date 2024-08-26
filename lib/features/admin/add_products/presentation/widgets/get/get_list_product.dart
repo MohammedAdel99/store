@@ -62,11 +62,16 @@ class GetListProduct extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               return ProductItem(
-                  productName: productList[index].title ?? '',
+                  productTitle: productList[index].title ?? '',
                   categoryName: productList[index].category!.name ?? '',
                   productImage: productList[index].images!.elementAt(0) ,
                   productPrice: productList[index].price.toString() ,
-                  productId: productList[index].id.toString() );
+                  productId: productList[index].id??0,
+                  productImages: productList[index].images??[],
+                  productDescription: productList[index].description??'',
+                   categoryId: productList[index].category!.id ?? 0,
+                  
+                  );
             });
       }, getProductsError: (errerHandler) {
         return SizedBox.shrink();

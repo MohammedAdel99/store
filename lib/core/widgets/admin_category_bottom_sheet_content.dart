@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/theming/styles.dart';
 import 'package:store/core/widgets/app_text.dart';
 import 'package:store/core/localization/lang_keys.dart';
@@ -6,10 +7,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:store/core/widgets/app_text_form_feild.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
+import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
 
 class AdminCategoryBottomSheetContent extends StatelessWidget {
   const AdminCategoryBottomSheetContent({
-    Key? key,
+    super.key,
     required this.textTitle,
     required this.textAddImage,
     required this.uploadImageWidget,
@@ -18,8 +20,8 @@ class AdminCategoryBottomSheetContent extends StatelessWidget {
     required this.hintTextCategoryName,
     required this.textFieldController,
     required this.blocListenerWidget,
-    this.removeButton,
-  }) : super(key: key);
+    this.removeButton, this.validation,
+  });
 
   final String textTitle;
   final String textAddImage;
@@ -30,6 +32,7 @@ class AdminCategoryBottomSheetContent extends StatelessWidget {
   final TextEditingController textFieldController;
   final Widget blocListenerWidget;
   final Widget? removeButton;
+  final String? Function(String?)? validation;
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +54,12 @@ class AdminCategoryBottomSheetContent extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     context.pop();
-                 },
-                  icon: Icon(Icons.close,size: 30,color: Colors.white,))
+                  },
+                  icon: Icon(
+                    Icons.close,
+                    size: 30,
+                    color: Colors.white,
+                  ))
             ],
           ),
           SizedBox(
@@ -82,19 +89,12 @@ class AdminCategoryBottomSheetContent extends StatelessWidget {
             keyboardType: TextInputType.text,
             hintText: LangKeys.categoryName,
             controller: textFieldController,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return context.translate(LangKeys.nameValidation);
-              }
-            },
+            validator: validation,
             backgroundColor: mainBlue,
             hintStyle:
                 TextStyle(color: Colors.white, fontWeight: FontWeight.w300),
-                focusedBorderColor:Colors.grey,
-            enabledBorderColor:
-               
-                   Colors.white,
-                 
+            focusedBorderColor: Colors.grey,
+            enabledBorderColor: Colors.white,
           ),
           SizedBox(height: 17.h),
           blocListenerWidget,

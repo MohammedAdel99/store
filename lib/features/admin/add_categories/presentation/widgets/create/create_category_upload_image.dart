@@ -28,7 +28,7 @@ class CreateCategoryUploadImage extends StatelessWidget {
               state: ToastStates.Success);
         },
         error: (error) {
-          return fluttertoast(text: error, state: ToastStates.Error);
+          return fluttertoast(text: context.translate(LangKeys.createCategoryFailed), state: ToastStates.Error);
         },
       );
     }, builder: (context, state) {
