@@ -16,6 +16,7 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final String? Function(String?)? validator;
+  final void Function(String?)? onChanged;
   final TextInputType keyboardType;
   final int? maxLines;
   
@@ -32,7 +33,9 @@ class AppTextFormField extends StatelessWidget {
     this.isObscureText,
     this.suffixIcon,
     this.backgroundColor,
-    this.validator, required this.keyboardType,
+    this.validator,
+    this.onChanged,
+     required this.keyboardType,
     this.maxLines
   }) : super(key: key);
 
@@ -43,6 +46,7 @@ class AppTextFormField extends StatelessWidget {
       
       controller: controller,
       maxLines: maxLines??1,
+      onChanged: onChanged?? (value){},
       
       keyboardType: keyboardType,
       decoration: InputDecoration(
