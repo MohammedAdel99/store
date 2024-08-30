@@ -65,7 +65,7 @@ class _SignUpTextFormFeildsState extends State<SignUpTextFormFeilds> {
         ),
         AppTextFormField(
           keyboardType: TextInputType.emailAddress,
-          hintText: LangKeys.email,
+          hintText: LangKeys.yourEmail,
         validator: (value) {
               if (value == null ||
                   value.isEmpty ||

@@ -9,6 +9,7 @@ import 'package:store/features/auth/signUp/data/models/signup_request_model.dart
 import 'package:store/features/admin/dashboard/data/models/product_response.dart';
 import 'package:store/features/auth/signUp/data/models/signup_response_model.dart';
 import 'package:store/features/admin/dashboard/data/models/category_response.dart';
+import 'package:store/features/admin/users/data/models/get/get_all_users_response.dart';
 import 'package:store/features/admin/add_products/data/models/update/update_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/create/create_product_request.dart';
 import 'package:store/features/admin/add_products/data/models/get/get_all_products_response.dart';
@@ -71,5 +72,8 @@ abstract class ApiService {
    //(Add_Products) => Update Product
   @PUT('${ApiConstants.getAllProducts}{id}')
   Future<void> updateProduct(@Path('id') int productId,
-      @Body() UpdateProductRequest updateProductRequest);      
+      @Body() UpdateProductRequest updateProductRequest);  
+  //(Add_Users) => get all users
+  @GET(ApiConstants.getAllUsers)
+  Future<List<GetUserResponse>> getAllUser();          
 }

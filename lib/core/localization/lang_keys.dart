@@ -56,9 +56,12 @@ class LangKeys {
   static const String enterCategoryName = 'Enter the category name';
   static const String createNewCategory = 'create_new_category';
   static const String updateThisCategory = 'update_this_category';
+  static const String name = 'name';
+  static const String searchForUsers = 'search_for_users';
 
   static const String welcome = 'welcome';
-  static const String email = 'your_email';
+  static const String yourEmail = 'your_email';
+  static const String email = 'email';
   static const String password = 'password';
 
   static const String loggedSuccessfully = 'logged_successfully';

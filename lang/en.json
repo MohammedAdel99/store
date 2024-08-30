@@ -30,10 +30,14 @@
     "description": "Description",
     "select_category": "Select a Category",
     "select_category_validition": "Please Select Category",
+    "name": "Name",
+    "search_for_users": "Search for Users",
+   
 
    
     "welcome": "Welcome, Please enter your email and get started.",
     "your_email": "Your Email",
+    "email": "Email",
     "password": "Password",
     "no_categories" : "Thare are no Categories, try to add a new category",
     "create_category": "Create Category",

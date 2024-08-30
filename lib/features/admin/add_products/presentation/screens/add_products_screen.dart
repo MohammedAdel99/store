@@ -19,16 +19,16 @@ class AddProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [
+    return
           
-            BlocProvider( create: (context) => getIt<GetAllProductsCubit>()..getAllProducts()),
+            BlocProvider( create: (context) => getIt<GetAllProductsCubit>()..getAllProducts(),
             
            
             
          
           
             
-    ],
+    
      
          
             
