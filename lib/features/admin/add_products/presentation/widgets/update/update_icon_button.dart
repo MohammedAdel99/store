@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/widgets/app_toast.dart';
-import 'package:store/core/localization/lang_keys.dart';
 import 'package:store/core/di/dependence_injection.dart';
 import 'package:store/core/widgets/admin_bottom_sheet.dart';
-import 'package:store/core/extensions/navigator_extension.dart';
 import 'package:store/core/app/upload_image/cubit/upload_image_cubit.dart';
 import 'package:store/features/admin/add_products/logic/get/get_all_products_cubit.dart';
 import 'package:store/features/admin/add_products/logic/update/update_product_cubit.dart';
 import 'package:store/features/admin/add_categories/logic/get/get_all_categories_cubit.dart';
-import 'package:store/features/admin/add_products/presentation/widgets/create/create_product_bottom_sheet_content.dart';
 import 'package:store/features/admin/add_products/presentation/widgets/update/update_product_bottom_sheet_content.dart';
+
+
+
+
 
 class UpdateProductIconButton extends StatelessWidget {
   const UpdateProductIconButton({required this.productImages,required this.categoryName,required this.ProductId,required this.categoryId, 
@@ -45,7 +45,7 @@ class UpdateProductIconButton extends StatelessWidget {
                     BlocProvider(
                         create: (context) => getIt<UpdateProductCubit>()),
                     BlocProvider(
-                        create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories())    
+                        create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories(isNotLoading: false))    
                   ],
             
                   child: UpdateProductBottomSheetContent(
@@ -62,7 +62,7 @@ class UpdateProductIconButton extends StatelessWidget {
                   )
                   ),
               whenComplete: () {
-                context.read<GetAllProductsCubit>().getAllProducts();
+                context.read<GetAllProductsCubit>().getAllProducts(isNotLoading: true);
               });
         });
   }

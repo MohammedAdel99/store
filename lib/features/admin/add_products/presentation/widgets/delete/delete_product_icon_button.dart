@@ -21,7 +21,7 @@ class DeleteProductIconButton extends StatelessWidget {
           listener: (context, state) {
             state.whenOrNull(
               deleteProductSuccess: () {
-                context.read<GetAllProductsCubit>()..getAllProducts();
+                context.read<GetAllProductsCubit>()..getAllProducts(isNotLoading: true);
                 return fluttertoast(
                     text:
                         context.translate(LangKeys.deleteProductSuccessfully),

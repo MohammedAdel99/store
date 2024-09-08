@@ -29,7 +29,7 @@ class GetAllCategoryTextAndAddButton extends StatelessWidget {
                               
                       ], child: CreateCategoryBottomSheetContent()),
                       whenComplete: (){
-                         context.read<GetAllCategoriesCubit>()..getAllCategories();
+                         context.read<GetAllCategoriesCubit>()..getAllCategories(isNotLoading: true);
 
                       }
                       );

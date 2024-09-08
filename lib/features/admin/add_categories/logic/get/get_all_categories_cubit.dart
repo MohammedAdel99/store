@@ -7,9 +7,9 @@ class GetAllCategoriesCubit extends Cubit<GetAllCategoriesState> {
   GetAllCategoriesCubit(this.categoriesRepository)
       : super(GetAllCategoriesState.getCategoriesLoading());
   final CategoriesRepository categoriesRepository;
-  
-  List<GetCategoryResponse> getAllCategoryResponse = [];
+
   List<String> categoryDropdownList = [];
+   List<GetCategoryResponse> getAllCategoryResponse = [];
 
   @override
   void emit(GetAllCategoriesState state) {
@@ -19,14 +19,16 @@ class GetAllCategoriesCubit extends Cubit<GetAllCategoriesState> {
   }
 
   // Get Categories
-  Future<void> getAllCategories() async {
-    emit(const GetAllCategoriesState.getCategoriesLoading());
+  Future<void> getAllCategories({required bool isNotLoading}) async {
+    if (isNotLoading == false) {
+      emit(const GetAllCategoriesState.getCategoriesLoading());
+    }
     final response = await categoriesRepository.getAllCategories();
     await response.when(success: (categories) async {
       getAllCategoryResponse = categories;
-      categoryDropdownList = getAllCategoryResponse.map((e) => e.name ?? '').toList();
+      categoryDropdownList = categories.map((e) => e.name ?? '').toList();
 
-      if (getAllCategoryResponse.isEmpty) {
+      if (categories.isEmpty) {
         emit(const GetAllCategoriesState.getCategoriesEmpty());
       } else {
         emit(GetAllCategoriesState.getCategoriesSuccess(categories));

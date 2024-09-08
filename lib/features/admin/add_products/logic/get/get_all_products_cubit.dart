@@ -15,8 +15,10 @@ class GetAllProductsCubit extends Cubit<GetAllProductsState> {
   }
 
   // Get Categories
-  Future<void> getAllProducts() async {
-    emit(const GetAllProductsState.getProductsLoading());
+  Future<void> getAllProducts({required bool isNotLoading}) async {
+    if (isNotLoading == false) {
+      emit(const GetAllProductsState.getProductsLoading());
+    }
     final response = await productsRepository.getAllProducts();
     await response.when(success: (products) async {
       if (products.isEmpty) {

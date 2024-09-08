@@ -18,7 +18,7 @@ class GetListProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(onRefresh: () async {
-      await context.read<GetAllProductsCubit>().getAllProducts();
+      await context.read<GetAllProductsCubit>().getAllProducts(isNotLoading: false);
     }, child:CustomScrollView(
           slivers: [
             SliverToBoxAdapter(

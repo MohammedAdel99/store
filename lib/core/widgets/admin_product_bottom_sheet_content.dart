@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:store/core/theming/styles.dart';
 import 'package:store/core/widgets/app_text.dart';
-import 'package:store/core/widgets/drop_down.dart';
 import 'package:store/core/localization/lang_keys.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:store/core/theming/colors/colors_dark.dart';
 import 'package:store/core/widgets/app_text_form_feild.dart';
 import 'package:store/core/extensions/navigator_extension.dart';
+
 
 class AdminProductBottomSheetContent extends StatelessWidget {
   const AdminProductBottomSheetContent(
@@ -38,80 +38,68 @@ class AdminProductBottomSheetContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Row(
-          children: [
-            Spacer(),
-            Center(
-                child: TextApp(
-              textAlign: TextAlign.center,
-              text: context.translate(textTitle),
-              theme: TextStyles.font20BoldWhite,
-            )),
-            Spacer(),
-            IconButton(
-                onPressed: () {
-                  context.pop();
-                },
-                icon: Icon(
-                  Icons.close,
-                  size: 30,
-                  color: Colors.white,
-                ))
-          ],
-        ),
-        SizedBox(
-          height: 15.h,
-        ),
-        Row(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextApp(
-              text: context.translate(LangKeys.addPhotos),
-              theme: TextStyles.font17BoldWhite
-                  .copyWith(fontWeight: FontWeight.normal),
+    return SizedBox(
+      height: 600.h,
+      child: Form(
+        key: formKey,
+        child: SingleChildScrollView(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                
+                Center(
+                    child: TextApp(
+                  textAlign: TextAlign.center,
+                  text: context.translate(textTitle),
+                  theme: TextStyles.font20BoldWhite,
+                )),
+             
+            SizedBox(
+              height: 15.h,
             ),
-            removeButton ?? SizedBox.shrink()
-          ],
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextApp(
+                  text: context.translate(LangKeys.addPhotos),
+                  theme: TextStyles.font17BoldWhite
+                      .copyWith(fontWeight: FontWeight.normal),
+                ),
+                removeButton ?? SizedBox.shrink()
+              ],
+            ),
+            uploadImagesWidget,
+            SizedBox(
+              height: 15.h,
+            ),
+            TextFormFeild(
+                context: context,
+                text: LangKeys.productTitle,
+                textInputType: TextInputType.text,
+                controller: titleController,
+                textValidation: LangKeys.titleValidation),
+            SizedBox(height: 10.h),
+            TextFormFeild(
+                context: context,
+                text: LangKeys.productPrice,
+                textInputType: TextInputType.number,
+                controller: priceController,
+                textValidation: LangKeys.priceValidation),
+            SizedBox(height: 10.h),
+            TextFormFeild(
+                context: context,
+                text: LangKeys.productDescription,
+                textInputType: TextInputType.text,
+                controller: decorationController,
+                textValidation: LangKeys.descriptionValidation,
+                maxLines: 4),
+            SizedBox(height: 10.h),
+            
+            dropDwonWidget,
+            SizedBox(height: 15.h),
+            buttonWidget,
+            SizedBox(height: 5.h)
+          ]),
         ),
-        uploadImagesWidget,
-        SizedBox(
-          height: 15.h,
-        ),
-        TextFormFeild(
-            context: context,
-            text: LangKeys.productTitle,
-            textInputType: TextInputType.text,
-            controller: titleController,
-            textValidation: LangKeys.titleValidation),
-        SizedBox(height: 10.h),
-        TextFormFeild(
-            context: context,
-            text: LangKeys.productPrice,
-            textInputType: TextInputType.number,
-            controller: priceController,
-            textValidation: LangKeys.priceValidation),
-        SizedBox(height: 10.h),
-        TextFormFeild(
-            context: context,
-            text: LangKeys.productDescription,
-            textInputType: TextInputType.text,
-            controller: decorationController,
-            textValidation: LangKeys.descriptionValidation,
-            maxLines: 4),
-        SizedBox(height: 10.h),
-        TextApp(
-          text: context.translate(LangKeys.category),
-          theme: TextStyles.font17RegularWhite
-              .copyWith(fontWeight: FontWeight.normal),
-        ),
-        dropDwonWidget,
-        SizedBox(height: 15.h),
-        buttonWidget,
-        SizedBox(height: 5.h)
-      ]),
+      ),
     );
   }
 

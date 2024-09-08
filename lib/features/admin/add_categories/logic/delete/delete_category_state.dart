@@ -9,9 +9,8 @@ part  'delete_category_state.freezed.dart';
 class DeleteCategoryState with _$DeleteCategoryState {
   
 
-   //Create Categories
-  
-   const factory DeleteCategoryState.deleteCategoryInitial() = _DeleteCategoryInitial;
+  //delete Category
+  const factory DeleteCategoryState.deleteCategoryInitial() = _DeleteCategoryInitial;
   const factory DeleteCategoryState.deleteCategoryLoading({required String categoryId}) = DeleteCategoryLoading;
   const factory DeleteCategoryState.deleteCategorySuccess( ) = DeleteCategorySuccess;
   const factory DeleteCategoryState.deleteCategoryError(ErrorHandler errorHandler ) = DeleteCategoryError;

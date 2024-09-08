@@ -75,5 +75,8 @@ abstract class ApiService {
       @Body() UpdateProductRequest updateProductRequest);  
   //(Add_Users) => get all users
   @GET(ApiConstants.getAllUsers)
-  Future<List<GetUserResponse>> getAllUser();          
+  Future<List<GetUserResponse>> getAllUser();   
+  //(Add_Users) => delete user
+  @POST(ApiConstants.graphql)
+  Future<void> deleteUser(@Body() Map<String, dynamic> mutation);       
 }

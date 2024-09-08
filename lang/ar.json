@@ -39,6 +39,8 @@
     "delete_product_failed": "فشل حذف المنتج",
     "update_product_successfully": "تم تعديل المنتج بنجاح",
     "update_product_failed": "فشل تعديل المنتج",
+    "delete_user_successfully":"تم حذف المستخدم بنجاح",
+    "delete_user_failed": "فشل حذف المستخدم",
     "add_photo": "اضف صورة",
     "add_photos": "اضف الصور",
     "Enter the category name" : "ادخل اسم القسم",

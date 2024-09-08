@@ -17,7 +17,8 @@ class GetAllUsersCubit extends Cubit<GetAllUsersState> {
   }
 
   TextEditingController textSearchController = TextEditingController();
-  List<GetUserResponse> userList = [];
+   List<GetUserResponse> userList = [];
+ 
 
   // Get Users
   Future<void> getAllUsers(
@@ -28,11 +29,12 @@ class GetAllUsersCubit extends Cubit<GetAllUsersState> {
    }
     final response = await usersRepository.getAllUsers();
     await response.when(success: (users) async {
+      userList = users;
       if (users.isEmpty) {
         emit(GetAllUsersState.getUsersEmpty());
       } else {
-        userList = users;
-        emit(GetAllUsersState.getUsersSuccess(userList));
+        
+        emit(GetAllUsersState.getUsersSuccess(users));
       }
     }, failure: (errorHandler) {
       emit(GetAllUsersState.getUsersError(errorHandler));

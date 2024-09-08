@@ -24,7 +24,7 @@ class AddCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
           
-            BlocProvider( create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories()),
+            BlocProvider( create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories(isNotLoading: false)),
             BlocProvider(create: (context) => getIt<DeleteCategoryCubit>()),
          
           

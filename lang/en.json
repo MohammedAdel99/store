@@ -57,6 +57,8 @@
     "delete_product_failed": "Failed Delete Product",
     "update_product_successfully": "Successfully Update Product",
     "update_product_failed": "Failed Update Product",
+    "delete_user_successfully": "Successfully Delete User",
+    "delete_user_failed": "Failed Delete User",
     "add_photo": "Add Photo",
     "add_photos": "Add Photos",
     "Enter the category name" : "Enter the category name",

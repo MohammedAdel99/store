@@ -38,7 +38,7 @@ class UpdateCategoryIcon extends StatelessWidget {
                     categoryName: nameCategory,
                   )),
               whenComplete: () {
-                context.read<GetAllCategoriesCubit>().getAllCategories();
+                context.read<GetAllCategoriesCubit>().getAllCategories(isNotLoading: true);
                 
               });
         });
