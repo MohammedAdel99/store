@@ -14,7 +14,7 @@ class DeleteProductCubit extends Cubit<DeleteProductState> {
     }
   }
 
-  // Delete Category
+  // Delete Product
   Future<void> deleteProduct({required String productId}) async {
     emit(DeleteProductState.deleteProductLoading(productId: productId));
 

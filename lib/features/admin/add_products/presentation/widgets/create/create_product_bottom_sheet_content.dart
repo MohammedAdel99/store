@@ -40,39 +40,50 @@ class _CreateProductBottomSheetContentState
           context.read<CreateProductCubit>().productDescriptionController,
       formKey: context.read<CreateProductCubit>().formKey,
       dropDwonWidget:
-          BlocBuilder<GetAllCategoriesCubit,
-                  GetAllCategoriesState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    getCategoriesSuccess: (catgeory) {
-                      return DropDown(
-                        hintText:LangKeys.selectCategory ,
-                        items: context.read<GetAllCategoriesCubit>().categoryDropdownList.toSet().toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            context.read<CreateProductCubit>().categoryName = value;
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
 
-                            context.read<CreateProductCubit>().categoryId = catgeory
-                                
-                                .firstWhere((e) => e.name == value)
-                                .id;
-                           
-                          });
+              TextApp(
+              text: context.translate(LangKeys.category),
+              theme: TextStyles.font17RegularWhite
+                  .copyWith(fontWeight: FontWeight.normal),
+            ),
+              BlocBuilder<GetAllCategoriesCubit,
+                      GetAllCategoriesState>(
+                    builder: (context, state) {
+                      return state.maybeWhen(
+                        getCategoriesSuccess: (catgeory) {
+                          return DropDown(
+                            hintText:LangKeys.selectCategory ,
+                            items: context.read<GetAllCategoriesCubit>().categoryDropdownList.toSet().toList(),
+                            onChanged: (value) {
+                              setState(() {
+                                context.read<CreateProductCubit>().categoryName = value;
+              
+                                context.read<CreateProductCubit>().categoryId = catgeory
+                                    
+                                    .firstWhere((e) => e.name == value)
+                                    .id;
+                               
+                              });
+                            },
+                            value: context.read<CreateProductCubit>().categoryName,
+                          );
                         },
-                        value: context.read<CreateProductCubit>().categoryName,
+                        orElse: () {
+                          return DropDown(
+                            hintText: LangKeys.selectCategory,
+                            items: const [''],
+                            onChanged: (value) {},
+                            value: '',
+                          );
+                        },
                       );
                     },
-                    orElse: () {
-                      return DropDown(
-                        hintText: LangKeys.selectCategory,
-                        items: const [''],
-                        onChanged: (value) {},
-                        value: '',
-                      );
-                    },
-                  );
-                },
-              ),
+                  ),
+            ],
+          ),
       buttonWidget: CreateProductButton(),
       removeButton: BlocBuilder<UploadImageCubit, UploadImageState>(
           builder: (context, state) {

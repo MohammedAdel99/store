@@ -24,7 +24,7 @@ class DeleteCategoryIconButton extends StatelessWidget {
           listener: (context, state) {
             state.whenOrNull(
               deleteCategorySuccess: () {
-                context.read<GetAllCategoriesCubit>()..getAllCategories();
+                context.read<GetAllCategoriesCubit>()..getAllCategories(isNotLoading: true);
                 return fluttertoast(
                     text:
                         context.translate(LangKeys.deleteCategorySuccessfully),

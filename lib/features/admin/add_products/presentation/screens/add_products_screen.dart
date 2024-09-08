@@ -21,7 +21,7 @@ class AddProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return
           
-            BlocProvider( create: (context) => getIt<GetAllProductsCubit>()..getAllProducts(),
+            BlocProvider( create: (context) => getIt<GetAllProductsCubit>()..getAllProducts(isNotLoading: false),
             
            
             

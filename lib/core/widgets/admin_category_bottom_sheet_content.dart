@@ -41,27 +41,19 @@ class AdminCategoryBottomSheetContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Spacer(),
+          
               Center(
                   child: TextApp(
                 textAlign: TextAlign.center,
                 text: context.translate(textTitle),
                 theme: TextStyles.font20BoldWhite,
               )),
-              Spacer(),
-              IconButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  icon: Icon(
-                    Icons.close,
-                    size: 30,
-                    color: Colors.white,
-                  ))
-            ],
-          ),
+              
+              
+                  
+                  
+            
+          
           SizedBox(
             height: 15.h,
           ),

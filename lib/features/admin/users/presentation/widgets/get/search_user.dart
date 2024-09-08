@@ -35,10 +35,17 @@ class _SearchUserState extends State<SearchUser> {
                     .text
                     .isEmpty
                 ? IconButton(
-                    icon: Icon(Icons.search, color: context.color.textColor , size: 25,),
-                    onPressed: () {})
+                    icon: Icon(
+                      Icons.search,
+                      color: context.color.textColor,
+                      size: 25,
+                    ),
+                    onPressed: () {
+                      
+                    })
                 : IconButton(
-                    icon: Icon(Icons.close, color: context.color.textColor , size: 25),
+                    icon: Icon(Icons.close,
+                        color: context.color.textColor, size: 25),
                     onPressed: () {
                       context
                           .read<GetAllUsersCubit>()
@@ -51,9 +58,9 @@ class _SearchUserState extends State<SearchUser> {
                                 .text ==
                             null;
                       });
-                      context.read<GetAllUsersCubit>().getAllUsers(
-                        isNotLoading: true
-                        );
+                      context
+                          .read<GetAllUsersCubit>()
+                          .getAllUsers(isNotLoading: true);
                     }),
             enabledBorderColor: mainBlue,
           );

@@ -14,7 +14,7 @@ class GetListCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return RefreshIndicator(
         onRefresh: () async {
-          await context.read<GetAllCategoriesCubit>().getAllCategories();
+          await context.read<GetAllCategoriesCubit>().getAllCategories(isNotLoading: false);
         },
         child: CustomScrollView(
           slivers: [

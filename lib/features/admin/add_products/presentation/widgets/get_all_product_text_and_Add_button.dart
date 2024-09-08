@@ -24,15 +24,14 @@ class GetAllProductTextAndAddButton extends StatelessWidget {
                             create: (context) => getIt<UploadImageCubit>()),
                         BlocProvider(
                             create: (context) => getIt<CreateProductCubit>()),
+                       
                         BlocProvider(
-                            create: (context) => getIt<GetAllCategoriesCubit>()),    
-                        BlocProvider(
-                            create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories()),    
+                            create: (context) => getIt<GetAllCategoriesCubit>()..getAllCategories(isNotLoading: false)),    
                         
                               
                       ], child: CreateProductBottomSheetContent() ),
                       whenComplete: (){
-                         context.read<GetAllProductsCubit>()..getAllProducts();
+                         context.read<GetAllProductsCubit>()..getAllProducts(isNotLoading: true);
 
                       }
                       );

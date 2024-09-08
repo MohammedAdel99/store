@@ -50,6 +50,8 @@ class LangKeys {
   static const String deleteProductFailed = 'delete_product_failed';
   static const String updateProductSuccessfully = 'update_product_successfully';
   static const String updateProductFailed = 'update_product_failed';
+  static const String deleteUserSuccessfully = 'delete_user_successfully';
+  static const String deleteUserFailed = 'delete_user_failed';
   
   static const String addPhoto = 'add_photo';
   static const String addPhotos = 'add_photos';

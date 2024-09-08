@@ -37,7 +37,7 @@ class UsersScreen extends StatelessWidget {
                       child: GetUserBody(),
                     )
                   ],
-                ),
+            ),
               )),
         );
   }
